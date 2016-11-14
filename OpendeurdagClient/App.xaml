@@ -3,6 +3,26 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:OpendeurdagClient"
-    RequestedTheme="Light">
+    RequestedTheme="Light"
+    xmlns:view="using:OpendeurdagClient.View">
 
+    <Application.Resources>
+        
+        <DataTemplate x:Key="MainPageViewModel">
+            <view:MainPageView />
+        </DataTemplate>
+       
+        <DataTemplate x:Key="CampusViewModel">
+            <view:CampusView />
+        </DataTemplate>
+        
+    </Application.Resources>
+    
 </Application>
+
+
+
+
+
+
+
