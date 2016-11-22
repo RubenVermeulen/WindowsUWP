@@ -13,7 +13,7 @@
         <SplitView.Pane>
             <StackPanel>
                 <Button Command="{Binding AllCampusesCommand}"
-                        Content="Toon campusen" 
+                        Content="Toon campussen" 
                         Margin="0 0 0 5" />
                 <Button Content="Toon opleidingen" />
             </StackPanel>

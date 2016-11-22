@@ -11,8 +11,10 @@
 
     <ScrollViewer>
         <StackPanel>
-            <TextBlock Text="Overzicht campusen" Style="{ThemeResource HeaderTextBlockStyle}"></TextBlock>
-            
+            <!--<TextBlock Text="Overzicht campusen" Style="{ThemeResource HeaderTextBlockStyle}" SelectionChanged="TextBlock_SelectionChanged"></TextBlock>-->
+            <TextBlock Text="Overzicht campussen" Style="{ThemeResource HeaderTextBlockStyle}"></TextBlock>
+
+
             <ListView ItemsSource="{Binding Campuses}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
