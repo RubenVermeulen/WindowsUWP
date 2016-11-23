@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpendeurdagService", "Opend
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpendeurdagClient", "OpendeurdagClient\OpendeurdagClient.csproj", "{5BAAC7C4-E635-48AE-B47C-79F99633CEBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpendeurdagApp", "OpendeurdagApp\OpendeurdagApp.csproj", "{57DDDF24-E616-4A5D-99AC-88E396B2F03A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,26 @@ Global
 		{5BAAC7C4-E635-48AE-B47C-79F99633CEBE}.Release|x86.ActiveCfg = Release|x86
 		{5BAAC7C4-E635-48AE-B47C-79F99633CEBE}.Release|x86.Build.0 = Release|x86
 		{5BAAC7C4-E635-48AE-B47C-79F99633CEBE}.Release|x86.Deploy.0 = Release|x86
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Debug|ARM.Build.0 = Debug|ARM
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Debug|ARM.Deploy.0 = Debug|ARM
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Debug|x64.ActiveCfg = Debug|x64
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Debug|x64.Build.0 = Debug|x64
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Debug|x64.Deploy.0 = Debug|x64
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Debug|x86.ActiveCfg = Debug|x86
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Debug|x86.Build.0 = Debug|x86
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Debug|x86.Deploy.0 = Debug|x86
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Release|Any CPU.ActiveCfg = Release|x86
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Release|ARM.ActiveCfg = Release|ARM
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Release|ARM.Build.0 = Release|ARM
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Release|ARM.Deploy.0 = Release|ARM
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Release|x64.ActiveCfg = Release|x64
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Release|x64.Build.0 = Release|x64
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Release|x64.Deploy.0 = Release|x64
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Release|x86.ActiveCfg = Release|x86
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Release|x86.Build.0 = Release|x86
+		{57DDDF24-E616-4A5D-99AC-88E396B2F03A}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
