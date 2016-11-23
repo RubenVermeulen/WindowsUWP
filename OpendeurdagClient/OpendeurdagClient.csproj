@@ -107,10 +107,14 @@
     <Compile Include="Model\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\CampusViewModel.cs" />
+    <Compile Include="ViewModel\DegreeViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\CampusView.xaml.cs">
       <DependentUpon>CampusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DegreeView.xaml.cs">
+      <DependentUpon>DegreeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainPageView.xaml.cs">
       <DependentUpon>MainPageView.xaml</DependentUpon>
@@ -143,6 +147,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\CampusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DegreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
