@@ -11,10 +11,12 @@ namespace OpendeurdagClient.ViewModel
     class MainPageViewModel : ViewModelBase
     {
         public RelayCommand AllCampusesCommand { get; set; }
+        public RelayCommand AllDegreesCommand { get; set; }
 
         public MainPageViewModel()
         {
             AllCampusesCommand = new RelayCommand(_ => ShowCampuses());
+            AllDegreesCommand = new RelayCommand(_ => ShowDegrees());
         }
 
         private ViewModelBase currentData;
@@ -30,6 +32,13 @@ namespace OpendeurdagClient.ViewModel
             Debug.WriteLine("ShowCampuses command executed");
 
             CurrentData = new CampusViewModel();
+        }
+
+        private void ShowDegrees() {
+            Debug.WriteLine("ShowDegrees command executed");
+
+            CurrentData = new DegreeViewModel();
+
         }
     }
 }
