@@ -7,13 +7,13 @@ using Windows.UI.Xaml;
 
 namespace OpendeurdagApp.ViewModels
 {
-    public class SettingsPageViewModel : ViewModelBase
+    public class SettingsPageViewModel : Template10.Mvvm.ViewModelBase
     {
         public SettingsPartViewModel SettingsPartViewModel { get; } = new SettingsPartViewModel();
         public AboutPartViewModel AboutPartViewModel { get; } = new AboutPartViewModel();
     }
 
-    public class SettingsPartViewModel : ViewModelBase
+    public class SettingsPartViewModel : Template10.Mvvm.ViewModelBase
     {
         Services.SettingsServices.SettingsService _settings;
 
@@ -86,7 +86,7 @@ namespace OpendeurdagApp.ViewModels
             }, () => !string.IsNullOrEmpty(BusyText)));
     }
 
-    public class AboutPartViewModel : ViewModelBase
+    public class AboutPartViewModel : Template10.Mvvm.ViewModelBase
     {
         public Uri Logo => Windows.ApplicationModel.Package.Current.Logo;
 

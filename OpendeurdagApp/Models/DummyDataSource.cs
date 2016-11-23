@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OpendeurdagClient.Models;
+using OpendeurdagApp.Models;
 
-namespace OpendeurdagClient.Model
+namespace OpendeurdagApp.Model
 {
     public class DummyDataSource
     {

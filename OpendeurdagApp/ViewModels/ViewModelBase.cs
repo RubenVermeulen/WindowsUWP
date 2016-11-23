@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 
-namespace OpendeurdagClient.ViewModel
+namespace OpendeurdagApp.ViewModels
 {
     class ViewModelBase : INotifyPropertyChanged
     {

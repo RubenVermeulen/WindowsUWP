@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace OpendeurdagClient.Models
+namespace OpendeurdagApp.Models
 {
     public class Student
     {

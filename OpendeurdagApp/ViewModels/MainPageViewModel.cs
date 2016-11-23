@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace OpendeurdagApp.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase
+    public class MainPageViewModel : Template10.Mvvm.ViewModelBase
     {
         public MainPageViewModel()
         {

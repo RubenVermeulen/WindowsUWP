@@ -6,11 +6,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using OpendeurdagClient.Helper;
-using OpendeurdagClient.Model;
-using OpendeurdagClient.Models;
+using OpendeurdagApp.Models;
 
-namespace OpendeurdagClient.ViewModel
+namespace OpendeurdagApp.ViewModels
 {
     class CampusViewModel : ViewModelBase
     {

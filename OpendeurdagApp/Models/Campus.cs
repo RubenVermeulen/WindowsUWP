@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace OpendeurdagClient.Models
+namespace OpendeurdagApp.Models
 {
     public class Campus : INotifyPropertyChanged
     {

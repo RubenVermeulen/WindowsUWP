@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
-namespace OpendeurdagClient.Models
+namespace OpendeurdagApp.Models
 {
     public enum ActivityType
     {
