@@ -18,8 +18,7 @@
         <DataTemplate x:Key="DegreeViewModel">
             <view:DegreeView />
         </DataTemplate>
-        
-        
+
     </Application.Resources>
     
 </Application>
