@@ -5,11 +5,16 @@
     xmlns:local="using:OpendeurdagApp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:OpendeurdagApp.ViewModels"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <ScrollViewer>
+    <Page.DataContext>
+        <viewModels:CampusViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <ScrollViewer Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
             <TextBlock Text="Overzicht campussen" Style="{ThemeResource HeaderTextBlockStyle}"></TextBlock>
 

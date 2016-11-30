@@ -10,7 +10,7 @@ using OpendeurdagApp.Models;
 
 namespace OpendeurdagApp.ViewModels
 {
-    class CampusViewModel : ViewModelBase
+    public class CampusViewModel : Template10.Mvvm.ViewModelBase
     {
         private HttpClient Client { get; set; }
 
