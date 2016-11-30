@@ -19,6 +19,11 @@ namespace OpendeurdagApp.ViewModels
 
         public ObservableCollection<Degree> Degrees { get; set; }
 
+        public Activity NextActivity { get; set; }
+
+        public String thisTest { get; set; }
+
+
         public MainPageViewModel()
         {
             if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
@@ -28,6 +33,8 @@ namespace OpendeurdagApp.ViewModels
 
             Client = new HttpClient();
             Degrees = new ObservableCollection<Degree>();
+            NextActivity = new Activity();
+            thisTest = "xd";
 
             populateCollection();
         }
@@ -65,6 +72,22 @@ namespace OpendeurdagApp.ViewModels
             var data = JsonConvert.DeserializeObject<List<Degree>>(json);
 
             data.ForEach(Degrees.Add);
+
+
+            List<Activity> activities = new List<Activity>();
+
+            var jsonActivity = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "activities"));
+            var dataActivity = JsonConvert.DeserializeObject<List<Activity>>(jsonActivity);
+
+            dataActivity.ForEach(activities.Add);
+            List<Activity> sortedActivities = activities.OrderBy(o => o.BeginDate).ToList();
+
+            //NextActivity = sortedActivities[0];
+            NextActivity = new Activity(){
+                Type = 0,
+                Name = "test",
+                Description = "testdescr"
+            };
         }
 
         public void GotoDetailsPage() =>

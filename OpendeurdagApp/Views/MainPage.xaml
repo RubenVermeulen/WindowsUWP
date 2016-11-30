@@ -107,34 +107,34 @@
                        RelativePanel.Below="parameterResizer"
                        Text="Current Visual State" />-->
 
-            <ListView x:Name="activitiesListView" ItemsSource="{Binding Degrees}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Name}" 
-                                       Style="{ThemeResource SubheaderTextBlockStyle}" />
-                            <TextBlock Text="{Binding Description}" 
-                                       Style="{ThemeResource CaptionTextBlockStyle}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <StackPanel Margin="16,16,0,0">
+                <TextBlock Text="Volgend evenement"/>
 
-            <ListView x:Name="degreesListView" ItemsSource="{Binding Degrees}" 
-                      RelativePanel.AlignLeftWith="activitiesListView"
-                      RelativePanel.Below="activitiesListView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Name}" 
+                <!--<StackPanel DataContext="{Binding NextActivity}">-->
+                <StackPanel>
+                    <TextBlock Text="{x:Bind ViewModel.NextActivity.Name}" 
                                        Style="{ThemeResource SubheaderTextBlockStyle}" />
-                            <TextBlock Text="{Binding Description}" 
+                    <TextBlock Text="{x:Bind ViewModel.NextActivity.Description}" 
                                        Style="{ThemeResource CaptionTextBlockStyle}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </StackPanel>
 
+                <TextBlock Text="Opleidingen" 
+                           Style="{ThemeResource HeaderTextBlockStyle}"/>
+
+                <ListView x:Name="degreesListView" ItemsSource="{Binding Degrees}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}" 
+                                       Style="{ThemeResource SubheaderTextBlockStyle}" />
+                                <TextBlock Text="{Binding Description}" 
+                                       Style="{ThemeResource CaptionTextBlockStyle}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackPanel>
         </RelativePanel>
         
 
