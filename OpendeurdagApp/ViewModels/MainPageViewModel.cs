@@ -5,17 +5,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Navigation;
+using System.Net.Http;
+using System.Collections.ObjectModel;
+using OpendeurdagApp.Models;
+using Newtonsoft.Json;
 
 namespace OpendeurdagApp.ViewModels
 {
     public class MainPageViewModel : Template10.Mvvm.ViewModelBase
     {
+
+        private HttpClient Client { get; set; }
+
+        public ObservableCollection<Degree> Degrees { get; set; }
+
         public MainPageViewModel()
         {
             if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
             {
                 Value = "Designtime value";
             }
+
+            Client = new HttpClient();
+            Degrees = new ObservableCollection<Degree>();
+
+            populateCollection();
         }
 
         string _Value = "Gas";
@@ -43,6 +57,14 @@ namespace OpendeurdagApp.ViewModels
         {
             args.Cancel = false;
             await Task.CompletedTask;
+        }
+
+        private async void populateCollection()
+        {
+            var json = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "degrees"));
+            var data = JsonConvert.DeserializeObject<List<Degree>>(json);
+
+            data.ForEach(Degrees.Add);
         }
 
         public void GotoDetailsPage() =>

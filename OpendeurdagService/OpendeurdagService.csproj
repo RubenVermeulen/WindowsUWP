@@ -121,6 +121,10 @@
     <Compile Include="Migrations\201611141023474_Initial.Designer.cs">
       <DependentUpon>201611141023474_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611300836275_AddsLocationToActivity.cs" />
+    <Compile Include="Migrations\201611300836275_AddsLocationToActivity.Designer.cs">
+      <DependentUpon>201611300836275_AddsLocationToActivity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Campus.cs" />
@@ -141,6 +145,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611141023474_Initial.resx">
       <DependentUpon>201611141023474_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611300836275_AddsLocationToActivity.resx">
+      <DependentUpon>201611300836275_AddsLocationToActivity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

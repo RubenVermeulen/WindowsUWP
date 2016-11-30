@@ -107,7 +107,21 @@
                        RelativePanel.Below="parameterResizer"
                        Text="Current Visual State" />
 
+            <ListView ItemsSource="{Binding Degrees}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" 
+                                       Style="{ThemeResource SubheaderTextBlockStyle}" />
+                            <TextBlock Text="{Binding Description}" 
+                                       Style="{ThemeResource CaptionTextBlockStyle}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </RelativePanel>
+        
 
     </RelativePanel>
 </Page>

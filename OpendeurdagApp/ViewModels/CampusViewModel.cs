@@ -26,7 +26,7 @@ namespace OpendeurdagApp.ViewModels
 
         private async void populateCollection()
         {
-            var json = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi));
+            var json = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "campuses"));
             var data = JsonConvert.DeserializeObject<List<Campus>>(json);
 
             data.ForEach(Campuses.Add);
