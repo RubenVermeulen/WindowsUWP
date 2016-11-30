@@ -17,14 +17,14 @@
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <VisualStateManager.VisualStateGroups>
+        <!--<VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
                 <VisualState x:Name="VisualStateNarrow">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <!--  TODO: change properties for narrow view  -->
+                        --><!--  TODO: change properties for narrow view  --><!--
                         <Setter Target="stateTextBox.Text" Value="Narrow Visual State" />
                     </VisualState.Setters>
                 </VisualState>
@@ -33,7 +33,7 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <!--  TODO: change properties for normal view  -->
+                        --><!--  TODO: change properties for normal view  --><!--
                         <Setter Target="stateTextBox.Text" Value="Normal Visual State" />
                     </VisualState.Setters>
                 </VisualState>
@@ -42,12 +42,12 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <!--  TODO: change properties for wide view  -->
+                        --><!--  TODO: change properties for wide view  --><!--
                         <Setter Target="stateTextBox.Text" Value="Wide Visual State" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        </VisualStateManager.VisualStateGroups>-->
 
         <controls:PageHeader x:Name="pageHeader"
                              RelativePanel.AlignLeftWithPanel="True"
@@ -71,7 +71,7 @@
                        RelativePanel.Below="pageHeader">
 
 
-            <controls:Resizer x:Name="parameterResizer" Margin="16,16,16,0">
+            <!--<controls:Resizer x:Name="parameterResizer" Margin="16,16,16,0">
 
                 <TextBox MinWidth="150"
                          MinHeight="62"
@@ -80,12 +80,12 @@
                          TextWrapping="Wrap">
                     <Interactivity:Interaction.Behaviors>
 
-                        <!--  enable submit on enter key  -->
+                        --><!--  enable submit on enter key  --><!--
                         <Behaviors:KeyBehavior Key="Enter">
                             <Core:CallMethodAction MethodName="GotoDetailsPage" TargetObject="{Binding}" />
                         </Behaviors:KeyBehavior>
 
-                        <!--  focus on textbox when page loads  -->
+                        --><!--  focus on textbox when page loads  --><!--
                         <Core:EventTriggerBehavior>
                             <Behaviors:FocusAction />
                         </Core:EventTriggerBehavior>
@@ -105,9 +105,24 @@
                        Margin="16,16,0,0"
                        RelativePanel.AlignLeftWith="parameterResizer"
                        RelativePanel.Below="parameterResizer"
-                       Text="Current Visual State" />
+                       Text="Current Visual State" />-->
 
-            <ListView ItemsSource="{Binding Degrees}">
+            <ListView x:Name="activitiesListView" ItemsSource="{Binding Degrees}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" 
+                                       Style="{ThemeResource SubheaderTextBlockStyle}" />
+                            <TextBlock Text="{Binding Description}" 
+                                       Style="{ThemeResource CaptionTextBlockStyle}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView x:Name="degreesListView" ItemsSource="{Binding Degrees}" 
+                      RelativePanel.AlignLeftWith="activitiesListView"
+                      RelativePanel.Below="activitiesListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
