@@ -5,14 +5,14 @@ namespace OpendeurdagService.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<OpendeurdagService.Models.OpendeurdagServiceContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<OpendeurdagService.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(OpendeurdagService.Models.OpendeurdagServiceContext context)
+        protected override void Seed(OpendeurdagService.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

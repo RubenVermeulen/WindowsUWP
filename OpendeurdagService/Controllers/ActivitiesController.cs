@@ -14,7 +14,7 @@ namespace OpendeurdagService.Controllers
 {
     public class ActivitiesController : ApiController
     {
-        private OpendeurdagServiceContext db = new OpendeurdagServiceContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Activities
         public IQueryable<Activity> GetActivities()

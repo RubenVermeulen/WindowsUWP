@@ -14,19 +14,24 @@ namespace OpendeurdagService.Controllers
 {
     public class StudentsController : ApiController
     {
-        private OpendeurdagServiceContext db = new OpendeurdagServiceContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+        public StudentsController()
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+        }
 
         // GET: api/Students
         public IQueryable<Student> GetStudents()
         {
-            return db.Students;
+            return db.Students.Include(s => s.Campuses).Include(s => s.Degrees);
         }
 
         // GET: api/Students/5
         [ResponseType(typeof(Student))]
         public IHttpActionResult GetStudent(int id)
         {
-            Student student = db.Students.Find(id);
+            Student student = db.Students.Include(s => s.Campuses).Include(s => s.Degrees).First(s => s.StudentId.Equals(id));
             if (student == null)
             {
                 return NotFound();
