@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpendeurdagClient", "Opende
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpendeurdagApp", "OpendeurdagApp\OpendeurdagApp.csproj", "{57DDDF24-E616-4A5D-99AC-88E396B2F03A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpendeurdagService", "..\..\..\Documents\Visual Studio 2015\Projects\OpendeurdagApplication\OpendeurdagService\OpendeurdagService.csproj", "{C4A0AC4A-11EB-438E-A66B-62B1B2146898}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpendeurdagService", "OpendeurdagService\OpendeurdagService.csproj", "{C4A0AC4A-11EB-438E-A66B-62B1B2146898}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
