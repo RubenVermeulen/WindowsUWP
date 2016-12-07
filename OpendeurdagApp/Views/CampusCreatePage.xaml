@@ -51,7 +51,7 @@
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
-                             Text="Campussen">
+                             Text="Campus toevoegen">
         </controls:PageHeader>
 
         <RelativePanel EntranceNavigationTransitionInfo.IsTargetElement="True"
@@ -60,16 +60,19 @@
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.Below="pageHeader">
 
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="12">
                 <TextBlock Text="Name" />
-                <TextBox x:Name="name" />
-                
-                <TextBlock Text="Adres" />
-                <TextBox x:Name="address" />
-                
-                <Button Content="Campus toevoegen" />
-            </StackPanel>
+                <TextBox Text="{Binding Path=Name, Mode=TwoWay}" HorizontalAlignment="Stretch" />
 
+                <TextBlock Text="Adres" />
+                <TextBox Text="{Binding Path=Address, Mode=TwoWay}" />
+
+                <TextBlock Text="URL afbeelding" />
+                <TextBox Text="{Binding Path=ImageUrl, Mode=TwoWay}" />
+
+                <Button Content="Campus toevoegen" Command="{Binding SaveCampusCommand}" />
+            </StackPanel>
+            
         </RelativePanel>
 
     </RelativePanel>
