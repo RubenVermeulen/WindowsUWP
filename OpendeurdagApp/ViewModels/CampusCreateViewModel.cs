@@ -6,9 +6,11 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Newtonsoft.Json;
 using OpendeurdagApp.Models;
+using OpendeurdagApp.Views;
 
 namespace OpendeurdagApp.ViewModels
 {
@@ -44,6 +46,18 @@ namespace OpendeurdagApp.ViewModels
             {
                 // Remove values from all fields
                 Name = Address = ImageUrl = string.Empty;
+
+                // Create the message dialog and set its content and title
+                var messageDialog = new MessageDialog("De campus is succesvol toegevoegd.", "Campus toegevoegd");
+
+                // Add commands and set their command ids
+                messageDialog.Commands.Add(new UICommand("Sluiten", null, 0));
+
+                // Set the command that will be invoked by default
+                messageDialog.DefaultCommandIndex = 0;
+
+                // Show the message dialog and get the event that was invoked via the async operator
+                await messageDialog.ShowAsync();
             }
             
         }
