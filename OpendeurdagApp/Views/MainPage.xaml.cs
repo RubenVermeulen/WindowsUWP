@@ -12,11 +12,11 @@ namespace OpendeurdagApp.Views
         public MainPage()
         {
             InitializeComponent();
-            this.ViewModel = new MainPageViewModel();
+            //this.ViewModel = new MainPageViewModel();
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
 
-        public MainPageViewModel ViewModel { get; set; }
+        //public MainPageViewModel ViewModel { get; set; }
 
     }
 }
