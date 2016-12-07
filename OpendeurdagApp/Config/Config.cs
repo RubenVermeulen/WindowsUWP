@@ -8,6 +8,6 @@ namespace OpendeurdagApp.Config
 {
     class Config
     {
-        public static string BaseUrlApi => "http://localhost:4036/api/";
+        public static string BaseUrlApi => "http://localhost:5385/api/";
     }
 }
