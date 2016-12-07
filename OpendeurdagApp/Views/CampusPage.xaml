@@ -63,14 +63,10 @@
                        RelativePanel.Below="pageHeader">
 
             <ListView ItemsSource="{Binding Campuses}">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                    </Style>
-                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical" Margin="0 12 0 0">
+                            <Image Stretch="UniformToFill" MaxHeight="150" Source="https://www.hogent.be/www/cache/file/3D5F0187-8AC1-4318-83DE159E7D086A0C_banner.jpg" />
                             <TextBlock Text="{Binding Name}" 
                                        Style="{ThemeResource SubheaderTextBlockStyle}" />
 
@@ -82,10 +78,17 @@
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
 
         </RelativePanel>
 
     </RelativePanel>
 </Page>
+
+
 
