@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201612070922305_InitializeModels.Designer.cs">
       <DependentUpon>201612070922305_InitializeModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612071259123_AddsImageUrlToCampusModel.cs" />
+    <Compile Include="Migrations\201612071259123_AddsImageUrlToCampusModel.Designer.cs">
+      <DependentUpon>201612071259123_AddsImageUrlToCampusModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -301,6 +305,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612070922305_InitializeModels.resx">
       <DependentUpon>201612070922305_InitializeModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071259123_AddsImageUrlToCampusModel.resx">
+      <DependentUpon>201612071259123_AddsImageUrlToCampusModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -16,6 +16,8 @@ namespace OpendeurdagApp.Models
 
         public virtual ICollection<Student> Students { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")

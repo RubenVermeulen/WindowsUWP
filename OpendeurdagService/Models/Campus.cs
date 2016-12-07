@@ -14,5 +14,7 @@ namespace OpendeurdagService.Models
         public string Address { get; set; }
 
         public virtual ICollection<Student> Students { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }
