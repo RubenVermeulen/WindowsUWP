@@ -31,6 +31,11 @@ namespace OpendeurdagApp.ViewModels
 
         private async void SaveCampus(object param)
         {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(imageUrl))
+            {
+                return;
+            }
+
             Campus c = new Campus()
             {
                 Name = name,
