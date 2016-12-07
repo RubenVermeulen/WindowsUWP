@@ -61,7 +61,7 @@
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.Below="pageHeader">
 
-            <ListView ItemsSource="{Binding Campuses}">
+            <ListView x:Name="lv" ItemsSource="{Binding Campuses}" SelectionChanged="lv_SelectionChanged">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

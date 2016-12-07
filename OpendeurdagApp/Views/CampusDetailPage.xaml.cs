@@ -14,36 +14,27 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Newtonsoft.Json;
 using OpendeurdagApp.Models;
-using Template10.Services.NavigationService;
 using Template10.Services.SerializationService;
 
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace OpendeurdagApp.Views
 {
-    public sealed partial class CampusView : Page
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class CampusDetailPage : Page
     {
-        public CampusView()
+        public CampusDetailPage()
         {
             this.InitializeComponent();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
-        }
+            var c = SerializationService.Json.Deserialize(e.Parameter as string);
 
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
-        }
-
-        private void lv_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var c = (Campus) lv.SelectedItem;
-            var json = SerializationService.Json.Serialize(c);
-
-            Frame.Navigate(typeof(CampusDetailPage), json);
+            DataContext = c;
         }
     }
 }
