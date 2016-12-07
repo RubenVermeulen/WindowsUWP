@@ -61,7 +61,7 @@
                        RelativePanel.Below="pageHeader">
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="12">
-                <TextBlock Text="Name" />
+                <TextBlock Text="Naam" />
                 <TextBox Text="{Binding Path=Name, Mode=TwoWay}" HorizontalAlignment="Stretch" />
 
                 <TextBlock Text="Adres" />

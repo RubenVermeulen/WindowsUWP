@@ -33,6 +33,11 @@ namespace OpendeurdagApp.ViewModels
         {
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(imageUrl))
             {
+                // Validation message
+                var messageDialog = new MessageDialog("Alle velden moeten ingevuld zijn.", "Opgelet");
+                messageDialog.Commands.Add(new UICommand("Sluiten", null, 0));
+                await messageDialog.ShowAsync();
+
                 return;
             }
 
