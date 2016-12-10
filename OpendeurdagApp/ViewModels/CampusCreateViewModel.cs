@@ -26,7 +26,7 @@ namespace OpendeurdagApp.ViewModels
         public CampusCreateViewModel()
         {
             Client = new HttpClient();
-            SaveCampusCommand = new RelayCommand((param) => SaveCampus(param));
+            SaveCampusCommand = new RelayCommand(SaveCampus);
         }
 
         private async void SaveCampus(object param)

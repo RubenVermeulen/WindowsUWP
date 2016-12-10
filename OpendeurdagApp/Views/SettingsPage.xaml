@@ -209,7 +209,7 @@
 
                     <TextBlock x:Name="PublisherTextBlock"
                                RelativePanel.AlignLeftWithPanel="True"
-                               RelativePanel.Below="DisplayNameTextBlock"
+                               RelativePanel.Below="DisplayUserNameTextBlock"
                                Text="{Binding Publisher}" />
 
                     <TextBlock x:Name="VersionTextBlock"
