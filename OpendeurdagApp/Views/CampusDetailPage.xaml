@@ -51,6 +51,20 @@
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
                              Text="{Binding Campus.Name}">
+
+            <!--  primary commands  -->
+            <AppBarButton Click="EditCampus" 
+                          Icon="57604"
+                          Label="Wijzigen" 
+                          Foreground="White"
+                          Visibility="{Binding AuthVisibility}" />
+
+            <AppBarButton Click="DeleteCampus" 
+                          Icon="57607"
+                          Label="Verwijderen" 
+                          Foreground="White"
+                          Visibility="{Binding AuthVisibility}" />
+
         </controls:PageHeader>
 
         <Grid EntranceNavigationTransitionInfo.IsTargetElement="True" 
@@ -75,16 +89,6 @@
                     <ImageBrush ImageSource="{Binding Campus.ImageUrl}"
                     Stretch="UniformToFill"/>
                 </Border.Background>
-
-                <Button Content="Wijzigen" 
-                        Click="ButtonBase_OnClick" 
-                        Visibility="{Binding AuthVisiblity}"
-                        HorizontalAlignment="Right" 
-                        VerticalAlignment="Top"
-                        Background="#337ab7"
-                        BorderThickness="1"
-                        BorderBrush="#2e6da4"
-                        Foreground="White"/>
             </Border>
 
             <StackPanel Grid.Row="1" 

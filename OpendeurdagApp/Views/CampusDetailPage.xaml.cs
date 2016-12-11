@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,11 +30,13 @@ namespace OpendeurdagApp.Views
     /// </summary>
     public sealed partial class CampusDetailPage : Page
     {
+        private HttpClient Client;
         private Campus c;
 
         public CampusDetailPage()
         {
             this.InitializeComponent();
+            Client = new HttpClient();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -40,15 +46,38 @@ namespace OpendeurdagApp.Views
             DataContext = new
             {
                 Campus = c,
-                AuthVisiblity = AuthService.User == null ? "Collapsed" : "Visible"
+                AuthVisibility = AuthService.User == null ? "Collapsed" : "Visible"
             };
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void EditCampus(object sender, RoutedEventArgs e)
         {
             var json = SerializationService.Json.Serialize(c);
 
             Frame.Navigate(typeof(CampusEditPage), json);
+        }
+
+        private async void DeleteCampus(object sender, RoutedEventArgs e)
+        {
+            var md = new MessageDialog("Je staat op het punt om \"" + c.Name + "\" te verwijderen. Ben je zeker?");
+
+            md.Title = "Verwijderen";
+            md.Commands.Add(new UICommand { Label = "Ja", Id = 0 });
+            md.Commands.Add(new UICommand { Label = "Nee", Id = 1 });
+
+            var mdResult = await md.ShowAsync();
+
+            if ((int) mdResult.Id != 0) return;
+
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
+
+            var result = await Client.DeleteAsync(new Uri(Config.Config.BaseUrlApi + "campuses/" + c.CampusId));
+            var status = result.StatusCode;
+
+            if (status == HttpStatusCode.OK)
+            {
+                Frame.Navigate(typeof(CampusView));
+            }
         }
     }
 }

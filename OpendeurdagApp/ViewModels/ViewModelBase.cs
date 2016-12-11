@@ -15,6 +15,6 @@ namespace OpendeurdagApp.ViewModels
     {
         public User Auth => AuthService.User;
 
-        public string AuthVisiblity => Auth == null ? "Collapsed" : "Visible";
+        public string AuthVisibility => Auth == null ? "Collapsed" : "Visible";
     }
 }
