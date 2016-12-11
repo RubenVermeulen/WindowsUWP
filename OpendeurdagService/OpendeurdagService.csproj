@@ -223,6 +223,10 @@
     <Compile Include="Migrations\201612071259123_AddsImageUrlToCampusModel.Designer.cs">
       <DependentUpon>201612071259123_AddsImageUrlToCampusModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612111806122_Degree SmallDescription, Facebook and Image Url.cs" />
+    <Compile Include="Migrations\201612111806122_Degree SmallDescription, Facebook and Image Url.Designer.cs">
+      <DependentUpon>201612111806122_Degree SmallDescription, Facebook and Image Url.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -308,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612071259123_AddsImageUrlToCampusModel.resx">
       <DependentUpon>201612071259123_AddsImageUrlToCampusModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612111806122_Degree SmallDescription, Facebook and Image Url.resx">
+      <DependentUpon>201612111806122_Degree SmallDescription, Facebook and Image Url.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
