@@ -25,6 +25,8 @@ namespace OpendeurdagApp.Views
     /// </summary>
     public sealed partial class CampusDetailPage : Page
     {
+        private Campus c;
+
         public CampusDetailPage()
         {
             this.InitializeComponent();
@@ -32,9 +34,16 @@ namespace OpendeurdagApp.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var c = SerializationService.Json.Deserialize(e.Parameter as string);
+            c = SerializationService.Json.Deserialize(e.Parameter as string) as Campus;
 
             DataContext = c;
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var json = SerializationService.Json.Serialize(c);
+
+            Frame.Navigate(typeof(CampusEditPage), json);
         }
     }
 }

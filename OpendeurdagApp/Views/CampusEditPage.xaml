@@ -1,0 +1,96 @@
+﻿<Page
+    x:Class="OpendeurdagApp.Views.CampusEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OpendeurdagApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:OpendeurdagApp.ViewModels"
+    xmlns:controls="using:Template10.Controls"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <viewModels:CampusEditPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for narrow view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for normal view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for wide view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <controls:PageHeader x:Name="pageHeader"
+                             RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True"
+                             Text="Campus wijzigen">
+        </controls:PageHeader>
+
+        <RelativePanel EntranceNavigationTransitionInfo.IsTargetElement="True"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="pageHeader">
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="12">
+                <TextBox Text="{Binding Path=CampusId, Mode=TwoWay}" Visibility="Collapsed" />
+
+                <TextBlock Text="Naam" />
+                <TextBox Text="{Binding Path=Name, Mode=TwoWay}" />
+
+                <TextBlock Text="Adres" />
+                <TextBox Text="{Binding Path=Address, Mode=TwoWay}" />
+
+                <TextBlock Text="URL afbeelding" />
+                <TextBox Text="{Binding Path=ImageUrl, Mode=TwoWay}" />
+
+                <Button Content="Campus wijzigen" Click="SaveCampus" />
+            </StackPanel>
+
+        </RelativePanel>
+
+    </RelativePanel>
+</Page>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

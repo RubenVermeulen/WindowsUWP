@@ -112,6 +112,7 @@
     <Compile Include="ViewModels\CampusCreateViewModel.cs" />
     <Compile Include="ViewModels\ActivityPageViewModel.cs" />
     <Compile Include="ViewModels\CampusDetailViewModel.cs" />
+    <Compile Include="ViewModels\CampusEditPageViewModel.cs" />
     <Compile Include="ViewModels\CampusViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
@@ -128,6 +129,9 @@
     </Compile>
     <Compile Include="Views\CampusDetailPage.xaml.cs">
       <DependentUpon>CampusDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CampusEditPage.xaml.cs">
+      <DependentUpon>CampusEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CampusPage.xaml.cs">
       <DependentUpon>CampusPage.xaml</DependentUpon>
@@ -186,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CampusDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CampusEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

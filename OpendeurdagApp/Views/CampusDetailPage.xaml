@@ -59,11 +59,11 @@
               RelativePanel.AlignRightWithPanel="True"
               RelativePanel.Below="pageHeader">
 
-           <Grid.RowDefinitions>
-               <RowDefinition Height="180" />
-               <RowDefinition />
-               <RowDefinition Height="Auto" />
-           </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -75,6 +75,16 @@
                     <ImageBrush ImageSource="{Binding ImageUrl}"
                     Stretch="UniformToFill"/>
                 </Border.Background>
+
+                <Button Content="Wijzigen" 
+                        Click="ButtonBase_OnClick" 
+                        Visibility="{Binding AuthVisiblity}"
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top"
+                        Background="#337ab7"
+                        BorderThickness="1"
+                        BorderBrush="#2e6da4"
+                        Foreground="White"/>
             </Border>
 
             <StackPanel Grid.Row="1" 
@@ -88,15 +98,15 @@
 
                 <StackPanel Orientation="Horizontal" 
                             Padding=" 0 8 0 8">
-                    
+
                     <TextBlock Text="&#xE81D;" 
                                FontFamily="Segoe MDL2 Assets" 
                                Padding="0 0 8 0" />
-                    
+
                     <TextBlock Text="{Binding Address}" 
                                Style="{ThemeResource CaptionTextBlockStyle}" />
                 </StackPanel>
-                
+
                 <!-- Activities -->
                 <TextBlock Text="Activiteiten" 
                            Style="{ThemeResource SubheaderTextBlockStyle}" />
@@ -135,15 +145,6 @@
 
     </RelativePanel>
 </Page>
-
-
-
-
-
-
-
-
-
 
 
 
