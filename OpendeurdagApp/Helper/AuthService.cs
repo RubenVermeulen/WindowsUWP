@@ -9,7 +9,7 @@ namespace OpendeurdagApp.Helper
 {
     public class AuthService
     {
-        public static UserDbo User { get; set; }
+        public static User User { get; set; }
 
         public static bool IsLoggedIn()
         {

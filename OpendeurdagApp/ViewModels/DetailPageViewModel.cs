@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace OpendeurdagApp.ViewModels
 {
-    public class DetailPageViewModel : Template10.Mvvm.ViewModelBase
+    public class DetailPageViewModel : ViewModelBase
     {
         public DetailPageViewModel()
         {

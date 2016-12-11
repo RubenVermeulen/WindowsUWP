@@ -15,7 +15,7 @@ using Template10.Services.NavigationService;
 
 namespace OpendeurdagApp.ViewModels
 {
-    public class LoginPageViewModel : Template10.Mvvm.ViewModelBase
+    public class LoginPageViewModel : ViewModelBase
     {
         private HttpClient Client { get; set; }
         public RelayCommand LoginCommand { get; set; }
@@ -59,7 +59,7 @@ namespace OpendeurdagApp.ViewModels
             if (status == HttpStatusCode.OK)
             {
                 var data = await result.Content.ReadAsStringAsync();
-                var user = JsonConvert.DeserializeObject<UserDbo>(data);
+                var user = JsonConvert.DeserializeObject<User>(data);
 
                 AuthService.User = user;
 

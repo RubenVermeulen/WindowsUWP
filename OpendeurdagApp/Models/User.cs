@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OpendeurdagApp.Models
 {
-    public class UserDbo
+    public class User
     {
         [JsonProperty(PropertyName = "access_token")]
         public string AccessToken { get; set; }

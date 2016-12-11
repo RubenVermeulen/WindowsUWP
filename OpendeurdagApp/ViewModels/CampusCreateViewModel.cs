@@ -14,7 +14,7 @@ using OpendeurdagApp.Views;
 
 namespace OpendeurdagApp.ViewModels
 {
-    public class CampusCreateViewModel : Template10.Mvvm.ViewModelBase
+    public class CampusCreateViewModel : ViewModelBase
     {
         private HttpClient Client { get; set; }
         public RelayCommand SaveCampusCommand { get; set; }

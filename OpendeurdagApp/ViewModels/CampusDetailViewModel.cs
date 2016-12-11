@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OpendeurdagApp.ViewModels
 {
-    public class CampusDetailViewModel: Template10.Mvvm.ViewModelBase
+    public class CampusDetailViewModel: ViewModelBase
     {
 
     }

@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace OpendeurdagApp.ViewModels
 {
-    public class MainPageViewModel : Template10.Mvvm.ViewModelBase
+    public class MainPageViewModel : ViewModelBase
     {
 
         private HttpClient Client { get; set; }

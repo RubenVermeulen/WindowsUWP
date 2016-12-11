@@ -6,30 +6,15 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
+using OpendeurdagApp.Helper;
+using OpendeurdagApp.Models;
 
 namespace OpendeurdagApp.ViewModels
 {
-    class ViewModelBase : INotifyPropertyChanged
+    public class ViewModelBase : Template10.Mvvm.ViewModelBase
     {
-        public DataTemplate Template { get; set; }
+        public User Auth => AuthService.User;
 
-        public ViewModelBase()
-        {
-            Template = GetTemplate();
-        }
-
-        private DataTemplate GetTemplate()
-        {
-            var name = GetType().Name;
-
-            return (DataTemplate)Application.Current.Resources[name];
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public string AuthVisiblity => Auth == null ? "Collapsed" : "Visible";
     }
 }
