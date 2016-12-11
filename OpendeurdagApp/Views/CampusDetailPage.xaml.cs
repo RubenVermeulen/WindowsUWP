@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Newtonsoft.Json;
+using OpendeurdagApp.Helper;
 using OpendeurdagApp.Models;
 using Template10.Services.SerializationService;
 
@@ -36,7 +37,11 @@ namespace OpendeurdagApp.Views
         {
             c = SerializationService.Json.Deserialize(e.Parameter as string) as Campus;
 
-            DataContext = c;
+            DataContext = new
+            {
+                Campus = c,
+                AuthVisiblity = AuthService.User == null ? "Collapsed" : "Visible"
+            };
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

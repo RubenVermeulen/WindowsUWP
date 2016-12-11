@@ -50,7 +50,7 @@
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
-                             Text="{Binding Name}">
+                             Text="{Binding Campus.Name}">
         </controls:PageHeader>
 
         <Grid EntranceNavigationTransitionInfo.IsTargetElement="True" 
@@ -72,7 +72,7 @@
             <Border Grid.Row="0" 
                   Grid.Column="0">
                 <Border.Background>
-                    <ImageBrush ImageSource="{Binding ImageUrl}"
+                    <ImageBrush ImageSource="{Binding Campus.ImageUrl}"
                     Stretch="UniformToFill"/>
                 </Border.Background>
 
@@ -93,7 +93,7 @@
                         Margin="16">
 
                 <!-- Name and Address -->
-                <TextBlock Text="{Binding Name}" 
+                <TextBlock Text="{Binding Campus.Name}" 
                            Style="{ThemeResource SubheaderTextBlockStyle}" />
 
                 <StackPanel Orientation="Horizontal" 
@@ -103,7 +103,7 @@
                                FontFamily="Segoe MDL2 Assets" 
                                Padding="0 0 8 0" />
 
-                    <TextBlock Text="{Binding Address}" 
+                    <TextBlock Text="{Binding Campus.Address}" 
                                Style="{ThemeResource CaptionTextBlockStyle}" />
                 </StackPanel>
 
