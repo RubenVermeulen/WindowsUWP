@@ -13,6 +13,12 @@ namespace OpendeurdagService.Models
 
         public string Description { get; set; }
 
+        public string SmallDescription { get; set; }
+
+        public string FacebookUrl { get; set; }
+
         public virtual ICollection<Student> Students { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }
