@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Foundation;
@@ -17,6 +18,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Newtonsoft.Json;
+using OpendeurdagApp.Helper;
 using OpendeurdagApp.Models;
 using Template10.Services.SerializationService;
 
@@ -56,6 +58,8 @@ namespace OpendeurdagApp.Views
 
                 return;
             }
+
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
 
             var httpContent = new StringContent(JsonConvert.SerializeObject(c), Encoding.UTF8, "application/json");
             var result = await Client.PutAsync(new Uri(Config.Config.BaseUrlApi + "campuses/" + c.CampusId), httpContent);
