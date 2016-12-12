@@ -47,8 +47,23 @@
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
-                             Text="{Binding Campus.Name}">
+                             Text="{Binding Degree.Name}">
+            
+                <!--  primary commands  -->
+                <AppBarButton Click="EditDegree" 
+                              Icon="57604"
+                              Label="Wijzigen" 
+                              Foreground="White"
+                              Visibility="{Binding AuthVisibility}" />
+
+                <AppBarButton Click="DeleteDegree" 
+                              Icon="57607"
+                              Label="Verwijderen" 
+                              Foreground="White"
+                              Visibility="{Binding AuthVisibility}" />
         </controls:PageHeader>
+
+
 
         <Grid EntranceNavigationTransitionInfo.IsTargetElement="True" 
               RelativePanel.AlignBottomWithPanel="True"
@@ -57,7 +72,7 @@
               RelativePanel.Below="pageHeader">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="180" />
+                <RowDefinition Height="200" />
                 <RowDefinition />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
@@ -72,29 +87,27 @@
                     <ImageBrush ImageSource="{Binding Degree.ImageUrl}"
                     Stretch="UniformToFill"/>
                 </Border.Background>
-
-                <Button Content="Wijzigen" 
-                        Click="ButtonBase_OnClick" 
-                        Visibility="{Binding AuthVisiblity}"
-                        HorizontalAlignment="Right" 
-                        VerticalAlignment="Top"
-                        Background="#337ab7"
-                        BorderThickness="1"
-                        BorderBrush="#2e6da4"
-                        Foreground="White"/>
             </Border>
+
+            <!--<Image Source="{Binding Degree.ImageUrl}" Stretch="UniformToFill" Height="180">
+                <Image.Clip>
+                    <RectangleGeometry Rect="200 200 200 100"/>
+                </Image.Clip>
+            </Image>-->
+
 
             <StackPanel Grid.Row="1" 
                         Grid.Column="0" 
                         Orientation="Vertical" 
                         Margin="16">
 
-                <!-- Name and SmallDescription -->
+                <!-- Info about Degree -->
                 <TextBlock Text="{Binding Degree.Name}" 
                            Style="{ThemeResource SubheaderTextBlockStyle}" />
 
                 <StackPanel Orientation="Horizontal" 
-                            Padding=" 0 8 0 8">
+                            Padding=" 0 8 0 8"
+                            Margin="0 0 0 16">
 
                     <TextBlock Text="&#xE768;" 
                                FontFamily="Segoe MDL2 Assets" 
@@ -105,27 +118,18 @@
 
                 </StackPanel>
 
+                <TextBlock Text="Over" 
+                               Style="{ThemeResource SubtitleTextBlockStyle}" />
+
                 <TextBlock Text="{Binding Degree.Description}" 
                                Style="{ThemeResource CaptionTextBlockStyle}" />
 
-                <!-- Description -->
-                
-                
-                <!--<TextBlock Text="Opleidingen" 
-                           Style="{ThemeResource SubheaderTextBlockStyle}" />
-
-                <StackPanel Orientation="Vertical" 
-                            Padding=" 0 8 0 8">
-
-                    <TextBlock Text="Toegepaste informatica" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="Verpleegkunde" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="Bedrijfsmanagement" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="Vastgoed" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                </StackPanel>-->
+                <!-- Facebook -->
+                <TextBlock Margin="0 16 0 0">
+                    <Hyperlink NavigateUri="{Binding Degree.FacebookUrl}" UnderlineStyle="None">
+                        Volg ons op Facebook!
+                    </Hyperlink>
+                </TextBlock>
             </StackPanel>
         </Grid>
 

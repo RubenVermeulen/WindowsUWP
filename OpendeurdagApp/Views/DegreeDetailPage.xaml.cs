@@ -4,10 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using Template10.Services.SerializationService;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,6 +29,7 @@ namespace OpendeurdagApp.Views
     public sealed partial class DegreeDetailPage : Page
     {
 
+        private HttpClient Client;
         private Degree degree;
 
         public DegreeDetailPage()
@@ -44,11 +48,34 @@ namespace OpendeurdagApp.Views
             };
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void EditDegree(object sender, RoutedEventArgs e)
         {
             var json = SerializationService.Json.Serialize(degree);
 
             Frame.Navigate(typeof(CampusEditPage), json);
+        }
+
+        private async void DeleteDegree(object sender, RoutedEventArgs e)
+        {
+            var md = new MessageDialog("Je staat op het punt om \"" + degree.Name + "\" te verwijderen. Ben je zeker?");
+
+            md.Title = "Verwijderen";
+            md.Commands.Add(new UICommand { Label = "Ja", Id = 0 });
+            md.Commands.Add(new UICommand { Label = "Nee", Id = 1 });
+
+            var mdResult = await md.ShowAsync();
+
+            if ((int)mdResult.Id != 0) return;
+
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
+
+            var result = await Client.DeleteAsync(new Uri(Config.Config.BaseUrlApi + "campuses/" + degree.DegreeId));
+            var status = result.StatusCode;
+
+            if (status == HttpStatusCode.OK)
+            {
+                Frame.Navigate(typeof(CampusView));
+            }
         }
     }
 }

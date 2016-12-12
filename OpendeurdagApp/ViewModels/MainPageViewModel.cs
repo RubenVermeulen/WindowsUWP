@@ -82,12 +82,12 @@ namespace OpendeurdagApp.ViewModels
             dataActivity.ForEach(activities.Add);
             List<Activity> sortedActivities = activities.OrderBy(o => o.BeginDate).ToList();
 
-            //NextActivity = sortedActivities[0];
-            NextActivity = new Activity(){
-                Type = 0,
-                Name = "test",
-                Description = "testdescr"
-            };
+            NextActivity = sortedActivities[0];
+            //NextActivity = new Activity(){
+            //    Type = 0,
+            //    Name = "test",
+            //    Description = "testdescr"
+            //};
         }
 
         public void GotoDetailsPage() =>
