@@ -96,7 +96,21 @@
                                Text="Campus aanmaken" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+
+            <!-- Overview campusses and degrees -->
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:StatisticsPage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Calculator" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Statistieken" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.SecondaryButtons>
+        
+        
 
     </Controls:HamburgerMenu>
 
