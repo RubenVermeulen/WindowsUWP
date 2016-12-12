@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace OpendeurdagApp.ViewModels
 {
-    public class MainPageViewModel : Template10.Mvvm.ViewModelBase
+    public class MainPageViewModel : ViewModelBase
     {
 
         private HttpClient Client { get; set; }
@@ -21,50 +21,47 @@ namespace OpendeurdagApp.ViewModels
 
         public Activity NextActivity { get; set; }
 
-        public String thisTest { get; set; }
-
 
         public MainPageViewModel()
         {
-            if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
-            {
-                Value = "Designtime value";
-            }
+            //if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
+            //{
+            //    Value = "Designtime value";
+            //}
 
             Client = new HttpClient();
             Degrees = new ObservableCollection<Degree>();
             NextActivity = new Activity();
-            thisTest = "xd";
 
             populateCollection();
         }
 
-        string _Value = "Gas";
-        public string Value { get { return _Value; } set { Set(ref _Value, value); } }
+        //string _Value = "Gas";
+        //public string Value { get { return _Value; } set { Set(ref _Value, value); } }
 
-        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
-        {
-            if (suspensionState.Any())
-            {
-                Value = suspensionState[nameof(Value)]?.ToString();
-            }
-            await Task.CompletedTask;
-        }
+        //public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
+        //{
+        //    if (suspensionState.Any())
+        //    {
+        //        Value = suspensionState[nameof(Value)]?.ToString();
+        //    }
+        //    await Task.CompletedTask;
+        //}
 
-        public override async Task OnNavigatedFromAsync(IDictionary<string, object> suspensionState, bool suspending)
-        {
-            if (suspending)
-            {
-                suspensionState[nameof(Value)] = Value;
-            }
-            await Task.CompletedTask;
-        }
+        //public override async Task OnNavigatedFromAsync(IDictionary<string, object> suspensionState, bool suspending)
+        //{
+        //    if (suspending)
+        //    {
+        //        suspensionState[nameof(Value)] = Value;
+        //    }
+        //    await Task.CompletedTask;
+        //}
 
-        public override async Task OnNavigatingFromAsync(NavigatingEventArgs args)
-        {
-            args.Cancel = false;
-            await Task.CompletedTask;
-        }
+        //public override async Task OnNavigatingFromAsync(NavigatingEventArgs args)
+        //{
+        //    args.Cancel = false;
+        //    await Task.CompletedTask;
+        //}
 
         private async void populateCollection()
         {
@@ -90,8 +87,8 @@ namespace OpendeurdagApp.ViewModels
             //};
         }
 
-        public void GotoDetailsPage() =>
-            NavigationService.Navigate(typeof(Views.DetailPage), Value);
+        //public void GotoDetailsPage() =>
+        //    NavigationService.Navigate(typeof(Views.DetailPage), Value);
 
         public void GotoSettings() =>
             NavigationService.Navigate(typeof(Views.LoginPage), 0);

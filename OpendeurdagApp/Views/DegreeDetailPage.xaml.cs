@@ -35,6 +35,7 @@ namespace OpendeurdagApp.Views
         public DegreeDetailPage()
         {
             this.InitializeComponent();
+            Client = new HttpClient();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -52,7 +53,7 @@ namespace OpendeurdagApp.Views
         {
             var json = SerializationService.Json.Serialize(degree);
 
-            Frame.Navigate(typeof(CampusEditPage), json);
+            Frame.Navigate(typeof(DegreeEditPage), json);
         }
 
         private async void DeleteDegree(object sender, RoutedEventArgs e)
@@ -69,7 +70,7 @@ namespace OpendeurdagApp.Views
 
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
 
-            var result = await Client.DeleteAsync(new Uri(Config.Config.BaseUrlApi + "campuses/" + degree.DegreeId));
+            var result = await Client.DeleteAsync(new Uri(Config.Config.BaseUrlApi + "degrees/" + degree.DegreeId));
             var status = result.StatusCode;
 
             if (status == HttpStatusCode.OK)
