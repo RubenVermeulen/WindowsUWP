@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -17,6 +18,10 @@ namespace OpendeurdagApp.ViewModels
     {
         private HttpClient Client { get; set; }
         public RelayCommand SaveStudentCommand { get; set; }
+        public ObservableCollection<Campus> Campuses { get; set; }
+        public ObservableCollection<Degree> Degrees { get; set; }
+        public List<Campus> SelectedCampuses { get; set; }
+        public List<Degree> SelectedDegrees { get; set; }
 
         private string firstName;
         private string lastName;
@@ -24,10 +29,18 @@ namespace OpendeurdagApp.ViewModels
         private string telephone;
         private string address;
 
+
         public StudentCreatePageViewModel()
         {
             Client = new HttpClient();
             SaveStudentCommand = new RelayCommand(SaveStudent);
+            Campuses = new ObservableCollection<Campus>();
+            Degrees = new ObservableCollection<Degree>();
+            SelectedCampuses = new List<Campus>();
+            SelectedDegrees = new List<Degree>();
+
+            PopulateCampuses();
+            PopulateDegrees();
         }
 
         private async void SaveStudent(object param)
@@ -49,10 +62,14 @@ namespace OpendeurdagApp.ViewModels
                 LastName = LastName,
                 Email = Email,
                 Telephone = Telephone,
-                Address = Address
+                Address = Address,
+                Campuses = new List<Campus>(SelectedCampuses),
+                Degrees = new List<Degree>(SelectedDegrees)
             };
 
             var httpContent = new StringContent(JsonConvert.SerializeObject(s), Encoding.UTF8, "application/json");
+
+            // Post Student
             var result = await Client.PostAsync(new Uri(Config.Config.BaseUrlApi + "students"), httpContent);
             var status = result.StatusCode;
 
@@ -73,6 +90,22 @@ namespace OpendeurdagApp.ViewModels
             // Show the message dialog and get the event that was invoked via the async operator
             await mdSuccess.ShowAsync();
             
+        }
+
+        private async void PopulateCampuses()
+        {
+            var json = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "campuses"));
+            var data = JsonConvert.DeserializeObject<List<Campus>>(json);
+
+            data.ForEach(Campuses.Add);
+        }
+
+        private async void PopulateDegrees()
+        {
+            var json = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "degrees"));
+            var data = JsonConvert.DeserializeObject<List<Degree>>(json);
+
+            data.ForEach(Degrees.Add);
         }
 
         public string FirstName

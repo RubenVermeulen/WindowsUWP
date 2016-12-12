@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:OpendeurdagApp.ViewModels"
     xmlns:controls="using:Template10.Controls"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -51,49 +52,78 @@
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
-                             Text="Gegevens achterlaten">
+                             Text="Toekomstige student">
         </controls:PageHeader>
 
-        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
-                       RelativePanel.AlignBottomWithPanel="True"
-                       RelativePanel.AlignLeftWithPanel="True"
-                       RelativePanel.AlignRightWithPanel="True"
-                       RelativePanel.Below="pageHeader">
-
-            <StackPanel Orientation="Vertical" 
+        <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True"
+                      RelativePanel.AlignBottomWithPanel="True"
+                      RelativePanel.AlignLeftWithPanel="True"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.Below="pageHeader"
+                      VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <StackPanel Orientation="Vertical" 
                         Style="{StaticResource AppStackPanelMargin}">
-                <TextBlock Text="Gegevens achterlaten" 
+                    <TextBlock Text="Gegevens achterlaten" 
                            Style="{ThemeResource SubheaderTextBlockStyle}" />
 
-                <TextBlock Text="Laat hier je gegevens achter en blijf op de hoogte van de laatste nieuwtjes."
-                         Style="{StaticResource AppTextBlockMarinTop}" />
+                    <TextBlock Text="Laat hier je gegevens achter en blijf op de hoogte van de laatste nieuwtjes."
+                               Style="{StaticResource AppTextBlockMarinTop}"
+                               TextWrapping="Wrap"/>
 
-                <TextBlock Text="Voornaam"
-                           Style="{StaticResource AppTextBlockMarinTop}"/>
-                <TextBox Text="{Binding Path=FirstName, Mode=TwoWay}"
-                         Style="{StaticResource AppTextBox}" />
+                    <TextBlock Text="Voornaam"
+                               Style="{StaticResource AppTextBlockMarinTop}"/>
+                    <TextBox Text="{Binding Path=FirstName, Mode=TwoWay}"
+                              Style="{StaticResource AppTextBox}" />
 
-                <TextBlock Text="Familienaam" />
-                <TextBox Text="{Binding Path=LastName, Mode=TwoWay}" 
-                         Style="{StaticResource AppTextBox}" />
+                    <TextBlock Text="Familienaam" />
+                    <TextBox Text="{Binding Path=LastName, Mode=TwoWay}" 
+                             Style="{StaticResource AppTextBox}" />
 
-                <TextBlock Text="E-mailadres" />
-                <TextBox Text="{Binding Path=Email, Mode=TwoWay}" 
-                         Style="{StaticResource AppTextBox}" />
+                    <TextBlock Text="E-mailadres" />
+                    <TextBox Text="{Binding Path=Email, Mode=TwoWay}" 
+                             Style="{StaticResource AppTextBox}" />
 
-                <TextBlock Text="Telefoon / GSM" />
-                <TextBox Text="{Binding Path=Telephone, Mode=TwoWay}" 
-                         Style="{StaticResource AppTextBox}" />
+                    <TextBlock Text="Telefoon / GSM" />
+                    <TextBox Text="{Binding Path=Telephone, Mode=TwoWay}" 
+                             Style="{StaticResource AppTextBox}" />
 
-                <TextBlock Text="Adres" />
-                <TextBox Text="{Binding Path=Address, Mode=TwoWay}" 
-                         Style="{StaticResource AppTextBox}" />
+                    <TextBlock Text="Adres" />
+                    <TextBox Text="{Binding Path=Address, Mode=TwoWay}" 
+                             Style="{StaticResource AppTextBox}" />
 
-                <Button Content="Verzenden" 
-                        Command="{Binding SaveStudentCommand}" />
-            </StackPanel>
+                    <TextBlock Text="Op welke campus(sen) zou je graag les volgen?" />
+                    <GridView x:Name="gv" ItemsSource="{Binding Campuses}"
+                             SelectionMode="Multiple" 
+                             SelectionChanged="Gv_OnSelectionChanged"
+                             Margin="0 12 0 6">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"
+                                           Padding="16 20" />
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
 
-        </Grid>
+                    <TextBlock Text="Welke richting(en) zou je graag volgen" />
+                    <GridView x:Name="GvDegree" ItemsSource="{Binding Degrees}"
+                              SelectionMode="Multiple" 
+                              SelectionChanged="GvDegree_OnSelectionChanged"
+                              Margin="0 12 0 6">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"
+                                           Padding="16 20" />
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+
+                    <Button Content="Verzenden" 
+                            Command="{Binding SaveStudentCommand}" />
+                </StackPanel>
+
+            </Grid>
+        </ScrollViewer>
 
     </RelativePanel>
 </Page>
