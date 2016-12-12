@@ -1,38 +1,118 @@
 ﻿<Page
-    x:Class="OpendeurdagApp.Views.ActivityPage"
+    x:Class="OpendeurdagApp.Views.ActivityView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:OpendeurdagApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:OpendeurdagApp.ViewModels"
+    xmlns:controls="using:Template10.Controls"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
     <Page.DataContext>
-        <viewModels:CampusViewModel x:Name="ViewModel" />
+        <viewModels:ActivityPageViewModel x:Name="ViewModel"/>
     </Page.DataContext>
 
-    <ScrollViewer Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock Text="Overzicht activities" Style="{ThemeResource HeaderTextBlockStyle}"></TextBlock>
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
 
-            <ListView ItemsSource="{Binding Activity}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for narrow view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for normal view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for wide view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <controls:PageHeader x:Name="pageHeader"
+                             RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True"
+                             Text="Activiteiten">
+        </controls:PageHeader>
+
+        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="pageHeader">
+
+            <ListView x:Name="lv" ItemsSource="{Binding Activities}" SelectionChanged="lv_SelectionChanged">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="0 12 0 0">
+
                             <TextBlock Text="{Binding Name}" 
                                        Style="{ThemeResource SubheaderTextBlockStyle}" />
-                            <TextBlock Text="{Binding Description}" 
+
+                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
+                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
+                                <TextBlock Text="{Binding Location}" 
                                        Style="{ThemeResource CaptionTextBlockStyle}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
+                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
+                                <TextBlock Text="{Binding Description}" 
+                                       Style="{ThemeResource CaptionTextBlockStyle}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
+                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
+                                <TextBlock Text="{Binding BeginDate}" 
+                                       Style="{ThemeResource CaptionTextBlockStyle}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
+                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
+                                <TextBlock Text="{Binding BeginTime}" 
+                                       Style="{ThemeResource CaptionTextBlockStyle}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
+                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
+                                <TextBlock Text="{Binding EndDate}" 
+                                       Style="{ThemeResource CaptionTextBlockStyle}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
+                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
+                                <TextBlock Text="{Binding EndTime}" 
+                                       Style="{ThemeResource CaptionTextBlockStyle}" />
+                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackPanel>
-    </ScrollViewer>
+
+        </Grid>
+
+    </RelativePanel>
 
 </Page>
 
