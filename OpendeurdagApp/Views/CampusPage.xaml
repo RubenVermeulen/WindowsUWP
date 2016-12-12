@@ -53,6 +53,7 @@
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
                              Text="Campussen">
+            <!--Background="#0081C9">-->
         </controls:PageHeader>
 
         <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
