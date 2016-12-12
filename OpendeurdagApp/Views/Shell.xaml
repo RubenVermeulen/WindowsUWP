@@ -55,20 +55,9 @@
                                 Symbol="Street" />
                     <TextBlock Margin="12,0,0,0"
                                VerticalAlignment="Center"
-                               Text="Activities" />
+                               Text="Activiteiten" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
-            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:ActivityCreatePage">
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48"
-                                Height="48"
-                                Symbol="Add" />
-                    <TextBlock Margin="12,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="Activity aanmaken" />
-                </StackPanel>
-            </Controls:HamburgerButtonInfo>
-            
         </Controls:HamburgerMenu.PrimaryButtons>
 
         <Controls:HamburgerMenu.SecondaryButtons>
@@ -105,7 +94,19 @@
                                Text="Studenten" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
-            
+
+            <!-- Overview campusses and degrees -->
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:StatisticsPage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Calculator" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Statistieken" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
+
             <!-- Create campus -->
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:CampusCreatePage">
                 <StackPanel Orientation="Horizontal">
@@ -118,15 +119,15 @@
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
 
-            <!-- Overview campusses and degrees -->
-            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:StatisticsPage">
+            <!-- Create activity -->
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:ActivityCreatePage">
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48"
                                 Height="48"
-                                Symbol="Calculator" />
+                                Symbol="Add" />
                     <TextBlock Margin="12,0,0,0"
                                VerticalAlignment="Center"
-                               Text="Statistieken" />
+                               Text="Activity aanmaken" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.SecondaryButtons>

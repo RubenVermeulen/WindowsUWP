@@ -54,35 +54,54 @@
                              Text="Activiteit toevoegen">
         </controls:PageHeader>
 
-        <RelativePanel EntranceNavigationTransitionInfo.IsTargetElement="True"
+        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
                        RelativePanel.AlignBottomWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.Below="pageHeader">
 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="12">
-                <TextBlock Text="Naam" />
-                <TextBox Text="{Binding Path=Name, Mode=TwoWay}" HorizontalAlignment="Stretch" />
+            <StackPanel Orientation="Vertical" 
+                        HorizontalAlignment="Stretch"
+                        Style="{StaticResource AppStackPanelMargin}">
+                <TextBlock Text="Activiteit toevoegen"
+                           Style="{StaticResource SubheaderTextBlockStyle}" />
+
+                
+                <TextBlock Text="Naam"
+                           Style="{StaticResource AppTextBlockMarinTop}"/>
+                <TextBox Text="{Binding Path=Name, Mode=TwoWay}"
+                         Style="{StaticResource AppTextBox}" />
 
                 <TextBlock Text="Locatie" />
-                <TextBox Text="{Binding Path=Location, Mode=TwoWay}" />
+                <TextBox Text="{Binding Path=Location, Mode=TwoWay}"
+                         Style="{StaticResource AppTextBox}" />
 
                 <TextBlock Text="Beschrijving" />
-                <TextBox Text="{Binding Path=Description, Mode=TwoWay}" />
+                <TextBox Text="{Binding Path=Description, Mode=TwoWay}"
+                         Style="{StaticResource AppTextBox}" />
+                
                 <TextBlock Text="Startdatum" />
-                <DatePicker  Date="{Binding Path= BeginDate, Mode=TwoWay}"/>
+                <DatePicker  Date="{Binding Path= BeginDate, Mode=TwoWay}"
+                             Style="{StaticResource AppDatePicker}" />
+                
                 <TextBlock Text="Starttijd" />
-                <TimePicker Time="{Binding Path= BeginTime, Mode=TwoWay}"/>
+                <TimePicker Time="{Binding Path= BeginTime, Mode=TwoWay}"
+                            Style="{StaticResource AppTimePicker}"  />
+                
                 <TextBlock Text="Einddatum" />
-                <DatePicker Date="{Binding Path= EndDate, Mode=TwoWay}"/>
+                <DatePicker Date="{Binding Path= EndDate, Mode=TwoWay}"
+                            Style="{StaticResource AppDatePicker}" />
+                
                 <TextBlock Text="Eindtijd" />
-                <TimePicker Time="{Binding Path= EndTime, Mode=TwoWay}"/>
+                <TimePicker Time="{Binding Path= EndTime, Mode=TwoWay}"
+                            Style="{StaticResource AppTimePicker}" />
 
                 <Button Content="Activiteit toevoegen" Command="{Binding SaveActivityCommand}" />
             </StackPanel>
 
-        </RelativePanel>
+        </Grid>
 
     </RelativePanel>
 
 </Page>
+

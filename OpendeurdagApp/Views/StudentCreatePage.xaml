@@ -62,7 +62,8 @@
                       RelativePanel.Below="pageHeader"
                       VerticalScrollBarVisibility="Hidden">
             <Grid>
-                <StackPanel Orientation="Vertical" 
+                <StackPanel Orientation="Vertical"
+                            
                         Style="{StaticResource AppStackPanelMargin}">
                     <TextBlock Text="Gegevens achterlaten" 
                            Style="{ThemeResource SubheaderTextBlockStyle}" />
