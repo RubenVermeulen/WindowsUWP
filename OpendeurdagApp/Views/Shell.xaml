@@ -48,6 +48,27 @@
                                Text="Toekomstige student" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:ActivityView">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Street" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Activities" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:ActivityCreatePage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Add" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Activity aanmaken" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
+            
         </Controls:HamburgerMenu.PrimaryButtons>
 
         <Controls:HamburgerMenu.SecondaryButtons>
@@ -96,7 +117,21 @@
                                Text="Campus aanmaken" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+
+            <!-- Overview campusses and degrees -->
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:StatisticsPage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Calculator" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Statistieken" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.SecondaryButtons>
+        
+        
 
     </Controls:HamburgerMenu>
 

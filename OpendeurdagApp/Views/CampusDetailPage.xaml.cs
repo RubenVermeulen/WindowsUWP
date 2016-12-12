@@ -43,11 +43,7 @@ namespace OpendeurdagApp.Views
         {
             c = SerializationService.Json.Deserialize(e.Parameter as string) as Campus;
 
-            DataContext = new
-            {
-                Campus = c,
-                AuthVisibility = AuthService.User == null ? "Collapsed" : "Visible"
-            };
+            ViewModel.Campus = c;
         }
 
         private void EditCampus(object sender, RoutedEventArgs e)
@@ -57,27 +53,9 @@ namespace OpendeurdagApp.Views
             Frame.Navigate(typeof(CampusEditPage), json);
         }
 
-        private async void DeleteCampus(object sender, RoutedEventArgs e)
+        private void DeleteCampus(object sender, RoutedEventArgs e)
         {
-            var md = new MessageDialog("Je staat op het punt om \"" + c.Name + "\" te verwijderen. Ben je zeker?");
-
-            md.Title = "Verwijderen";
-            md.Commands.Add(new UICommand { Label = "Ja", Id = 0 });
-            md.Commands.Add(new UICommand { Label = "Nee", Id = 1 });
-
-            var mdResult = await md.ShowAsync();
-
-            if ((int) mdResult.Id != 0) return;
-
-            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
-
-            var result = await Client.DeleteAsync(new Uri(Config.Config.BaseUrlApi + "campuses/" + c.CampusId));
-            var status = result.StatusCode;
-
-            if (status == HttpStatusCode.OK)
-            {
-                Frame.Navigate(typeof(CampusView));
-            }
+            ViewModel.DeleteCampus();
         }
     }
 }

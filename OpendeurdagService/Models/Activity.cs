@@ -26,8 +26,12 @@ namespace OpendeurdagService.Models
 
         public string Location { get; set; }
 
-        public DateTime BeginDate { get; set; }
+        public DateTimeOffset BeginDate { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateTimeOffset EndDate { get; set; }
+
+        public TimeSpan BeginTime { get; set; }
+
+        public TimeSpan EndTime { get; set; }
     }
 }
