@@ -10,7 +10,7 @@ using OpendeurdagApp.Models;
 
 namespace OpendeurdagApp.ViewModels
 {
-    class ActivityPageViewModel : Template10.Mvvm.ViewModelBase
+    class ActivityPageViewModel : ViewModelBase
     {
 
         private HttpClient Client { get; set; }

@@ -54,29 +54,62 @@
                              Text="Campus toevoegen">
         </controls:PageHeader>
 
-        <RelativePanel EntranceNavigationTransitionInfo.IsTargetElement="True"
+        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
                        RelativePanel.AlignBottomWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.Below="pageHeader">
 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="12">
-                <TextBlock Text="Naam" />
-                <TextBox Text="{Binding Path=Name, Mode=TwoWay}" HorizontalAlignment="Stretch" />
+            <StackPanel Orientation="Vertical" 
+                        Style="{StaticResource AppStackPanelMargin}">
+                <TextBlock Text="Campus toevoegen" 
+                           Style="{ThemeResource SubheaderTextBlockStyle}" />
+
+                <TextBlock Text="Naam"
+                           Style="{StaticResource AppTextBlockMarinTop}"/>
+                <TextBox Text="{Binding Path=Name, Mode=TwoWay}"
+                         Style="{StaticResource AppTextBox}" />
 
                 <TextBlock Text="Adres" />
-                <TextBox Text="{Binding Path=Address, Mode=TwoWay}" />
+                <TextBox Text="{Binding Path=Address, Mode=TwoWay}" 
+                         Style="{StaticResource AppTextBox}" />
 
                 <TextBlock Text="URL afbeelding" />
-                <TextBox Text="{Binding Path=ImageUrl, Mode=TwoWay}" />
+                <TextBox Text="{Binding Path=ImageUrl, Mode=TwoWay}" 
+                         Style="{StaticResource AppTextBox}" />
 
-                <Button Content="Campus toevoegen" Command="{Binding SaveCampusCommand}" />
+                <Button Content="Campus toevoegen" 
+                        Command="{Binding SaveCampusCommand}" />
             </StackPanel>
             
-        </RelativePanel>
+        </Grid>
 
     </RelativePanel>
 </Page>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

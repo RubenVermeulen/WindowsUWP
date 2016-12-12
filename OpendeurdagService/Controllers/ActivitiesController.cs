@@ -37,6 +37,7 @@ namespace OpendeurdagService.Controllers
 
         // PUT: api/Activities/5
         [ResponseType(typeof(void))]
+        [Authorize]
         public IHttpActionResult PutActivity(int id, Activity activity)
         {
             if (!ModelState.IsValid)
@@ -72,6 +73,7 @@ namespace OpendeurdagService.Controllers
 
         // POST: api/Activities
         [ResponseType(typeof(Activity))]
+        [Authorize]
         public IHttpActionResult PostActivity(Activity activity)
         {
             if (!ModelState.IsValid)
@@ -87,6 +89,7 @@ namespace OpendeurdagService.Controllers
 
         // DELETE: api/Activities/5
         [ResponseType(typeof(Activity))]
+        [Authorize]
         public IHttpActionResult DeleteActivity(int id)
         {
             Activity activity = db.Activities.Find(id);

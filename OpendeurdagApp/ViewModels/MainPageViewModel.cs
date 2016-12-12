@@ -94,13 +94,13 @@ namespace OpendeurdagApp.ViewModels
             NavigationService.Navigate(typeof(Views.DetailPage), Value);
 
         public void GotoSettings() =>
-            NavigationService.Navigate(typeof(Views.SettingsPage), 0);
+            NavigationService.Navigate(typeof(Views.LoginPage), 0);
 
         public void GotoPrivacy() =>
-            NavigationService.Navigate(typeof(Views.SettingsPage), 1);
+            NavigationService.Navigate(typeof(Views.LoginPage), 1);
 
         public void GotoAbout() =>
-            NavigationService.Navigate(typeof(Views.SettingsPage), 2);
+            NavigationService.Navigate(typeof(Views.LoginPage), 2);
 
     }
 }

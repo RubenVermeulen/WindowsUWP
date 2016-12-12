@@ -50,7 +50,21 @@
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
-                             Text="{Binding Name}">
+                             Text="{Binding Campus.Name}">
+
+            <!--  primary commands  -->
+            <AppBarButton Click="EditCampus" 
+                          Icon="57604"
+                          Label="Wijzigen" 
+                          Foreground="White"
+                          Visibility="{Binding AuthVisibility}" />
+
+            <AppBarButton Click="DeleteCampus" 
+                          Icon="57607"
+                          Label="Verwijderen" 
+                          Foreground="White"
+                          Visibility="{Binding AuthVisibility}" />
+
         </controls:PageHeader>
 
         <Grid EntranceNavigationTransitionInfo.IsTargetElement="True" 
@@ -59,11 +73,11 @@
               RelativePanel.AlignRightWithPanel="True"
               RelativePanel.Below="pageHeader">
 
-           <Grid.RowDefinitions>
-               <RowDefinition Height="180" />
-               <RowDefinition />
-               <RowDefinition Height="Auto" />
-           </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -72,7 +86,7 @@
             <Border Grid.Row="0" 
                   Grid.Column="0">
                 <Border.Background>
-                    <ImageBrush ImageSource="{Binding ImageUrl}"
+                    <ImageBrush ImageSource="{Binding Campus.ImageUrl}"
                     Stretch="UniformToFill"/>
                 </Border.Background>
             </Border>
@@ -83,20 +97,20 @@
                         Margin="16">
 
                 <!-- Name and Address -->
-                <TextBlock Text="{Binding Name}" 
+                <TextBlock Text="{Binding Campus.Name}" 
                            Style="{ThemeResource SubheaderTextBlockStyle}" />
 
                 <StackPanel Orientation="Horizontal" 
                             Padding=" 0 8 0 8">
-                    
+
                     <TextBlock Text="&#xE81D;" 
                                FontFamily="Segoe MDL2 Assets" 
                                Padding="0 0 8 0" />
-                    
-                    <TextBlock Text="{Binding Address}" 
+
+                    <TextBlock Text="{Binding Campus.Address}" 
                                Style="{ThemeResource CaptionTextBlockStyle}" />
                 </StackPanel>
-                
+
                 <!-- Activities -->
                 <TextBlock Text="Activiteiten" 
                            Style="{ThemeResource SubheaderTextBlockStyle}" />
@@ -135,15 +149,6 @@
 
     </RelativePanel>
 </Page>
-
-
-
-
-
-
-
-
-
 
 
 
