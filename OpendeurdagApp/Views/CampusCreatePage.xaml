@@ -81,39 +81,8 @@
                 <Button Content="Campus toevoegen" 
                         Command="{Binding SaveCampusCommand}" />
             </StackPanel>
-            
+
         </Grid>
 
     </RelativePanel>
 </Page>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

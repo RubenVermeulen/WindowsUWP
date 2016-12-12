@@ -1,0 +1,129 @@
+﻿<Page
+    x:Class="OpendeurdagApp.Views.StudentCreatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OpendeurdagApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:OpendeurdagApp.ViewModels"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <viewModels:StudentCreatePageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for narrow view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for normal view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for wide view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <controls:PageHeader x:Name="pageHeader"
+                             RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True"
+                             Text="Toekomstige student">
+        </controls:PageHeader>
+
+        <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True"
+                      RelativePanel.AlignBottomWithPanel="True"
+                      RelativePanel.AlignLeftWithPanel="True"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.Below="pageHeader"
+                      VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <StackPanel Orientation="Vertical" 
+                        Style="{StaticResource AppStackPanelMargin}">
+                    <TextBlock Text="Gegevens achterlaten" 
+                           Style="{ThemeResource SubheaderTextBlockStyle}" />
+
+                    <TextBlock Text="Laat hier je gegevens achter en blijf op de hoogte van de laatste nieuwtjes."
+                               Style="{StaticResource AppTextBlockMarinTop}"
+                               TextWrapping="Wrap"/>
+
+                    <TextBlock Text="Voornaam"
+                               Style="{StaticResource AppTextBlockMarinTop}"/>
+                    <TextBox Text="{Binding Path=FirstName, Mode=TwoWay}"
+                              Style="{StaticResource AppTextBox}" />
+
+                    <TextBlock Text="Familienaam" />
+                    <TextBox Text="{Binding Path=LastName, Mode=TwoWay}" 
+                             Style="{StaticResource AppTextBox}" />
+
+                    <TextBlock Text="E-mailadres" />
+                    <TextBox Text="{Binding Path=Email, Mode=TwoWay}" 
+                             Style="{StaticResource AppTextBox}" />
+
+                    <TextBlock Text="Telefoon / GSM" />
+                    <TextBox Text="{Binding Path=Telephone, Mode=TwoWay}" 
+                             Style="{StaticResource AppTextBox}" />
+
+                    <TextBlock Text="Adres" />
+                    <TextBox Text="{Binding Path=Address, Mode=TwoWay}" 
+                             Style="{StaticResource AppTextBox}" />
+
+                    <TextBlock Text="Op welke campus(sen) zou je graag les volgen?" />
+                    <GridView x:Name="gv" ItemsSource="{Binding Campuses}"
+                             SelectionMode="Multiple" 
+                             SelectionChanged="Gv_OnSelectionChanged"
+                             Margin="0 12 0 6">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"
+                                           Padding="16 20" />
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+
+                    <TextBlock Text="Welke richting(en) zou je graag volgen" />
+                    <GridView x:Name="GvDegree" ItemsSource="{Binding Degrees}"
+                              SelectionMode="Multiple" 
+                              SelectionChanged="GvDegree_OnSelectionChanged"
+                              Margin="0 12 0 6">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"
+                                           Padding="16 20" />
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+
+                    <Button Content="Verzenden" 
+                            Command="{Binding SaveStudentCommand}" />
+                </StackPanel>
+
+            </Grid>
+        </ScrollViewer>
+
+    </RelativePanel>
+</Page>

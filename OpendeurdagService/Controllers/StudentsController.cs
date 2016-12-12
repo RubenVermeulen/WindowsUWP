@@ -78,7 +78,6 @@ namespace OpendeurdagService.Controllers
 
         // POST: api/Students
         [ResponseType(typeof(Student))]
-        [Authorize]
         public IHttpActionResult PostStudent(Student student)
         {
             if (!ModelState.IsValid)

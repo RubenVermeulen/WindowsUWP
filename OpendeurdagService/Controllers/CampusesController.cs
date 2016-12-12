@@ -42,7 +42,6 @@ namespace OpendeurdagService.Controllers
 
         // PUT: api/Campuses/5
         [ResponseType(typeof(void))]
-        [Authorize]
         public IHttpActionResult PutCampus(int id, Campus campus)
         {
             if (!ModelState.IsValid)
