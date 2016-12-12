@@ -12,7 +12,8 @@
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       mc:Ignorable="d">
 
-    <Controls:HamburgerMenu x:Name="MyHamburgerMenu">
+    <Controls:HamburgerMenu x:Name="MyHamburgerMenu"
+                             HamburgerBackground="#0081C9">
 
         <Controls:HamburgerMenu.PrimaryButtons>
             <!--  mainpage button  -->
@@ -36,14 +37,15 @@
                                Text="Campussen" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
-            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:CampusCreatePage">
+            
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:StudentCreatePage">
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48"
                                 Height="48"
                                 Symbol="Add" />
                     <TextBlock Margin="12,0,0,0"
                                VerticalAlignment="Center"
-                               Text="Campus aanmaken" />
+                               Text="Toekomstige student" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:ActivityView">
@@ -80,13 +82,56 @@
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48"
                                 Height="48"
-                                Symbol="Setting" />
+                                Symbol="Admin" />
                     <TextBlock Margin="12,0,0,0"
                                VerticalAlignment="Center"
                                Text="Inloggen" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+
+            <!-- Overview students -->
+            <Controls:HamburgerButtonInfo x:Name="StudentsOverview"
+                                          PageParameter="0"
+                                          PageType="views:StudentOverviewPage">
+                <Controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                    <SuppressNavigationTransitionInfo />
+                </Controls:HamburgerButtonInfo.NavigationTransitionInfo>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="People" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Studenten" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
+            
+            <!-- Create campus -->
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:CampusCreatePage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Add" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Campus aanmaken" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
+
+            <!-- Overview campusses and degrees -->
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:StatisticsPage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Calculator" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Statistieken" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.SecondaryButtons>
+        
+        
 
     </Controls:HamburgerMenu>
 

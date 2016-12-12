@@ -10,7 +10,18 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!--  custom resources go here  -->
-
+            <Style TargetType="TextBox" x:Key="AppTextBox">
+                <Setter Property="Margin" Value="0 6 0 12" />
+            </Style>
+            <Style TargetType="PasswordBox" x:Key="AppPasswordBox">
+                <Setter Property="Margin" Value="0 6 0 12" />
+            </Style>
+            <Style TargetType="StackPanel" x:Key="AppStackPanelMargin">
+                <Setter Property="Margin" Value="12" />
+            </Style>
+            <Style TargetType="TextBlock" x:Key="AppTextBlockMarinTop">
+                <Setter Property="Margin" Value="0 12 0 0" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 

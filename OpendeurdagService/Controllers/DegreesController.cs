@@ -42,6 +42,7 @@ namespace OpendeurdagService.Controllers
 
         // PUT: api/Degrees/5
         [ResponseType(typeof(void))]
+        [Authorize]
         public IHttpActionResult PutDegree(int id, Degree degree)
         {
             if (!ModelState.IsValid)
@@ -77,6 +78,7 @@ namespace OpendeurdagService.Controllers
 
         // POST: api/Degrees
         [ResponseType(typeof(Degree))]
+        [Authorize]
         public IHttpActionResult PostDegree(Degree degree)
         {
             if (!ModelState.IsValid)
@@ -92,6 +94,7 @@ namespace OpendeurdagService.Controllers
 
         // DELETE: api/Degrees/5
         [ResponseType(typeof(Degree))]
+        [Authorize]
         public IHttpActionResult DeleteDegree(int id)
         {
             Degree degree = db.Degrees.Find(id);

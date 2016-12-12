@@ -114,10 +114,13 @@
     <Compile Include="ViewModels\ActivityPageViewModel.cs" />
     <Compile Include="ViewModels\CampusDetailViewModel.cs" />
     <Compile Include="ViewModels\CampusEditPageViewModel.cs" />
+    <Compile Include="ViewModels\StatisticsPageViewModel.cs" />
     <Compile Include="ViewModels\CampusViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\DetailPageViewModel.cs" />
+    <Compile Include="ViewModels\StudentCreatePageViewModel.cs" />
+    <Compile Include="ViewModels\StudentOverviewPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\ActivityCreatePage.xaml.cs">
       <DependentUpon>ActivityCreatePage.xaml</DependentUpon>
@@ -137,8 +140,14 @@
     <Compile Include="Views\CampusEditPage.xaml.cs">
       <DependentUpon>CampusEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\StatisticsPage.xaml.cs">
+      <DependentUpon>StatisticsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CampusPage.xaml.cs">
       <DependentUpon>CampusPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DegreeDetailPage.xaml.cs">
+      <DependentUpon>DegreeDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailPage.xaml.cs">
       <DependentUpon>DetailPage.xaml</DependentUpon>
@@ -154,6 +163,12 @@
     </Compile>
     <Compile Include="Views\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentCreatePage.xaml.cs">
+      <DependentUpon>StudentCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentOverviewPage.xaml.cs">
+      <DependentUpon>StudentOverviewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -205,9 +220,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\StatisticsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CampusPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DegreeDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DetailPage.xaml">
       <SubType>Designer</SubType>
@@ -228,6 +251,14 @@
     <Page Include="Views\Splash.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StudentCreatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentOverviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup />

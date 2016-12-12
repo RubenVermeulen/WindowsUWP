@@ -42,6 +42,7 @@ namespace OpendeurdagService.Controllers
 
         // PUT: api/Students/5
         [ResponseType(typeof(void))]
+        [Authorize]
         public IHttpActionResult PutStudent(int id, Student student)
         {
             if (!ModelState.IsValid)
@@ -92,6 +93,7 @@ namespace OpendeurdagService.Controllers
 
         // DELETE: api/Students/5
         [ResponseType(typeof(Student))]
+        [Authorize]
         public IHttpActionResult DeleteStudent(int id)
         {
             Student student = db.Students.Find(id);

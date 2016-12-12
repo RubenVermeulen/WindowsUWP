@@ -77,6 +77,7 @@ namespace OpendeurdagService.Controllers
 
         // POST: api/Campuses
         [ResponseType(typeof(Campus))]
+        [Authorize]
         public IHttpActionResult PostCampus(Campus campus)
         {
             if (!ModelState.IsValid)
@@ -92,6 +93,7 @@ namespace OpendeurdagService.Controllers
 
         // DELETE: api/Campuses/5
         [ResponseType(typeof(Campus))]
+        [Authorize]
         public IHttpActionResult DeleteCampus(int id)
         {
             Campus campus = db.Campus.Find(id);

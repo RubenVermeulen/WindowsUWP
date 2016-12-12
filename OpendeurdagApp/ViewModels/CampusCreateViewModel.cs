@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
@@ -47,6 +48,8 @@ namespace OpendeurdagApp.ViewModels
                 Address = address,
                 ImageUrl = imageUrl
             };
+
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
 
             var httpContent = new StringContent(JsonConvert.SerializeObject(c), Encoding.UTF8, "application/json");
             var result = await Client.PostAsync(new Uri(Config.Config.BaseUrlApi + "campuses"), httpContent);
