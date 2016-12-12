@@ -53,25 +53,30 @@
                              Text="Inloggen">
         </controls:PageHeader>
 
-        <RelativePanel EntranceNavigationTransitionInfo.IsTargetElement="True"
+        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
                        RelativePanel.AlignBottomWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.Below="pageHeader">
 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="12">
+            <StackPanel Orientation="Vertical" 
+                        HorizontalAlignment="Stretch" 
+                        Style="{StaticResource AppStackPanelMargin}">
                 <TextBlock Text="Inloggen" Style="{ThemeResource SubheaderTextBlockStyle}" />
 
-                <TextBlock Text="Gebruikersnaam" />
-                <TextBox Text="{Binding Path=UserName, Mode=TwoWay}" />
+                <TextBlock Text="Gebruikersnaam"
+                           Style="{StaticResource AppTextBlockMarinTop}" />
+                <TextBox Text="{Binding Path=UserName, Mode=TwoWay}"
+                         Style="{StaticResource AppTextBox}" />
 
                 <TextBlock Text="Wachtwoord" />
-                <PasswordBox Password="{Binding Path=Password, Mode=TwoWay}" />
+                <PasswordBox Password="{Binding Path=Password, Mode=TwoWay}"
+                             Style="{StaticResource AppPasswordBox}" />
 
                 <Button Content="Inloggen" Command="{Binding LoginCommand}" />
             </StackPanel>
 
-        </RelativePanel>
+        </Grid>
 
     </RelativePanel>
 </Page>
