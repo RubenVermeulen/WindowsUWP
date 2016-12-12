@@ -118,6 +118,7 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\DetailPageViewModel.cs" />
     <Compile Include="ViewModels\StudentCreatePageViewModel.cs" />
+    <Compile Include="ViewModels\StudentOverviewPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\ActivityPage.xaml.cs">
       <DependentUpon>ActivityPage.xaml</DependentUpon>
@@ -157,6 +158,9 @@
     </Compile>
     <Compile Include="Views\StudentCreatePage.xaml.cs">
       <DependentUpon>StudentCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentOverviewPage.xaml.cs">
+      <DependentUpon>StudentOverviewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +237,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\StudentCreatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentOverviewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
