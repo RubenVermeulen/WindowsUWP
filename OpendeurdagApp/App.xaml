@@ -12,9 +12,19 @@
             <!--  custom resources go here  -->
             <Style TargetType="TextBox" x:Key="AppTextBox">
                 <Setter Property="Margin" Value="0 6 0 12" />
+                <Setter Property="MaxWidth" Value="450" />
+            </Style>
+            <Style TargetType="DatePicker" x:Key="AppDatePicker">
+                <Setter Property="Margin" Value="0 6 0 12" />
+                <Setter Property="MaxWidth" Value="450" />
+            </Style>
+            <Style TargetType="TimePicker" x:Key="AppTimePicker">
+                <Setter Property="Margin" Value="0 6 0 12" />
+                <Setter Property="MaxWidth" Value="450" />
             </Style>
             <Style TargetType="PasswordBox" x:Key="AppPasswordBox">
                 <Setter Property="Margin" Value="0 6 0 12" />
+                <Setter Property="MaxWidth" Value="450" />
             </Style>
             <Style TargetType="StackPanel" x:Key="AppStackPanelMargin">
                 <Setter Property="Margin" Value="12" />
@@ -26,3 +36,6 @@
     </Application.Resources>
 
 </common:BootStrapper>
+
+
+
