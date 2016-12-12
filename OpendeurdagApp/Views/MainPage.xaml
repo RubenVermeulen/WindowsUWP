@@ -122,7 +122,7 @@
 
                 <TextBlock Text="Opleidingen" 
                            Style="{ThemeResource HeaderTextBlockStyle}" Margin="0 8 0 8"/>
-                <ListView x:Name="degreesListView" ItemsSource="{Binding Degrees}" >
+                    <ListView x:Name="degreesListView" ItemsSource="{Binding Degrees}" SelectionChanged="lv_SelectionChanged" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
