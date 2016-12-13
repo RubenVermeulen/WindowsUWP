@@ -13,6 +13,12 @@
             <Style TargetType="TextBox" x:Key="AppTextBox">
                 <Setter Property="Margin" Value="0 6 0 12" />
             </Style>
+            <Style TargetType="DatePicker" x:Key="AppDatePicker">
+                <Setter Property="Margin" Value="0 6 0 12" />
+            </Style>
+            <Style TargetType="TimePicker" x:Key="AppTimePicker">
+                <Setter Property="Margin" Value="0 6 0 12" />
+            </Style>
             <Style TargetType="PasswordBox" x:Key="AppPasswordBox">
                 <Setter Property="Margin" Value="0 6 0 12" />
             </Style>
@@ -26,3 +32,6 @@
     </Application.Resources>
 
 </common:BootStrapper>
+
+
+

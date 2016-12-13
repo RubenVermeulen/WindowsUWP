@@ -12,10 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Newtonsoft.Json;
-using OpendeurdagApp.Models;
-using Template10.Services.NavigationService;
-using Template10.Services.SerializationService;
+using OpendeurdagApp.Helper;
+using Template10.Utils;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,24 +23,19 @@ namespace OpendeurdagApp.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ActivityView : Page
+    public sealed partial class ActivityCreatePage : Page
     {
-        public ActivityView()
+        public ActivityCreatePage()
         {
             this.InitializeComponent();
-        }
 
-        private void lv_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var c = (Activity)lv.SelectedItem;
-            var json = SerializationService.Json.Serialize(c);
-
-            Frame.Navigate(typeof(CampusDetailPage), json);
-        }
-
-        private void CreateActivity(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(ActivityCreatePage));
+            Loaded += (a, b) =>
+            {
+                if (!AuthService.IsLoggedIn())
+                {
+                    Frame.GetNavigationService().Navigate(typeof(ActivityView));
+                }
+            };
         }
     }
 }

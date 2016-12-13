@@ -6,11 +6,14 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Services.Maps;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -43,11 +46,31 @@ namespace OpendeurdagApp.Views
         {
             c = SerializationService.Json.Deserialize(e.Parameter as string) as Campus;
 
-            DataContext = new
+            ViewModel.Campus = c;
+
+            LoadMap();
+        }
+
+        private async void LoadMap()
+        {
+            // Specify location (converts address to lat and long)
+            var result = await MapLocationFinder.FindLocationsAsync(c.Address, null);
+            var location = result.Locations[0];
+
+            // Set map location
+            Map.Center = location.Point;
+            Map.ZoomLevel = 16;
+
+            // Set map pushpin
+            var pushpin = new MapIcon()
             {
-                Campus = c,
-                AuthVisibility = AuthService.User == null ? "Collapsed" : "Visible"
+                Location = location.Point,
+                NormalizedAnchorPoint = new Point(0.5, 1.0),
+                Title = c.Name,
+                ZIndex = 0
             };
+
+            Map.MapElements.Add(pushpin);
         }
 
         private void EditCampus(object sender, RoutedEventArgs e)
@@ -57,27 +80,9 @@ namespace OpendeurdagApp.Views
             Frame.Navigate(typeof(CampusEditPage), json);
         }
 
-        private async void DeleteCampus(object sender, RoutedEventArgs e)
+        private void DeleteCampus(object sender, RoutedEventArgs e)
         {
-            var md = new MessageDialog("Je staat op het punt om \"" + c.Name + "\" te verwijderen. Ben je zeker?");
-
-            md.Title = "Verwijderen";
-            md.Commands.Add(new UICommand { Label = "Ja", Id = 0 });
-            md.Commands.Add(new UICommand { Label = "Nee", Id = 1 });
-
-            var mdResult = await md.ShowAsync();
-
-            if ((int) mdResult.Id != 0) return;
-
-            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
-
-            var result = await Client.DeleteAsync(new Uri(Config.Config.BaseUrlApi + "campuses/" + c.CampusId));
-            var status = result.StatusCode;
-
-            if (status == HttpStatusCode.OK)
-            {
-                Frame.Navigate(typeof(CampusView));
-            }
+            ViewModel.DeleteCampus();
         }
     }
 }

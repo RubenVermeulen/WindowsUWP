@@ -13,18 +13,18 @@ using OpendeurdagApp.Views;
 
 namespace OpendeurdagApp.ViewModels
 {
-    public class CampusDetailViewModel: ViewModelBase
+    public class DegreeDetailViewModel : ViewModelBase
     {
         private HttpClient Client;
- 
-        public Campus Campus { get; set; }
 
-        public CampusDetailViewModel()
+        public Degree Degree { get; set; }
+
+        public DegreeDetailViewModel()
         {
             Client = new HttpClient();
         }
 
-        public async void DeleteCampus()
+        public async void DeleteDegree()
         {
             var confirmDelete = await DeleteDialog();
 
@@ -32,18 +32,18 @@ namespace OpendeurdagApp.ViewModels
 
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
 
-            var result = await Client.DeleteAsync(new Uri(Config.Config.BaseUrlApi + "campuses/" + Campus.CampusId));
+            var result = await Client.DeleteAsync(new Uri(Config.Config.BaseUrlApi + "degrees/" + Degree.DegreeId));
             var status = result.StatusCode;
 
             if (status == HttpStatusCode.OK)
             {
-                NavigationService.Navigate(typeof(CampusView));
+                NavigationService.Navigate(typeof(MainPage));
             }
         }
 
         public async Task<bool> DeleteDialog()
         {
-            var md = new MessageDialog("Je staat op het punt om \"" + Campus.Name + "\" te verwijderen. Ben je zeker?")
+            var md = new MessageDialog("Je staat op het punt om \"" + Degree.Name + "\" te verwijderen. Ben je zeker?")
             {
                 Title = "Verwijderen"
             };

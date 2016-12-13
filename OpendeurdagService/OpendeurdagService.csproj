@@ -226,6 +226,14 @@
     <Compile Include="Migrations\201612111806122_Degree SmallDescription, Facebook and Image Url.Designer.cs">
       <DependentUpon>201612111806122_Degree SmallDescription, Facebook and Image Url.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612121707271_AddsBeginAndEndTimeToActivity.cs" />
+    <Compile Include="Migrations\201612121707271_AddsBeginAndEndTimeToActivity.Designer.cs">
+      <DependentUpon>201612121707271_AddsBeginAndEndTimeToActivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612121708274_UpdatesDateTimeToDateTimeOffSetInActivity.cs" />
+    <Compile Include="Migrations\201612121708274_UpdatesDateTimeToDateTimeOffSetInActivity.Designer.cs">
+      <DependentUpon>201612121708274_UpdatesDateTimeToDateTimeOffSetInActivity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -240,6 +248,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-OpendeurdagService-20161207101141.mdf" />
+    <Content Include="App_Data\aspnet-OpendeurdagService-20161207101141_log.ldf" />
+    <Content Include="App_Data\OpendeurdagServiceContext-20161207101417.mdf" />
+    <Content Include="App_Data\OpendeurdagServiceContext-20161207101417_log.ldf" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -294,9 +306,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -314,6 +324,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612111806122_Degree SmallDescription, Facebook and Image Url.resx">
       <DependentUpon>201612111806122_Degree SmallDescription, Facebook and Image Url.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612121707271_AddsBeginAndEndTimeToActivity.resx">
+      <DependentUpon>201612121707271_AddsBeginAndEndTimeToActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612121708274_UpdatesDateTimeToDateTimeOffSetInActivity.resx">
+      <DependentUpon>201612121708274_UpdatesDateTimeToDateTimeOffSetInActivity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
