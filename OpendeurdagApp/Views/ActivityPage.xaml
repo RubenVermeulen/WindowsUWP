@@ -54,6 +54,13 @@
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
                              Text="Activiteiten">
+
+            <!--  primary commands  -->
+            <AppBarButton Click="CreateActivity" 
+                          Icon="57609"
+                          Label="Aanmaken" 
+                          Foreground="White"
+                          Visibility="{Binding AuthVisibility}" />
         </controls:PageHeader>
 
         <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"

@@ -30,15 +30,6 @@ namespace OpendeurdagApp.Views
         {
             this.InitializeComponent();
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            base.OnNavigatedFrom(e);
-        }
 
         private void lv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -48,5 +39,9 @@ namespace OpendeurdagApp.Views
             Frame.Navigate(typeof(ActivityDetailPage), json);
         }
 
+        private void CreateActivity(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ActivityCreatePage));
+        }
     }
 }

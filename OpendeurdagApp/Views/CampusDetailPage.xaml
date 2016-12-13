@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:OpendeurdagApp.ViewModels"
     xmlns:controls="using:Template10.Controls"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -67,85 +68,91 @@
 
         </controls:PageHeader>
 
-        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True" 
+        <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True" 
               RelativePanel.AlignBottomWithPanel="True"
               RelativePanel.AlignLeftWithPanel="True"
               RelativePanel.AlignRightWithPanel="True"
               RelativePanel.Below="pageHeader">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="180" />
-                <RowDefinition />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="180" />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <Border Grid.Row="0" 
+                <Border Grid.Row="0" 
                   Grid.Column="0">
-                <Border.Background>
-                    <ImageBrush ImageSource="{Binding Campus.ImageUrl}"
-                    Stretch="UniformToFill"/>
-                </Border.Background>
-            </Border>
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding Campus.ImageUrl}"
+                                    Stretch="UniformToFill"/>
+                    </Border.Background>
+                </Border>
 
-            <StackPanel Grid.Row="1" 
-                        Grid.Column="0" 
-                        Orientation="Vertical" 
-                        Margin="16">
+                <StackPanel Grid.Row="1" 
+                            Grid.Column="0" 
+                            Orientation="Vertical" 
+                            Margin="16">
 
-                <!-- Name and Address -->
-                <TextBlock Text="{Binding Campus.Name}" 
-                           Style="{ThemeResource SubheaderTextBlockStyle}" />
+                    <!-- Name and Address -->
+                    <TextBlock Text="{Binding Campus.Name}" 
+                               Style="{ThemeResource SubheaderTextBlockStyle}" />
 
-                <StackPanel Orientation="Horizontal" 
-                            Padding=" 0 8 0 8">
+                    <StackPanel Orientation="Horizontal" 
+                                Padding=" 0 8 0 8">
 
-                    <TextBlock Text="&#xE81D;" 
-                               FontFamily="Segoe MDL2 Assets" 
-                               Padding="0 0 8 0" />
+                        <TextBlock Text="&#xE81D;" 
+                                   FontFamily="Segoe MDL2 Assets" 
+                                   Padding="0 0 8 0" />
 
-                    <TextBlock Text="{Binding Campus.Address}" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock Text="{Binding Campus.Address}" 
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+
+                    <maps:MapControl x:Name="Map"
+                                     Margin="0 12 0 0"
+                                     HorizontalContentAlignment="Stretch"
+                                     Height="350"
+                                     ZoomInteractionMode="GestureAndControl"
+                                     TiltInteractionMode="GestureAndControl" />
+
+                    <!-- Activities -->
+                    <TextBlock Text="Activiteiten" 
+                               Style="{ThemeResource SubheaderTextBlockStyle}" />
+
+                    <StackPanel Orientation="Vertical" 
+                                Padding=" 0 8 0 8">
+
+                        <TextBlock Text="09/12/2016 - Activity 1" 
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock Text="10/12/2016 - Activity 2" 
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock Text="12/12/2016 - Activity 3" 
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock Text="10/01/2017 - Activity 4" 
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                    </StackPanel>
+
+                    <!-- Opleidingen -->
+                    <TextBlock Text="Opleidingen" 
+                               Style="{ThemeResource SubheaderTextBlockStyle}" />
+
+                    <StackPanel Orientation="Vertical" 
+                                Padding=" 0 8 0 8">
+
+                        <TextBlock Text="Toegepaste informatica" 
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock Text="Verpleegkunde" 
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock Text="Bedrijfsmanagement" 
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock Text="Vastgoed" 
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                    </StackPanel>
                 </StackPanel>
+            </Grid>
 
-                <!-- Activities -->
-                <TextBlock Text="Activiteiten" 
-                           Style="{ThemeResource SubheaderTextBlockStyle}" />
-
-                <StackPanel Orientation="Vertical" 
-                            Padding=" 0 8 0 8">
-
-                    <TextBlock Text="09/12/2016 - Activity 1" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="10/12/2016 - Activity 2" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="12/12/2016 - Activity 3" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="10/01/2017 - Activity 4" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                </StackPanel>
-
-                <!-- Opleidingen -->
-                <TextBlock Text="Opleidingen" 
-                           Style="{ThemeResource SubheaderTextBlockStyle}" />
-
-                <StackPanel Orientation="Vertical" 
-                            Padding=" 0 8 0 8">
-
-                    <TextBlock Text="Toegepaste informatica" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="Verpleegkunde" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="Bedrijfsmanagement" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                    <TextBlock Text="Vastgoed" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                </StackPanel>
-            </StackPanel>
-        </Grid>
-
+        </ScrollViewer>
     </RelativePanel>
 </Page>
+

@@ -85,6 +85,26 @@ namespace OpendeurdagService.Controllers
                 return BadRequest(ModelState);
             }
 
+            // Has campuses
+            if (student.Campuses.Count != 0)
+            {
+                // For some reason Where clause can't use the Campuses property of student
+                var campusIds = student.Campuses.Select(a => a.CampusId).ToList();
+
+                var campuses = db.Campus.Where(a => campusIds.Any(b => b == a.CampusId));
+                student.Campuses = campuses.ToList();
+            }
+
+            // Has degrees
+            if (student.Degrees.Count != 0)
+            {
+                // For some reason Where clause can't use the Degrees property of student
+                var degreeIds = student.Degrees.Select(a => a.DegreeId).ToList();
+
+                var degrees = db.Degrees.Where(a => degreeIds.Any(b => b == a.DegreeId));
+                student.Degrees = degrees.ToList();
+            }
+
             db.Students.Add(student);
             db.SaveChanges();
 

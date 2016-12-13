@@ -68,7 +68,7 @@ namespace OpendeurdagApp.Views
             if (status == HttpStatusCode.NoContent)
             {
                 // Create the message dialog and set its content and title
-                var messageDialog = new MessageDialog("Het opleidingsonderdeel is succesvol gewijzigd.", "Opleidingsonderdeel gewijzigd");
+                var messageDialog = new MessageDialog("Het opleiding is succesvol gewijzigd.", "Opleiding gewijzigd");
 
                 // Add commands and set their command ids
                 messageDialog.Commands.Add(new UICommand("Sluiten", null, 0));

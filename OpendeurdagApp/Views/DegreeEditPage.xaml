@@ -51,7 +51,7 @@
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
-                             Text="Opleidingsonderdeel wijzigen">
+                             Text="Opleiding wijzigen">
         </controls:PageHeader>
 
         <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
@@ -63,7 +63,7 @@
             <StackPanel Orientation="Vertical" 
                         HorizontalAlignment="Stretch" 
                         Style="{StaticResource AppStackPanelMargin}">
-                <TextBlock Text="Opleidingsonderdeel wijzigen"
+                <TextBlock Text="Opleiding wijzigen"
                            Style="{StaticResource SubheaderTextBlockStyle}" />
 
                 <TextBox Text="{Binding Path=DegreeId, Mode=TwoWay}" 
@@ -94,7 +94,7 @@
                 <TextBox Text="{Binding Path=FacebookUrl, Mode=TwoWay}"
                          Style="{StaticResource AppTextBox}" />
 
-                <Button Content="Opleidingsonderdeel wijzigen" Click="SaveDegree" />
+                <Button Content="Opleiding wijzigen" Click="SaveDegree" />
             </StackPanel>
 
         </Grid>
