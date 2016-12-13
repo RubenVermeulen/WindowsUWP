@@ -116,6 +116,8 @@
     <Compile Include="ViewModels\CampusEditPageViewModel.cs" />
     <Compile Include="ViewModels\StatisticsPageViewModel.cs" />
     <Compile Include="ViewModels\CampusViewModel.cs" />
+    <Compile Include="ViewModels\DegreeDetailViewModel.cs" />
+    <Compile Include="ViewModels\DegreeEditViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\DetailPageViewModel.cs" />
@@ -148,6 +150,9 @@
     </Compile>
     <Compile Include="Views\DegreeDetailPage.xaml.cs">
       <DependentUpon>DegreeDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DegreeEditPage.xaml.cs">
+      <DependentUpon>DegreeEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailPage.xaml.cs">
       <DependentUpon>DetailPage.xaml</DependentUpon>
@@ -229,6 +234,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DegreeDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DegreeEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

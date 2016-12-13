@@ -4,10 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using Template10.Services.SerializationService;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,29 +29,32 @@ namespace OpendeurdagApp.Views
     public sealed partial class DegreeDetailPage : Page
     {
 
+        private HttpClient Client;
         private Degree degree;
 
         public DegreeDetailPage()
         {
             this.InitializeComponent();
+            Client = new HttpClient();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             degree = SerializationService.Json.Deserialize(e.Parameter as string) as Degree;
 
-            DataContext = new
-            {
-                Degree = degree,
-                AuthVisiblity = AuthService.User == null ? "Collapsed" : "Visible"
-            };
+            ViewModel.Degree = degree;
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void EditDegree(object sender, RoutedEventArgs e)
         {
             var json = SerializationService.Json.Serialize(degree);
 
-            Frame.Navigate(typeof(CampusEditPage), json);
+            Frame.Navigate(typeof(DegreeEditPage), json);
+        }
+
+        private void DeleteDegree(object sender, RoutedEventArgs e)
+        {
+            ViewModel.DeleteDegree();
         }
     }
 }
