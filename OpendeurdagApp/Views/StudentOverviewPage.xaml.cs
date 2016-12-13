@@ -32,7 +32,7 @@ namespace OpendeurdagApp.Views
             {
                 if ( ! AuthService.IsLoggedIn())
                 {
-                    Frame.GetNavigationService().Navigate(typeof(CampusView));
+                    Frame.GetNavigationService().Navigate(typeof(MainPage));
                 }
             };
         }

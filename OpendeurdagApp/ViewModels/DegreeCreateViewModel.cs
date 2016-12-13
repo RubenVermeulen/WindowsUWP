@@ -15,24 +15,26 @@ using OpendeurdagApp.Views;
 
 namespace OpendeurdagApp.ViewModels
 {
-    public class CampusCreateViewModel : ViewModelBase
+    public class DegreeCreateViewModel : ViewModelBase
     {
         private HttpClient Client { get; set; }
-        public RelayCommand SaveCampusCommand { get; set; }
+        public RelayCommand SaveDegreeCommand { get; set; }
 
         private string name;
-        private string address;
+        private string description;
+        private string smallDescription;
         private string imageUrl;
+        private string facebookUrl;
 
-        public CampusCreateViewModel()
+        public DegreeCreateViewModel()
         {
             Client = new HttpClient();
-            SaveCampusCommand = new RelayCommand(SaveCampus);
+            SaveDegreeCommand = new RelayCommand(SaveDegree);
         }
 
-        private async void SaveCampus(object param)
+        private async void SaveDegree(object param)
         {
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(imageUrl))
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(smallDescription) || string.IsNullOrEmpty(imageUrl))
             {
                 // Validation message
                 var messageDialog = new MessageDialog("Alle velden moeten ingevuld zijn.", "Opgelet");
@@ -42,26 +44,28 @@ namespace OpendeurdagApp.ViewModels
                 return;
             }
 
-            Campus c = new Campus()
+            Degree degree = new Degree()
             {
                 Name = name,
-                Address = address,
-                ImageUrl = imageUrl
+                SmallDescription = smallDescription,
+                Description = description,
+                ImageUrl = imageUrl,
+                FacebookUrl = facebookUrl
             };
 
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
 
-            var httpContent = new StringContent(JsonConvert.SerializeObject(c), Encoding.UTF8, "application/json");
-            var result = await Client.PostAsync(new Uri(Config.Config.BaseUrlApi + "campuses"), httpContent);
+            var httpContent = new StringContent(JsonConvert.SerializeObject(degree), Encoding.UTF8, "application/json");
+            var result = await Client.PostAsync(new Uri(Config.Config.BaseUrlApi + "degrees"), httpContent);
             var status = result.StatusCode;
 
             if (status == HttpStatusCode.Created)
             {
                 // Remove values from all fields
-                Name = Address = ImageUrl = string.Empty;
+                Name = SmallDescription = Description = ImageUrl = FacebookUrl = string.Empty;
 
                 // Create the message dialog and set its content and title
-                var messageDialog = new MessageDialog("De campus is succesvol toegevoegd.", "Campus toegevoegd");
+                var messageDialog = new MessageDialog("De opleiding is succesvol toegevoegd.", "Opleiding toegevoegd");
 
                 // Add commands and set their command ids
                 messageDialog.Commands.Add(new UICommand("Sluiten", null, 0));
@@ -72,9 +76,9 @@ namespace OpendeurdagApp.ViewModels
                 // Show the message dialog and get the event that was invoked via the async operator
                 await messageDialog.ShowAsync();
 
-                NavigationService.Navigate(typeof(CampusView));
+                NavigationService.Navigate(typeof(MainPage));
             }
-            
+
         }
 
         public string Name
@@ -87,12 +91,22 @@ namespace OpendeurdagApp.ViewModels
             }
         }
 
-        public string Address
+        public string SmallDescription
         {
-            get { return address; }
+            get { return smallDescription; }
             set
             {
-                address = value;
+                smallDescription = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string Description
+        {
+            get { return description; }
+            set
+            {
+                description = value;
                 RaisePropertyChanged();
             }
         }
@@ -103,6 +117,16 @@ namespace OpendeurdagApp.ViewModels
             set
             {
                 imageUrl = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string FacebookUrl
+        {
+            get { return facebookUrl; }
+            set
+            {
+                facebookUrl = value;
                 RaisePropertyChanged();
             }
         }
