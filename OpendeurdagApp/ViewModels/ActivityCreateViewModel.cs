@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
@@ -63,6 +64,8 @@ namespace OpendeurdagApp.ViewModels
                 EndDate = (DateTimeOffset) endDate,
                 EndTime = (TimeSpan) endTime
             };
+
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
 
             var httpContent = new StringContent(JsonConvert.SerializeObject(a), Encoding.UTF8, "application/json");
             var result = await Client.PostAsync(new Uri(Config.Config.BaseUrlApi + "activities"), httpContent);
