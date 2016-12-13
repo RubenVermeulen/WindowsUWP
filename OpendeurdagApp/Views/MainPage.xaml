@@ -63,11 +63,11 @@
                           Visibility="{Binding AuthVisibility}" />
 
             <!--  secondary commands  -->
-            <controls:PageHeader.SecondaryCommands>
+            <!--<controls:PageHeader.SecondaryCommands>
                 <AppBarButton Click="{x:Bind ViewModel.GotoSettings}" Label="Settings" />
                 <AppBarButton Click="{x:Bind ViewModel.GotoPrivacy}" Label="Privacy" />
                 <AppBarButton Click="{x:Bind ViewModel.GotoAbout}" Label="About" />
-            </controls:PageHeader.SecondaryCommands>
+            </controls:PageHeader.SecondaryCommands>-->
             
 
         </controls:PageHeader>
