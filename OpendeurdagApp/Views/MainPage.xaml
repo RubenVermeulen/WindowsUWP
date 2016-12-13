@@ -120,14 +120,32 @@
                 <TextBlock Text="Volgend evenement"/>
 
                 <!--<StackPanel DataContext="{Binding NextActivity}">-->
-                <StackPanel>
+                <!--<StackPanel>
                     <TextBlock Text="{x:Bind ViewModel.NextActivity.Name}" 
                                        Style="{ThemeResource SubheaderTextBlockStyle}" />
                     <TextBlock Text="{x:Bind ViewModel.NextActivity.Description}" 
                                        Style="{ThemeResource CaptionTextBlockStyle}" />
-                </StackPanel>
+                </StackPanel>-->
 
-                <TextBlock Text="Opleidingen" 
+                <ListView x:Name="activityListView" ItemsSource="{Binding Activities}" SelectionChanged="lv_ActivitySelectionChanged" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
+                                <Image Width="180" Source="{Binding ImageUrl}" 
+                                Stretch="UniformToFill"/>
+                                <StackPanel Margin="15 0 0 0">
+                                    <TextBlock Text="{Binding Name}"  
+                                                Style="{ThemeResource SubheaderTextBlockStyle}" />
+                                    <TextBlock Text="{Binding Description}"  
+                                                Style="{ThemeResource CaptionTextBlockStyle}" />
+                                </StackPanel>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                    <TextBlock Text="Opleidingen" 
                            Style="{ThemeResource HeaderTextBlockStyle}" Margin="0 8 0 8"/>
                     <ListView x:Name="degreesListView" ItemsSource="{Binding Degrees}" SelectionChanged="lv_SelectionChanged" >
                     <ListView.ItemTemplate>

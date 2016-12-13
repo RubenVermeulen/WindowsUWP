@@ -19,6 +19,8 @@ namespace OpendeurdagApp.ViewModels
 
         public ObservableCollection<Degree> Degrees { get; set; }
 
+        public ObservableCollection<Activity> Activities { get; set; }
+
         public Activity NextActivity { get; set; }
 
 
@@ -31,6 +33,7 @@ namespace OpendeurdagApp.ViewModels
 
             Client = new HttpClient();
             Degrees = new ObservableCollection<Degree>();
+            Activities = new ObservableCollection<Activity>();
             NextActivity = new Activity();
 
             populateCollection();
@@ -71,33 +74,31 @@ namespace OpendeurdagApp.ViewModels
             data.ForEach(Degrees.Add);
 
 
-            List<Activity> activities = new List<Activity>();
+            List<Activity> activitiesHelper = new List<Activity>();
 
             var jsonActivity = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "activities"));
             var dataActivity = JsonConvert.DeserializeObject<List<Activity>>(jsonActivity);
 
-            dataActivity.ForEach(activities.Add);
-            List<Activity> sortedActivities = activities.OrderBy(o => o.BeginDate).ToList();
+            dataActivity.ForEach(Activities.Add);
+            //List<Activity> sortedActivities = activitiesHelper.OrderBy(o => o.BeginDate).ToList();
 
             //NextActivity = sortedActivities[0];
-            NextActivity = new Activity(){
+            //NextActivity = new Activity(){
               
-               Name = "test",
-               Description = "testdescr"
-            };
+            //   Name = "test",
+            //   Description = "testdescr"
+            //};
         }
 
-        //public void GotoDetailsPage() =>
-        //    NavigationService.Navigate(typeof(Views.DetailPage), Value);
 
-        public void GotoSettings() =>
-            NavigationService.Navigate(typeof(Views.LoginPage), 0);
+        //public void GotoSettings() =>
+        //    NavigationService.Navigate(typeof(Views.LoginPage), 0);
 
-        public void GotoPrivacy() =>
-            NavigationService.Navigate(typeof(Views.LoginPage), 1);
+        //public void GotoPrivacy() =>
+        //    NavigationService.Navigate(typeof(Views.LoginPage), 1);
 
-        public void GotoAbout() =>
-            NavigationService.Navigate(typeof(Views.LoginPage), 2);
+        //public void GotoAbout() =>
+        //    NavigationService.Navigate(typeof(Views.LoginPage), 2);
 
     }
 }

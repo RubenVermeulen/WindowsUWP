@@ -42,5 +42,13 @@ namespace OpendeurdagApp.Views
             Frame.Navigate(typeof(DegreeCreatePage));
         }
 
+        private void lv_ActivitySelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var a = (Activity)degreesListView.SelectedItem;
+            var json = SerializationService.Json.Serialize(a);
+
+            Frame.Navigate(typeof(ActivityDetailPage), json);
+        }
+
     }
 }
