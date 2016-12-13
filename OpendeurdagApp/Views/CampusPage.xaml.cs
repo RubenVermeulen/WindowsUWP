@@ -45,5 +45,10 @@ namespace OpendeurdagApp.Views
 
             Frame.Navigate(typeof(CampusDetailPage), json);
         }
+
+        private void CreateCampus(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CampusCreatePage));
+        }
     }
 }
