@@ -110,6 +110,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="ViewModels\ActivityCreateViewModel.cs" />
+    <Compile Include="ViewModels\ActivityDetailViewModel.cs" />
+    <Compile Include="ViewModels\ActivityEditPageViewModel.cs" />
     <Compile Include="ViewModels\CampusCreateViewModel.cs" />
     <Compile Include="ViewModels\ActivityPageViewModel.cs" />
     <Compile Include="ViewModels\CampusDetailViewModel.cs" />
@@ -126,6 +128,12 @@
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\ActivityCreatePage.xaml.cs">
       <DependentUpon>ActivityCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ActivityDetailPage.xaml.cs">
+      <DependentUpon>ActivityDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ActivityEditPage.xaml.cs">
+      <DependentUpon>ActivityEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ActivityPage.xaml.cs">
       <DependentUpon>ActivityPage.xaml</DependentUpon>
@@ -202,6 +210,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Views\ActivityCreatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ActivityDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ActivityEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

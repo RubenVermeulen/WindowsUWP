@@ -1,0 +1,109 @@
+﻿<Page
+    x:Class="OpendeurdagApp.Views.ActivityEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OpendeurdagApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:OpendeurdagApp.ViewModels"
+    xmlns:controls="using:Template10.Controls"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <viewModels:ActivityEditPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for narrow view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for normal view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for wide view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <controls:PageHeader x:Name="pageHeader"
+                             RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True"
+                             Text="Activity wijzigen">
+        </controls:PageHeader>
+
+        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="pageHeader">
+
+            <StackPanel Orientation="Vertical" 
+                        HorizontalAlignment="Stretch" 
+                        Style="{StaticResource AppStackPanelMargin}">
+                <TextBlock Text="Activity wijzigen"
+                           Style="{StaticResource SubheaderTextBlockStyle}" />
+
+                <TextBox Text="{Binding Path=ActivityId, Mode=TwoWay}" 
+                         Visibility="Collapsed" />
+
+                <TextBlock Text="Naam"
+                           Style="{StaticResource AppTextBlockMarinTop}"/>
+                <TextBox Text="{Binding Path=Name, Mode=TwoWay}"
+                         Style="{StaticResource AppTextBox}" />
+
+                <TextBlock Text="Locatie" />
+                <TextBox Text="{Binding Path=Location, Mode=TwoWay}"
+                         Style="{StaticResource AppTextBox}" />
+
+                <TextBlock Text="Beschrijving" />
+                <TextBox Text="{Binding Path=Description, Mode=TwoWay}"
+                         Style="{StaticResource AppTextBox}" />
+
+                <TextBlock Text="Startdatum" />
+                <DatePicker  Date="{Binding Path= BeginDate, Mode=TwoWay}"
+                             Style="{StaticResource AppDatePicker}" />
+
+                <TextBlock Text="Starttijd" />
+                <TimePicker Time="{Binding Path= BeginTime, Mode=TwoWay}"
+                            Style="{StaticResource AppTimePicker}"  />
+
+                <TextBlock Text="Einddatum" />
+                <DatePicker Date="{Binding Path= EndDate, Mode=TwoWay}"
+                            Style="{StaticResource AppDatePicker}" />
+
+                <TextBlock Text="Eindtijd" />
+                <TimePicker Time="{Binding Path= EndTime, Mode=TwoWay}"
+                            Style="{StaticResource AppTimePicker}" />
+
+                <Button Content="Activity wijzigen" Click="SaveActivity" />
+            </StackPanel>
+
+        </Grid>
+
+    </RelativePanel>
+
+
+</Page>
