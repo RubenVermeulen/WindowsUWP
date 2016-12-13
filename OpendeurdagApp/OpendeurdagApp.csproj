@@ -129,7 +129,7 @@
     <Compile Include="ViewModels\StudentOverviewPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\ActivityCreatePage.xaml.cs" />
-	<Compile Include="ViewModels\DegreeCreateViewModel.cs" />
+	<Compile Include="ViewModels\DegreeCreateViewModel.cs">
       <DependentUpon>ActivityCreatePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ActivityDetailPage.xaml.cs">
