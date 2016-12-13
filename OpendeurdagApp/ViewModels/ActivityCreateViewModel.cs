@@ -39,8 +39,8 @@ namespace OpendeurdagApp.ViewModels
         private async void SaveActivity(object param)
         {
 
-            /*
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(location) || beginDate == null || endDate == null)
+            
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(location))
             {
                 // Validation message
                 var messageDialog = new MessageDialog("Alle velden moeten ingevuld zijn.", "Opgelet");
@@ -49,7 +49,13 @@ namespace OpendeurdagApp.ViewModels
 
                 return;
             }
-    */        
+
+            if (beginDate == null || endDate == null|| beginTime == null || endTime == null) {
+                beginDate = DateTimeOffset.Now;
+                endDate = DateTimeOffset.Now;
+                beginTime = new TimeSpan();
+                endTime = new TimeSpan();
+            }
 
 
             Activity a = new Activity()
