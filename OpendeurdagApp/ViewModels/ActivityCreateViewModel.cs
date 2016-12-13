@@ -91,6 +91,8 @@ namespace OpendeurdagApp.ViewModels
 
                 // Show the message dialog and get the event that was invoked via the async operator
                 await messageDialog.ShowAsync();
+
+                NavigationService.Navigate(typeof(ActivityView));
             }
         }
 
