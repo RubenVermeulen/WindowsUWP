@@ -37,5 +37,7 @@ namespace OpendeurdagService.Models
         public System.Data.Entity.DbSet<OpendeurdagService.Models.Degree> Degrees { get; set; }
 
         public System.Data.Entity.DbSet<OpendeurdagService.Models.Student> Students { get; set; }
+
+        public System.Data.Entity.DbSet<OpendeurdagService.Models.NewsItem> NewsItems { get; set; }
     }
 }

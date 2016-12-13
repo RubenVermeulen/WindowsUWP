@@ -105,6 +105,7 @@
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Campus.cs" />
     <Compile Include="Models\Degree.cs" />
+    <Compile Include="Models\NewsItem.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="ViewModels\ActivityPageViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusDetailViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusEditPageViewModel.cs" />
+    <Compile Include="ViewModels\NewsItemCreatePageViewModel.cs" />
     <Compile Include="ViewModels\StatisticsPageViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusViewModel.cs" />
     <Compile Include="ViewModels\DegreeDetailViewModel.cs" />
@@ -141,6 +143,9 @@
     </Compile>
     <Compile Include="Views\CampusEditPage.xaml.cs">
       <DependentUpon>CampusEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewsItemCreatePage.xaml.cs">
+      <DependentUpon>NewsItemCreatePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StatisticsPage.xaml.cs">
       <DependentUpon>StatisticsPage.xaml</DependentUpon>
@@ -222,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CampusEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewsItemCreatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
