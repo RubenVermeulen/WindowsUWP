@@ -210,6 +210,7 @@
     <Compile Include="Controllers\CampusesController.cs" />
     <Compile Include="Controllers\DegreesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsItemsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -234,6 +235,10 @@
     <Compile Include="Migrations\201612121708274_UpdatesDateTimeToDateTimeOffSetInActivity.Designer.cs">
       <DependentUpon>201612121708274_UpdatesDateTimeToDateTimeOffSetInActivity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612132123499_AddNewsItemModel.cs" />
+    <Compile Include="Migrations\201612132123499_AddNewsItemModel.Designer.cs">
+      <DependentUpon>201612132123499_AddNewsItemModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -241,6 +246,7 @@
     <Compile Include="Models\Campus.cs" />
     <Compile Include="Models\Degree.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\NewsItem.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -330,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612121708274_UpdatesDateTimeToDateTimeOffSetInActivity.resx">
       <DependentUpon>201612121708274_UpdatesDateTimeToDateTimeOffSetInActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612132123499_AddNewsItemModel.resx">
+      <DependentUpon>201612132123499_AddNewsItemModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

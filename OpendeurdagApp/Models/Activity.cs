@@ -5,18 +5,11 @@ using System.Linq;
 
 namespace OpendeurdagApp.Models
 {
-    public enum ActivityType
-    {
-        Opendeurdag,
-        Infomoment,
-        Extern
-    }
+    
 
     public class Activity
     {
         public int ActivityId { get; set; }
-
-        public ActivityType Type { get; set; }
 
         public string Name { get; set; }
 

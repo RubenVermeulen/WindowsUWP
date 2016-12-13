@@ -20,7 +20,6 @@ namespace OpendeurdagApp.ViewModels
         private HttpClient Client { get; set; }
         public RelayCommand SaveActivityCommand { get; set; }
 
-        private ActivityType? type;
         private string name;
         private string description;
         private string location;
@@ -40,8 +39,8 @@ namespace OpendeurdagApp.ViewModels
         private async void SaveActivity(object param)
         {
 
-            /*
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(location) || beginDate == null || endDate == null)
+            
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(location))
             {
                 // Validation message
                 var messageDialog = new MessageDialog("Alle velden moeten ingevuld zijn.", "Opgelet");
@@ -50,12 +49,18 @@ namespace OpendeurdagApp.ViewModels
 
                 return;
             }
-    */        
+
+            if (beginDate == null || endDate == null|| beginTime == null || endTime == null) {
+                beginDate = DateTimeOffset.Now;
+                endDate = DateTimeOffset.Now;
+                beginTime = new TimeSpan();
+                endTime = new TimeSpan();
+            }
 
 
             Activity a = new Activity()
             {
-                Type = ActivityType.Opendeurdag,
+                
                 Name = name,
                 Description = description,
                 Location = location,
@@ -78,7 +83,7 @@ namespace OpendeurdagApp.ViewModels
                 Name = Description = Location = string.Empty;
                 BeginDate = EndDate  = null;
                 beginTime = endTime = null;
-                Type = null;
+              
 
                 // Create the message dialog and set its content and title
                 var messageDialog = new MessageDialog("De activity is succesvol toegevoegd.", "Activity toegevoegd");
@@ -166,15 +171,7 @@ namespace OpendeurdagApp.ViewModels
 
         }
 
-        public ActivityType? Type {
-            get { return type; }
-
-            set {
-                type = value;
-                RaisePropertyChanged();
-            }
-
-        }
+       
 
     }
 

@@ -87,6 +87,9 @@
                                 <TextBlock Text="{Binding Location}" 
                                        Style="{ThemeResource CaptionTextBlockStyle}" />
                             </StackPanel>
+
+                           
+                            
                             <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
                                 <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
                                 <TextBlock Text="{Binding Description}" 

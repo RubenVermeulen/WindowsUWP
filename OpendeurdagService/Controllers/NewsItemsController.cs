@@ -12,50 +12,49 @@ using OpendeurdagService.Models;
 
 namespace OpendeurdagService.Controllers
 {
-    public class StudentsController : ApiController
+    public class NewsItemsController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public StudentsController()
+        public NewsItemsController()
         {
             db.Configuration.ProxyCreationEnabled = false;
         }
 
-        // GET: api/Students
-        public IQueryable<Student> GetStudents()
+        // GET: api/NewsItems
+        public IQueryable<NewsItem> GetNewsItems()
         {
-            return db.Students.Include(s => s.Campuses).Include(s => s.Degrees);
+            return db.NewsItems.Include(n => n.Campuses).Include(n => n.Degrees);
         }
 
-        // GET: api/Students/5
-        [ResponseType(typeof(Student))]
-        public IHttpActionResult GetStudent(int id)
+        // GET: api/NewsItems/5
+        [ResponseType(typeof(NewsItem))]
+        public IHttpActionResult GetNewsItem(int id)
         {
-            Student student = db.Students.Include(s => s.Campuses).Include(s => s.Degrees).First(s => s.StudentId.Equals(id));
-            if (student == null)
+            NewsItem newsItem = db.NewsItems.Include(n => n.Campuses).Include(n => n.Degrees).First(n => n.NewsItemId == id);
+            if (newsItem == null)
             {
                 return NotFound();
             }
 
-            return Ok(student);
+            return Ok(newsItem);
         }
 
-        // PUT: api/Students/5
+        // PUT: api/NewsItems/5
         [ResponseType(typeof(void))]
-        [Authorize]
-        public IHttpActionResult PutStudent(int id, Student student)
+        public IHttpActionResult PutNewsItem(int id, NewsItem newsItem)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != student.StudentId)
+            if (id != newsItem.NewsItemId)
             {
                 return BadRequest();
             }
 
-            db.Entry(student).State = EntityState.Modified;
+            db.Entry(newsItem).State = EntityState.Modified;
 
             try
             {
@@ -63,7 +62,7 @@ namespace OpendeurdagService.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StudentExists(id))
+                if (!NewsItemExists(id))
                 {
                     return NotFound();
                 }
@@ -76,9 +75,9 @@ namespace OpendeurdagService.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Students
-        [ResponseType(typeof(Student))]
-        public IHttpActionResult PostStudent(Student student)
+        // POST: api/NewsItems
+        [ResponseType(typeof(NewsItem))]
+        public IHttpActionResult PostNewsItem(NewsItem newsItem)
         {
             if (!ModelState.IsValid)
             {
@@ -86,46 +85,45 @@ namespace OpendeurdagService.Controllers
             }
 
             // Has campuses
-            if (student.Campuses.Count != 0)
+            if (newsItem.Campuses.Count != 0)
             {
                 // For some reason Where clause can't use the Campuses property of student
-                var campusIds = student.Campuses.Select(a => a.CampusId).ToList();
+                var campusIds = newsItem.Campuses.Select(a => a.CampusId).ToList();
 
                 var campuses = db.Campus.Where(a => campusIds.Any(b => b == a.CampusId));
-                student.Campuses = campuses.ToList();
+                newsItem.Campuses = campuses.ToList();
             }
 
             // Has degrees
-            if (student.Degrees.Count != 0)
+            if (newsItem.Degrees.Count != 0)
             {
                 // For some reason Where clause can't use the Degrees property of student
-                var degreeIds = student.Degrees.Select(a => a.DegreeId).ToList();
+                var degreeIds = newsItem.Degrees.Select(a => a.DegreeId).ToList();
 
                 var degrees = db.Degrees.Where(a => degreeIds.Any(b => b == a.DegreeId));
-                student.Degrees = degrees.ToList();
+                newsItem.Degrees = degrees.ToList();
             }
 
-            db.Students.Add(student);
+            db.NewsItems.Add(newsItem);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = student.StudentId }, student);
+            return CreatedAtRoute("DefaultApi", new { id = newsItem.NewsItemId }, newsItem);
         }
 
-        // DELETE: api/Students/5
-        [ResponseType(typeof(Student))]
-        [Authorize]
-        public IHttpActionResult DeleteStudent(int id)
+        // DELETE: api/NewsItems/5
+        [ResponseType(typeof(NewsItem))]
+        public IHttpActionResult DeleteNewsItem(int id)
         {
-            Student student = db.Students.Find(id);
-            if (student == null)
+            NewsItem newsItem = db.NewsItems.Find(id);
+            if (newsItem == null)
             {
                 return NotFound();
             }
 
-            db.Students.Remove(student);
+            db.NewsItems.Remove(newsItem);
             db.SaveChanges();
 
-            return Ok(student);
+            return Ok(newsItem);
         }
 
         protected override void Dispose(bool disposing)
@@ -137,9 +135,9 @@ namespace OpendeurdagService.Controllers
             base.Dispose(disposing);
         }
 
-        private bool StudentExists(int id)
+        private bool NewsItemExists(int id)
         {
-            return db.Students.Count(e => e.StudentId == id) > 0;
+            return db.NewsItems.Count(e => e.NewsItemId == id) > 0;
         }
     }
 }

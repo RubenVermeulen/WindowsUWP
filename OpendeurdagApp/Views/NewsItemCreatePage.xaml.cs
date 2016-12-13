@@ -12,10 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Newtonsoft.Json;
 using OpendeurdagApp.Models;
-using Template10.Services.NavigationService;
-using Template10.Services.SerializationService;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,24 +21,35 @@ namespace OpendeurdagApp.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ActivityView : Page
+    public sealed partial class NewsItemCreatePage : Page
     {
-        public ActivityView()
+        public NewsItemCreatePage()
         {
             this.InitializeComponent();
         }
 
-        private void lv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void GvCampuses_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var c = (Activity)lv.SelectedItem;
-            var json = SerializationService.Json.Serialize(c);
+            var selectedCampuses = new List<Campus>();
 
-            Frame.Navigate(typeof(ActivityDetailPage), json);
+            foreach (Campus c in GvCampuses.SelectedItems)
+            {
+                selectedCampuses.Add(c);
+            }
+
+            ViewModel.SelectedCampuses = selectedCampuses;
         }
 
-        private void CreateActivity(object sender, RoutedEventArgs e)
+        private void GvDegrees_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Frame.Navigate(typeof(ActivityCreatePage));
+            var selectedDegrees = new List<Degree>();
+
+            foreach (Degree d in GvDegrees.SelectedItems)
+            {
+                selectedDegrees.Add(d);
+            }
+
+            ViewModel.SelectedDegrees = selectedDegrees;
         }
     }
 }

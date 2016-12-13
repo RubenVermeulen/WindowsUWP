@@ -13,6 +13,9 @@
             <Style TargetType="TextBox" x:Key="AppTextBox">
                 <Setter Property="Margin" Value="0 6 0 12" />
             </Style>
+            <Style TargetType="RichEditBox" x:Key="AppRichEditBox">
+                <Setter Property="Margin" Value="0 6 0 12" />
+            </Style>
             <Style TargetType="DatePicker" x:Key="AppDatePicker">
                 <Setter Property="Margin" Value="0 6 0 12" />
             </Style>
