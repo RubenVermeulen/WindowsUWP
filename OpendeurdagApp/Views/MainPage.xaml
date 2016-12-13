@@ -17,15 +17,15 @@
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <!--<VisualStateManager.VisualStateGroups>
+        <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
                 <VisualState x:Name="VisualStateNarrow">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        --><!--  TODO: change properties for narrow view  --><!--
-                        <Setter Target="stateTextBox.Text" Value="Narrow Visual State" />
+                        <!--  TODO: change properties for narrow view  -->
+
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateNormal">
@@ -33,8 +33,8 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        --><!--  TODO: change properties for normal view  --><!--
-                        <Setter Target="stateTextBox.Text" Value="Normal Visual State" />
+                        <!--  TODO: change properties for normal view  -->
+
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateWide">
@@ -42,12 +42,12 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        --><!--  TODO: change properties for wide view  --><!--
-                        <Setter Target="stateTextBox.Text" Value="Wide Visual State" />
+                        <!--  TODO: change properties for wide view  -->
+
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>-->
+        </VisualStateManager.VisualStateGroups>
 
         <controls:PageHeader x:Name="pageHeader"
                              RelativePanel.AlignLeftWithPanel="True"
@@ -56,12 +56,19 @@
                              Text="Home">
             <!--Background="#0081C9">-->
 
+            <AppBarButton Click="CreateDegree" 
+                          Icon="57609"
+                          Label="Aanmaken" 
+                          Foreground="White"
+                          Visibility="{Binding AuthVisibility}" />
+
             <!--  secondary commands  -->
             <controls:PageHeader.SecondaryCommands>
                 <AppBarButton Click="{x:Bind ViewModel.GotoSettings}" Label="Settings" />
                 <AppBarButton Click="{x:Bind ViewModel.GotoPrivacy}" Label="Privacy" />
                 <AppBarButton Click="{x:Bind ViewModel.GotoAbout}" Label="About" />
             </controls:PageHeader.SecondaryCommands>
+            
 
         </controls:PageHeader>
 

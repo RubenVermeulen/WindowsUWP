@@ -37,5 +37,10 @@ namespace OpendeurdagApp.Views
             Frame.Navigate(typeof(DegreeDetailPage), json);
         }
 
+        private void CreateDegree(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(DegreeCreatePage));
+        }
+
     }
 }
