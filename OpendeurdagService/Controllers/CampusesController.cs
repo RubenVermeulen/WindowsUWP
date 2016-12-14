@@ -24,14 +24,18 @@ namespace OpendeurdagService.Controllers
         // GET: api/Campuses
         public IQueryable<Campus> GetCampus()
         {
-            return db.Campus.Include(c => c.Students).OrderBy(c => c.Name);
+            return db.Campus.Include(c => c.Students)
+                .Include(c => c.NewsItems)
+                .OrderBy(c => c.Name);
         }
 
         // GET: api/Campuses/5
         [ResponseType(typeof(Campus))]
         public IHttpActionResult GetCampus(int id)
         {
-            Campus campus = db.Campus.Include(c => c.Students).First(c => c.CampusId.Equals(id));
+            Campus campus = db.Campus.Include(c => c.Students)
+                .Include(c => c.NewsItems)
+                .First(c => c.CampusId.Equals(id));
             if (campus == null)
             {
                 return NotFound();
