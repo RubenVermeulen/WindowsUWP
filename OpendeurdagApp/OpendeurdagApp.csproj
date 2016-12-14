@@ -101,9 +101,11 @@
     </Compile>
     <Compile Include="Config\Config.cs" />
     <Compile Include="Helper\AuthService.cs" />
+    <Compile Include="Helper\DateTimeOffsetConverter.cs" />
     <Compile Include="Helper\DateToDayConverter.cs" />
     <Compile Include="Helper\DateToMonthConverter.cs" />
     <Compile Include="Helper\RelayCommand.cs" />
+    <Compile Include="Helper\TimeSpanConverter.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Campus.cs" />
     <Compile Include="Models\Degree.cs" />
@@ -120,6 +122,7 @@
     <Compile Include="ViewModels\Campus\CampusDetailViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusEditPageViewModel.cs" />
     <Compile Include="ViewModels\NewsItemCreatePageViewModel.cs" />
+    <Compile Include="ViewModels\NewsItemPageViewModel.cs" />
     <Compile Include="ViewModels\StatisticsPageViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusViewModel.cs" />
     <Compile Include="ViewModels\DegreeDetailViewModel.cs" />
@@ -160,6 +163,9 @@
     </Compile>
     <Compile Include="Views\NewsItemCreatePage.xaml.cs">
       <DependentUpon>NewsItemCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewsItemPage.xaml.cs">
+      <DependentUpon>NewsItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StatisticsPage.xaml.cs">
       <DependentUpon>StatisticsPage.xaml</DependentUpon>
@@ -257,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DegreeCreatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewsItemPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
