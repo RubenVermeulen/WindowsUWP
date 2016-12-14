@@ -247,6 +247,10 @@
     <Compile Include="Migrations\201612141122524_AddRelationActivitiesCampuses.Designer.cs">
       <DependentUpon>201612141122524_AddRelationActivitiesCampuses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612141743480_AddsRegisterdAtToStudent.cs" />
+    <Compile Include="Migrations\201612141743480_AddsRegisterdAtToStudent.Designer.cs">
+      <DependentUpon>201612141743480_AddsRegisterdAtToStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -353,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612141122524_AddRelationActivitiesCampuses.resx">
       <DependentUpon>201612141122524_AddRelationActivitiesCampuses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612141743480_AddsRegisterdAtToStudent.resx">
+      <DependentUpon>201612141743480_AddsRegisterdAtToStudent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

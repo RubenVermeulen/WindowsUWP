@@ -22,5 +22,7 @@ namespace OpendeurdagService.Models
         public virtual ICollection<Campus> Campuses { get; set; }
 
         public virtual ICollection<Degree> Degrees { get; set; }
+
+        public DateTimeOffset RegisterdAt { get; set; }
     }
 }

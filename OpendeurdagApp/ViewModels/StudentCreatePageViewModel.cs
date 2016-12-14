@@ -64,7 +64,8 @@ namespace OpendeurdagApp.ViewModels
                 Telephone = Telephone,
                 Address = Address,
                 Campuses = new List<Campus>(SelectedCampuses),
-                Degrees = new List<Degree>(SelectedDegrees)
+                Degrees = new List<Degree>(SelectedDegrees),
+                RegisterdAt = DateTimeOffset.Now
             };
 
             var httpContent = new StringContent(JsonConvert.SerializeObject(s), Encoding.UTF8, "application/json");
