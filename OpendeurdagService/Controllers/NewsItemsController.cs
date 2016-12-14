@@ -24,7 +24,7 @@ namespace OpendeurdagService.Controllers
         // GET: api/NewsItems
         public IQueryable<NewsItem> GetNewsItems()
         {
-            return db.NewsItems.Include(n => n.Campuses).Include(n => n.Degrees);
+            return db.NewsItems.Include(n => n.Campuses).Include(n => n.Degrees).OrderByDescending(n => n.PublishedAtDate);
         }
 
         // GET: api/NewsItems/5

@@ -42,12 +42,24 @@
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48"
                                 Height="48"
-                                Symbol="Street" />
+                                Symbol="Calendar" />
                     <TextBlock Margin="12,0,0,0"
                                VerticalAlignment="Center"
                                Text="Activiteiten" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:NewsItemPage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Document" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Nieuwsfeed" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
+
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:StudentCreatePage">
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48"
@@ -105,18 +117,6 @@
                     <TextBlock Margin="12,0,0,0"
                                VerticalAlignment="Center"
                                Text="Statistieken" />
-                </StackPanel>
-            </Controls:HamburgerButtonInfo>
-
-            <!-- Create news item -->
-            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:NewsItemCreatePage">
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48"
-                                Height="48"
-                                Symbol="Add" />
-                    <TextBlock Margin="12,0,0,0"
-                               VerticalAlignment="Center"
-                               Text="Niewsitem aanmaken" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
 

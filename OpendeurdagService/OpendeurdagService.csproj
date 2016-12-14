@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201612132123499_AddNewsItemModel.Designer.cs">
       <DependentUpon>201612132123499_AddNewsItemModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612140740244_AddCollectionNewsItemsInDegreeAndCampus.cs" />
+    <Compile Include="Migrations\201612140740244_AddCollectionNewsItemsInDegreeAndCampus.Designer.cs">
+      <DependentUpon>201612140740244_AddCollectionNewsItemsInDegreeAndCampus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -339,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612132123499_AddNewsItemModel.resx">
       <DependentUpon>201612132123499_AddNewsItemModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612140740244_AddCollectionNewsItemsInDegreeAndCampus.resx">
+      <DependentUpon>201612140740244_AddCollectionNewsItemsInDegreeAndCampus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,249 @@
+﻿<Page
+    x:Class="OpendeurdagApp.Views.NewsItemPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:OpendeurdagApp.ViewModels"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:conv="using:OpendeurdagApp.Helper"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Page.DataContext>
+        <viewModels:NewsItemPageViewModel x:Name="ViewModel"/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <conv:DateTimeOffsetConverter x:Name="DateTimeOffsetConverter" />
+        <conv:TimeSpanConverter x:Name="TimeSpanConverter" />
+    </Page.Resources>
+    
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for narrow view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for normal view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for wide view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <controls:PageHeader x:Name="pageHeader"
+                             RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True"
+                             Text="Activiteiten">
+
+            <!--  primary commands  -->
+            <AppBarButton Click="CreateNewsItem" 
+                          Icon="57609"
+                          Label="Aanmaken" 
+                          Foreground="White"
+                          Visibility="{Binding AuthVisibility}" />
+        </controls:PageHeader>
+
+        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="pageHeader">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0" 
+                       Text="Nieuwsfeed"
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       Padding="12 0"/>
+
+            <ListView Grid.Row="1" x:Name="LvNewsItems" ItemsSource="{Binding NewsItems}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Margin="0 12 0 0">
+
+                            <TextBlock Text="{Binding Title}" 
+                                       TextWrapping="Wrap"
+                                       Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+                            <StackPanel Orientation="Horizontal"
+                                        Padding="0 4">
+                                <TextBlock Text="{Binding PublishedAtDate, Converter={StaticResource DateTimeOffsetConverter}}"
+                                           Style="{StaticResource AppTextBlockDateTime}" 
+                                           Margin="0 0 6 0" />
+                                <TextBlock Text="{Binding PublishedAtTime, Converter={StaticResource TimeSpanConverter}}"
+                                           Style="{StaticResource AppTextBlockDateTime}" />
+                            </StackPanel>
+                            
+                            <TextBlock Text="{Binding Content}"
+                                       TextWrapping="Wrap" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+    </RelativePanel>
+
+</Page>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

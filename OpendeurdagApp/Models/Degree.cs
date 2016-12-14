@@ -21,7 +21,10 @@ namespace OpendeurdagApp.Models
         public string ImageUrl { get; set; }
 
         public string FacebookUrl { get; set; }
+
         public string CampusId { get; internal set; }
+
+        public virtual ICollection<NewsItem> NewsItems { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -24,14 +24,18 @@ namespace OpendeurdagService.Controllers
         // GET: api/Degrees
         public IQueryable<Degree> GetDegrees()
         {
-            return db.Degrees.Include(d => d.Students);
+            return db.Degrees.Include(d => d.Students)
+                .Include(d => d.NewsItems)
+                .OrderBy(d => d.Name);
         }
 
         // GET: api/Degrees/5
         [ResponseType(typeof(Degree))]
         public IHttpActionResult GetDegree(int id)
         {
-            Degree degree = db.Degrees.Include(d => d.Students).First(d => d.DegreeId.Equals(id));
+            Degree degree = db.Degrees.Include(d => d.Students)
+                .Include(d => d.NewsItems)
+                .First(d => d.DegreeId.Equals(id));
             if (degree == null)
             {
                 return NotFound();
