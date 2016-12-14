@@ -48,6 +48,18 @@
                                Text="Activiteiten" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:NewsItemPage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="Document" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Nieuwsfeed" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
+
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:StudentCreatePage">
                 <StackPanel Orientation="Horizontal">
                     <SymbolIcon Width="48"
