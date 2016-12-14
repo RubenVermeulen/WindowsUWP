@@ -22,6 +22,13 @@ namespace OpendeurdagService.Controllers
             return db.Activities.OrderBy(a => a.BeginDate);
         }
 
+        // GET: api/NextActivities
+        [Route("api/nextactivities")]
+        public IQueryable<Activity> GetNextActivities()
+        {
+            return db.Activities.OrderBy(a => a.BeginDate).Take(2);
+        }
+
         // GET: api/Activities/5
         [ResponseType(typeof(Activity))]
         public IHttpActionResult GetActivity(int id)

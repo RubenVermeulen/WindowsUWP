@@ -76,7 +76,7 @@ namespace OpendeurdagApp.ViewModels
 
             List<Activity> activitiesHelper = new List<Activity>();
 
-            var jsonActivity = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "activities"));
+            var jsonActivity = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "nextactivities"));
             var dataActivity = JsonConvert.DeserializeObject<List<Activity>>(jsonActivity);
 
             dataActivity.ForEach(Activities.Add);
