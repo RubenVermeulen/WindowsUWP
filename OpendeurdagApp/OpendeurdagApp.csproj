@@ -102,6 +102,8 @@
     <Compile Include="Config\Config.cs" />
     <Compile Include="Helper\AuthService.cs" />
     <Compile Include="Helper\DateTimeOffsetConverter.cs" />
+    <Compile Include="Helper\DateToDayConverter.cs" />
+    <Compile Include="Helper\DateToMonthConverter.cs" />
     <Compile Include="Helper\RelayCommand.cs" />
     <Compile Include="Helper\TimeSpanConverter.cs" />
     <Compile Include="Models\Activity.cs" />

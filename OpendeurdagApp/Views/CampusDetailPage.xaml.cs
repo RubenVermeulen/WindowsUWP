@@ -6,10 +6,12 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Services.Maps;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -47,11 +49,10 @@ namespace OpendeurdagApp.Views
             c = SerializationService.Json.Deserialize(e.Parameter as string) as Campus;
 
             ViewModel.Campus = c;
-
-            LoadMap();
+            
         }
 
-        private async void LoadMap()
+        private async Task<Geopoint> GetDestination()
         {
             // Specify location (converts address to lat and long)
             var result = await MapLocationFinder.FindLocationsAsync(c.Address, null);
@@ -71,6 +72,64 @@ namespace OpendeurdagApp.Views
             };
 
             Map.MapElements.Add(pushpin);
+
+            return location.Point;
+        }
+
+        private async Task<Geopoint> GetCurrentLocation()
+        {
+            var accessStatus = await Geolocator.RequestAccessAsync();
+
+            if (accessStatus != GeolocationAccessStatus.Allowed) return null;
+
+            var geolocator = new Geolocator();
+            var geoposition = await geolocator.GetGeopositionAsync();
+            var geopoint = geoposition.Coordinate.Point;
+
+            // Set map pushpin
+            var pushpin = new MapIcon()
+            {
+                Location = geopoint,
+                NormalizedAnchorPoint = new Point(0.5, 1.0),
+                Title = "Huidige locatie",
+                ZIndex = 0
+            };
+
+            Map.MapElements.Add(pushpin);
+
+            return geopoint;
+        }
+
+        private async void ShowRouteOnMap(object sender, RoutedEventArgs e)
+        {
+            var startLocation = await GetCurrentLocation();
+            var endLocation = await GetDestination();
+
+
+            // Get the route between the points.
+            var routeResult =
+                  await MapRouteFinder.GetDrivingRouteAsync(
+                  startLocation,
+                  endLocation,
+                  MapRouteOptimization.Time,
+                  MapRouteRestrictions.None);
+
+            if (routeResult.Status != MapRouteFinderStatus.Success) return;
+
+            // Use the route to initialize a MapRouteView.
+            var viewOfRoute = new MapRouteView(routeResult.Route);
+            viewOfRoute.RouteColor = Colors.Yellow;
+            viewOfRoute.OutlineColor = Colors.Black;
+
+            // Add the new MapRouteView to the Routes collection
+            // of the MapControl.
+            Map.Routes.Add(viewOfRoute);
+
+            // Fit the MapControl to the route.
+            await Map.TrySetViewBoundsAsync(
+                routeResult.Route.BoundingBox,
+                null,
+                MapAnimationKind.None);
         }
 
         private void EditCampus(object sender, RoutedEventArgs e)

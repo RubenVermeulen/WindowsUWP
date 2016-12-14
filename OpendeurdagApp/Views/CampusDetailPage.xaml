@@ -142,7 +142,9 @@
                                      HorizontalContentAlignment="Stretch"
                                      Height="350"
                                      ZoomInteractionMode="GestureAndControl"
-                                     TiltInteractionMode="GestureAndControl" />
+                                     TiltInteractionMode="GestureAndControl"
+                                     Loaded="ShowRouteOnMap"
+                                     MapServiceToken="DEVNNzgwPaoNwSpEMr2t~6YE_YaKnZ_ikq_CZ4dIUqw~Aqky9sAuUNJh1P_n_T6mR31btREbNxyHZsStp4YkIydfXeJwqt7Kku0KKpKqacme"/>
 
                     <!-- Activities -->
                     <TextBlock Text="Activiteiten" 
