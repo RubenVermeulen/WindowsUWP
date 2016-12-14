@@ -44,7 +44,7 @@ namespace OpendeurdagApp.Views
 
         private void lv_ActivitySelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var a = (Activity)degreesListView.SelectedItem;
+            var a = (Activity)activityListView.SelectedItem;
             var json = SerializationService.Json.Serialize(a);
 
             Frame.Navigate(typeof(ActivityDetailPage), json);
