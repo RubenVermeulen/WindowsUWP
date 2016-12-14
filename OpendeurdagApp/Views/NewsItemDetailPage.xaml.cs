@@ -22,24 +22,24 @@ namespace OpendeurdagApp.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class NewsItemPage : Page
+    public sealed partial class NewsItemDetailPage : Page
     {
-        public NewsItemPage()
+        public NewsItemDetailPage()
         {
             this.InitializeComponent();
         }
 
-        private void CreateNewsItem(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Frame.Navigate(typeof(NewsItemCreatePage));
+            var newsItem = SerializationService.Json.Deserialize(e.Parameter as string) as NewsItem;
+
+            ViewModel.NewsItem = newsItem;
+
         }
 
-        private void lv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DeleteNewsItem(object sender, RoutedEventArgs e)
         {
-            var c = (NewsItem)LvNewsItems.SelectedItem;
-            var json = SerializationService.Json.Serialize(c);
-
-            Frame.Navigate(typeof(NewsItemDetailPage), json);
+            ViewModel.DeleteNewsItem();
         }
     }
 }

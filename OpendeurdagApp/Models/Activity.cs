@@ -25,5 +25,7 @@ namespace OpendeurdagApp.Models
 
         public TimeSpan EndTime { get; set; }
 
+        public virtual ICollection<Campus> Campuses { get; set; }
+
     }
 }
