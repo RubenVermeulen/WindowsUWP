@@ -9,11 +9,17 @@
       xmlns:local="using:OpendeurdagApp.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:OpendeurdagApp.ViewModels"
+      xmlns:conv="using:OpendeurdagApp.Helper" 
       mc:Ignorable="d">
 
     <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
+
+    <Page.Resources>
+        <conv:DateToMonthConverter x:Name="DateToMonthFormatConverter"/>
+        <conv:DateToDayConverter x:Name="DateToDayFormatConverter"/>
+    </Page.Resources>
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -117,33 +123,40 @@
 
             <ScrollViewer>
             <StackPanel Margin="16,16,0,0">
-                <TextBlock Text="Volgend evenement"/>
-
-                <!--<StackPanel DataContext="{Binding NextActivity}">-->
-                <!--<StackPanel>
-                    <TextBlock Text="{x:Bind ViewModel.NextActivity.Name}" 
-                                       Style="{ThemeResource SubheaderTextBlockStyle}" />
-                    <TextBlock Text="{x:Bind ViewModel.NextActivity.Description}" 
-                                       Style="{ThemeResource CaptionTextBlockStyle}" />
-                </StackPanel>-->
-
+                <TextBlock Text="Opkomende evenementen"
+                           Style="{ThemeResource TitleTextBlockStyle}"/>
+                <!--<TextBlock Text="Just a test"  
+                            Style="{ThemeResource CaptionTextBlockStyle}"
+                            Margin="0 -5 0 0"/>-->
                 <ListView x:Name="activityListView" ItemsSource="{Binding Activities}" SelectionChanged="lv_ActivitySelectionChanged" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
-                                <Image Width="180" Source="{Binding ImageUrl}" 
-                                Stretch="UniformToFill"/>
-                                <StackPanel Margin="15 0 0 0">
-                                    <TextBlock Text="{Binding Name}"  
-                                                Style="{ThemeResource SubheaderTextBlockStyle}" />
-                                    <TextBlock Text="{Binding Description}"  
-                                                Style="{ThemeResource CaptionTextBlockStyle}" />
-                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0 8 0 8" VerticalAlignment="Center">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateToDayFormatConverter}}"  
+                                                Style="{ThemeResource TitleTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateToMonthFormatConverter}}"  
+                                                Style="{ThemeResource CaptionTextBlockStyle}"
+                                                Margin="0 -5 0 0"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="15 0 0 0">
+                                        <TextBlock Text="{Binding Name}"  
+                                                    Style="{ThemeResource TitleTextBlockStyle}"
+                                                   Margin="0 -3 0 0"/>
+                                        <TextBlock Text="{Binding Description}"  
+                                                    Style="{ThemeResource CaptionTextBlockStyle}" />
+                                    </StackPanel>
 
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                    <!--<ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Margin" Value="0"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>-->
+                    </ListView>
 
                     <TextBlock Text="Opleidingen" 
                            Style="{ThemeResource HeaderTextBlockStyle}" Margin="0 8 0 8"/>

@@ -26,10 +26,7 @@ namespace OpendeurdagApp.ViewModels
 
         public MainPageViewModel()
         {
-            //if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
-            //{
-            //    Value = "Designtime value";
-            //}
+ 
 
             Client = new HttpClient();
             Degrees = new ObservableCollection<Degree>();
@@ -39,33 +36,7 @@ namespace OpendeurdagApp.ViewModels
             populateCollection();
         }
 
-        //string _Value = "Gas";
-        //public string Value { get { return _Value; } set { Set(ref _Value, value); } }
-
-        //public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
-        //{
-        //    if (suspensionState.Any())
-        //    {
-        //        Value = suspensionState[nameof(Value)]?.ToString();
-        //    }
-        //    await Task.CompletedTask;
-        //}
-
-        //public override async Task OnNavigatedFromAsync(IDictionary<string, object> suspensionState, bool suspending)
-        //{
-        //    if (suspending)
-        //    {
-        //        suspensionState[nameof(Value)] = Value;
-        //    }
-        //    await Task.CompletedTask;
-        //}
-
-        //public override async Task OnNavigatingFromAsync(NavigatingEventArgs args)
-        //{
-        //    args.Cancel = false;
-        //    await Task.CompletedTask;
-        //}
-
+        
         private async void populateCollection()
         {
             var json = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "degrees"));
@@ -80,14 +51,6 @@ namespace OpendeurdagApp.ViewModels
             var dataActivity = JsonConvert.DeserializeObject<List<Activity>>(jsonActivity);
 
             dataActivity.ForEach(Activities.Add);
-            //List<Activity> sortedActivities = activitiesHelper.OrderBy(o => o.BeginDate).ToList();
-
-            //NextActivity = sortedActivities[0];
-            //NextActivity = new Activity(){
-              
-            //   Name = "test",
-            //   Description = "testdescr"
-            //};
         }
 
 
