@@ -24,7 +24,7 @@ namespace OpendeurdagService.Controllers
         // GET: api/Campuses
         public IQueryable<Campus> GetCampus()
         {
-            return db.Campus.Include(c => c.Students);
+            return db.Campus.Include(c => c.Students).OrderBy(c => c.Name);
         }
 
         // GET: api/Campuses/5

@@ -19,7 +19,7 @@ namespace OpendeurdagService.Controllers
         // GET: api/Activities
         public IQueryable<Activity> GetActivities()
         {
-            return db.Activities;
+            return db.Activities.OrderBy(a => a.BeginDate);
         }
 
         // GET: api/Activities/5
