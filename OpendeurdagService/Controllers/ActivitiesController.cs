@@ -16,6 +16,11 @@ namespace OpendeurdagService.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActivitiesController()
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+        }
+
         // GET: api/Activities
         public IQueryable<Activity> GetActivities()
         {
