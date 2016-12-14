@@ -37,11 +37,6 @@ namespace OpendeurdagApp.Views
 
         }
 
-        private void EditNewsItem(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void DeleteNewsItem(object sender, RoutedEventArgs e)
         {
             ViewModel.DeleteNewsItem();

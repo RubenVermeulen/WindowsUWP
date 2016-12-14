@@ -57,15 +57,9 @@
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
-                             Text="{Binding Campus.Name}">
+                             Text="{Binding NewsItem.Title}">
 
             <!--  primary commands  -->
-            <AppBarButton Click="EditNewsItem" 
-                          Icon="57604"
-                          Label="Wijzigen" 
-                          Foreground="White"
-                          Visibility="{Binding AuthVisibility}" />
-
             <AppBarButton Click="DeleteNewsItem" 
                           Icon="57607"
                           Label="Verwijderen" 

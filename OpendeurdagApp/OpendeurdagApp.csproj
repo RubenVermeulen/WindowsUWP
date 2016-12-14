@@ -156,9 +156,7 @@
     <Compile Include="Views\CampusDetailPage.xaml.cs">
       <DependentUpon>CampusDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CampusEditPage.xaml.cs">
-      <DependentUpon>CampusEditPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Views\CampusEditPage.xaml.cs" />
     <Compile Include="Views\DegreeCreatePage.xaml.cs">
       <DependentUpon>DegreeCreatePage.xaml</DependentUpon>
     </Compile>
@@ -259,8 +257,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CampusEditPage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\NewsItemCreatePage.xaml">
       <SubType>Designer</SubType>
