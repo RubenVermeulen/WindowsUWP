@@ -1,0 +1,106 @@
+﻿<Page
+    x:Class="OpendeurdagApp.Views.NewsItemDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:OpendeurdagApp.ViewModels"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:conv="using:OpendeurdagApp.Helper"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <conv:DateTimeOffsetConverter x:Name="DateTimeOffsetConverter" />
+        <conv:TimeSpanConverter x:Name="TimeSpanConverter" />
+    </Page.Resources>
+    
+    <Page.DataContext>
+        <viewModels:NewsItemDetailPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for narrow view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for normal view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  TODO: change properties for wide view  -->
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <controls:PageHeader x:Name="pageHeader"
+                             RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWithPanel="True"
+                             RelativePanel.AlignTopWithPanel="True"
+                             Text="{Binding Campus.Name}">
+
+            <!--  primary commands  -->
+            <AppBarButton Click="EditNewsItem" 
+                          Icon="57604"
+                          Label="Wijzigen" 
+                          Foreground="White"
+                          Visibility="{Binding AuthVisibility}" />
+
+            <AppBarButton Click="DeleteNewsItem" 
+                          Icon="57607"
+                          Label="Verwijderen" 
+                          Foreground="White"
+                          Visibility="{Binding AuthVisibility}" />
+
+        </controls:PageHeader>
+
+        <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True" 
+              RelativePanel.AlignBottomWithPanel="True"
+              RelativePanel.AlignLeftWithPanel="True"
+              RelativePanel.AlignRightWithPanel="True"
+              RelativePanel.Below="pageHeader">
+
+            <StackPanel Orientation="Vertical"
+                        Style="{StaticResource AppStackPanelMargin}">
+                
+                <TextBlock Text="{Binding NewsItem.Title}"
+                           Style="{StaticResource HeaderTextBlockStyle}"/>
+
+                <StackPanel Orientation="Horizontal"
+                            Padding="0 4">
+                    <TextBlock Text="{Binding NewsItem.PublishedAtDate, Converter={StaticResource DateTimeOffsetConverter}}"
+                               Style="{StaticResource AppTextBlockDateTime}" 
+                               Margin="0 0 6 0" />
+                    <TextBlock Text="{Binding NewsItem.PublishedAtTime, Converter={StaticResource TimeSpanConverter}}"
+                               Style="{StaticResource AppTextBlockDateTime}" />
+                </StackPanel>
+
+                <TextBlock Text="{Binding NewsItem.Content}"
+                           TextWrapping="Wrap" />
+
+            </StackPanel>
+
+        </ScrollViewer>
+    </RelativePanel>
+</Page>
+
