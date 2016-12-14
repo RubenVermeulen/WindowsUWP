@@ -78,7 +78,11 @@
 
                 <TextBlock Text="Beschrijving" />
                 <TextBox Text="{Binding Path=Description, Mode=TwoWay}"
-                         Style="{StaticResource AppTextBox}" />
+                         Style="{StaticResource AppTextBox}"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         Height="150"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible" />
                 
                 <TextBlock Text="Startdatum" />
                 <DatePicker  Date="{Binding Path= BeginDate, Mode=TwoWay}"
