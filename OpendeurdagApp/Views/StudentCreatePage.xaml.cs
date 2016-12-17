@@ -29,11 +29,11 @@ namespace OpendeurdagApp.Views
             this.InitializeComponent();
         }
 
-        private void Gv_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void GvCampuses_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedCampuses = new List<Campus>();
 
-            foreach (Campus c in gv.SelectedItems)
+            foreach (Campus c in GvCampuses.SelectedItems)
             {
                 selectedCampuses.Add(c);
             }

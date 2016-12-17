@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace OpendeurdagApp.Models
 {
-    public class Student
+    public class Student: INotifyPropertyChanged
     {
         public int StudentId { get; set; }
 
@@ -23,5 +25,12 @@ namespace OpendeurdagApp.Models
         public virtual ICollection<Degree> Degrees { get; set; }
 
         public DateTimeOffset RegisterdAt { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
