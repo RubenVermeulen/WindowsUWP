@@ -26,6 +26,7 @@ namespace OpendeurdagService.Controllers
         {
             return db.Degrees.Include(d => d.Students)
                 .Include(d => d.NewsItems)
+                .Include(d => d.Campuses)
                 .OrderBy(d => d.Name);
         }
 
@@ -35,6 +36,7 @@ namespace OpendeurdagService.Controllers
         {
             Degree degree = db.Degrees.Include(d => d.Students)
                 .Include(d => d.NewsItems)
+                .Include(d => d.Campuses)
                 .First(d => d.DegreeId.Equals(id));
             if (degree == null)
             {

@@ -27,6 +27,7 @@ namespace OpendeurdagService.Controllers
             return db.Campus.Include(c => c.Students)
                 .Include(c => c.NewsItems)
                 .Include(c => c.Activities)
+                .Include(c => c.Degrees)
                 .OrderBy(c => c.Name);
         }
 
@@ -37,6 +38,7 @@ namespace OpendeurdagService.Controllers
             Campus campus = db.Campus.Include(c => c.Students)
                 .Include(c => c.NewsItems)
                 .Include(c => c.Activities)
+                .Include(c => c.Degrees)
                 .First(c => c.CampusId.Equals(id));
             if (campus == null)
             {

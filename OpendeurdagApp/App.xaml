@@ -14,6 +14,9 @@
             <Style TargetType="TextBox" x:Key="AppTextBox">
                 <Setter Property="Margin" Value="0 6 0 12" />
             </Style>
+            <Style TargetType="TextBlock" x:Key="AppTextBlock">
+                <Setter Property="Margin" Value="0 12" />
+            </Style>
             <Style TargetType="TextBlock" x:Key="AppTextBlockDateTime">
                 <Setter Property="Foreground" Value="Gray" />
                 <Setter Property="FontSize" Value="12" />

@@ -49,7 +49,9 @@ namespace OpendeurdagApp.Views
             c = SerializationService.Json.Deserialize(e.Parameter as string) as Campus;
 
             ViewModel.Campus = c;
-            
+            ViewModel.ActivitiesIsEmpty = c.Activities.Count != 0 ? "Collapsed" : "Visible";
+            ViewModel.NewsIsEmpty = c.NewsItems.Count != 0 ? "Collapsed" : "Visible";
+            ViewModel.DegreesIsEmpty = c.Degrees.Count != 0 ? "Collapsed" : "Visible";
         }
 
         private async Task<Geopoint> GetDestination()

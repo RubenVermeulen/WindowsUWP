@@ -113,6 +113,10 @@
                     <TextBlock Text="Nieuws"
                                Style="{StaticResource SubheaderTextBlockStyle}" />
 
+                    <TextBlock Text="Er is geen nieuws voor deze campus." 
+                               Visibility="{Binding NewsIsEmpty}"
+                               Style="{StaticResource AppTextBlock}" />
+                    
                     <ListView ItemsSource="{Binding Campus.NewsItems}">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
@@ -133,6 +137,22 @@
                         </ListView.ItemTemplate>
                     </ListView>
 
+                    <!-- Activities -->
+                    <TextBlock Text="Activiteiten" 
+                               Style="{ThemeResource SubheaderTextBlockStyle}" />
+
+                    <TextBlock Text="Er zijn geen activiteiten voor deze campus." 
+                               Visibility="{Binding ActivitiesIsEmpty}"
+                               Style="{StaticResource AppTextBlock}" />
+
+                    <!-- Opleidingen -->
+                    <TextBlock Text="Opleidingen" 
+                               Style="{ThemeResource SubheaderTextBlockStyle}" />
+
+                    <TextBlock Text="Er zijn geen opleidingen voor deze campus." 
+                               Visibility="{Binding ActivitiesIsEmpty}"
+                               Style="{StaticResource AppTextBlock}" />
+
                     <!-- Map -->
                     <TextBlock Text="Routebeschrijving"
                                Style="{StaticResource SubheaderTextBlockStyle}" />
@@ -146,17 +166,10 @@
                                      Loaded="ShowRouteOnMap"
                                      MapServiceToken="DEVNNzgwPaoNwSpEMr2t~6YE_YaKnZ_ikq_CZ4dIUqw~Aqky9sAuUNJh1P_n_T6mR31btREbNxyHZsStp4YkIydfXeJwqt7Kku0KKpKqacme"/>
 
-                    <!-- Activities -->
-                    <TextBlock Text="Activiteiten" 
-                               Style="{ThemeResource SubheaderTextBlockStyle}" />
-
-                    <!-- Opleidingen -->
-                    <TextBlock Text="Opleidingen" 
-                               Style="{ThemeResource SubheaderTextBlockStyle}" />
-
                 </StackPanel>
             </Grid>
 
         </ScrollViewer>
     </RelativePanel>
 </Page>
+
