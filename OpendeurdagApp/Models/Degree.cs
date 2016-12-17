@@ -26,6 +26,8 @@ namespace OpendeurdagApp.Models
 
         public virtual ICollection<NewsItem> NewsItems { get; set; }
 
+        public virtual ICollection<Campus> Campuses { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")

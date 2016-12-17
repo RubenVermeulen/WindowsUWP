@@ -1,6 +1,7 @@
 ﻿using OpendeurdagApp.Helper;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -19,6 +20,8 @@ namespace OpendeurdagApp.ViewModels
     {
         private HttpClient Client { get; set; }
         public RelayCommand SaveDegreeCommand { get; set; }
+        public ObservableCollection<Campus> Campuses { get; set; }
+        public List<Campus> SelectedCampuses { get; set; }
 
         private string name;
         private string description;
@@ -30,6 +33,10 @@ namespace OpendeurdagApp.ViewModels
         {
             Client = new HttpClient();
             SaveDegreeCommand = new RelayCommand(SaveDegree);
+            Campuses = new ObservableCollection<Campus>();
+            SelectedCampuses = new List<Campus>();
+
+            PopulateCampuses();
         }
 
         private async void SaveDegree(object param)
@@ -44,13 +51,14 @@ namespace OpendeurdagApp.ViewModels
                 return;
             }
 
-            Degree degree = new Degree()
+            var degree = new Degree()
             {
                 Name = name,
                 SmallDescription = smallDescription,
                 Description = description,
                 ImageUrl = imageUrl,
-                FacebookUrl = facebookUrl
+                FacebookUrl = facebookUrl,
+                Campuses = SelectedCampuses
             };
 
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
@@ -79,6 +87,14 @@ namespace OpendeurdagApp.ViewModels
                 NavigationService.Navigate(typeof(MainPage));
             }
 
+        }
+
+        private async void PopulateCampuses()
+        {
+            var json = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "campuses"));
+            var data = JsonConvert.DeserializeObject<List<Campus>>(json);
+
+            data.ForEach(Campuses.Add);
         }
 
         public string Name

@@ -1,6 +1,7 @@
 ﻿using OpendeurdagApp.Helper;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -19,6 +20,8 @@ namespace OpendeurdagApp.ViewModels
     {
         private HttpClient Client { get; set; }
         public RelayCommand SaveActivityCommand { get; set; }
+        public ObservableCollection<Campus> Campuses { get; set; }
+        public List<Campus> SelectedCampuses { get; set; }
 
         private string name;
         private string description;
@@ -33,7 +36,10 @@ namespace OpendeurdagApp.ViewModels
         public ActivityCreateViewModel() {
             Client = new HttpClient();
             SaveActivityCommand = new RelayCommand(SaveActivity);
+            Campuses = new ObservableCollection<Campus>();
+            SelectedCampuses = new List<Campus>();
 
+            PopulateCampuses();
         }
 
         private async void SaveActivity(object param)
@@ -58,7 +64,7 @@ namespace OpendeurdagApp.ViewModels
             }
 
 
-            Activity a = new Activity()
+            var a = new Activity()
             {
                 
                 Name = name,
@@ -67,7 +73,8 @@ namespace OpendeurdagApp.ViewModels
                 BeginDate = (DateTimeOffset) beginDate,
                 BeginTime = (TimeSpan) beginTime,
                 EndDate = (DateTimeOffset) endDate,
-                EndTime = (TimeSpan) endTime
+                EndTime = (TimeSpan) endTime,
+                Campuses = SelectedCampuses
             };
 
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AuthService.User.AccessToken);
@@ -101,7 +108,15 @@ namespace OpendeurdagApp.ViewModels
             }
         }
 
-              public string Name
+        private async void PopulateCampuses()
+        {
+            var json = await Client.GetStringAsync(new Uri(Config.Config.BaseUrlApi + "campuses"));
+            var data = JsonConvert.DeserializeObject<List<Campus>>(json);
+
+            data.ForEach(Campuses.Add);
+        }
+
+        public string Name
         {
             get { return name; }
             set

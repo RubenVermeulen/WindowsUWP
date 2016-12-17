@@ -74,7 +74,11 @@
 
                 <TextBlock Text="Inhoud" />
                 <TextBox Text="{Binding Path=Content, Mode=TwoWay}"
-                             Style="{StaticResource AppTextBox}" />
+                         Style="{StaticResource AppTextBox}"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         Height="150"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"/>
 
                 <TextBlock Text="Publicatiedatum" />
                 <DatePicker  Date="{Binding Path=PublishedAtTime, Mode=TwoWay}"
