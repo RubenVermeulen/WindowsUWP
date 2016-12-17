@@ -80,14 +80,6 @@
                          Height="150"
                          ScrollViewer.VerticalScrollBarVisibility="Visible"/>
 
-                <TextBlock Text="Publicatiedatum" />
-                <DatePicker  Date="{Binding Path=PublishedAtTime, Mode=TwoWay}"
-                             Style="{StaticResource AppDatePicker}" />
-
-                <TextBlock Text="Publicatietijdstip" />
-                <TimePicker Time="{Binding Path=PublishedAtTime, Mode=TwoWay}"
-                            Style="{StaticResource AppTimePicker}" />
-
                 <TextBlock Text="Op welke campus(sen) mag het nieuws gepost worden?" />
                 <GridView x:Name="GvCampuses" ItemsSource="{Binding Campuses}"
                              SelectionMode="Multiple" 

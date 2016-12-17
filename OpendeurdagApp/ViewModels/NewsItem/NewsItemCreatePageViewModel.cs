@@ -38,7 +38,7 @@ namespace OpendeurdagApp.ViewModels
             SelectedCampuses = new List<Campus>();
             SelectedDegrees = new List<Degree>();
             PublishedAtDate =  DateTimeOffset.Now;
-            PublishedAtTime = TimeSpan.Zero;
+            PublishedAtTime = DateTime.Now.TimeOfDay;
 
             PopulateCampuses();
             PopulateDegrees();
