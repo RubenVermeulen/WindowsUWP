@@ -111,16 +111,10 @@
                     <TextBlock Text="{Binding Activity.Description}" 
                                Style="{ThemeResource CaptionTextBlockStyle}" />
 
-
-                    <TextBlock Text="Location" 
-                                Style="{ThemeResource SubtitleTextBlockStyle}" />
-
-                    <TextBlock Text="{Binding Activity.Location}" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-
-                    
-
-                    <TextBlock Text="Begin" 
+                  
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Begin" 
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" 
                             Padding=" 0 0 8 0" >
@@ -146,6 +140,15 @@
                                            Style="{StaticResource AppTextBlockDateTime}" />
 
 
+                    </StackPanel>
+                </StackPanel>
+                        <StackPanel Orientation="Vertical" Padding=" 120 0 0 0">
+                        <TextBlock Text="Location" 
+                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+                        <TextBlock Text="{Binding Activity.Location}" 
+                               Style="{ThemeResource CaptionTextBlockStyle}" />
+                    </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

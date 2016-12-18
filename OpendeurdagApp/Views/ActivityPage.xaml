@@ -98,39 +98,45 @@
                                 <TextBlock Text="{Binding Description}" 
                                Style="{ThemeResource CaptionTextBlockStyle}" />
 
+                                <StackPanel Orientation="Horizontal">
 
-                                <TextBlock Text="Location" 
+                                    <StackPanel Orientation="Vertical" >
+                                        <TextBlock Text="Begin" 
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
-
-                                <TextBlock Text="{Binding Location}" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-
-
-
-                                <TextBlock Text="Begin" 
-                                Style="{ThemeResource SubtitleTextBlockStyle}" />
-                                <StackPanel Orientation="Horizontal" 
+                                        <StackPanel Orientation="Horizontal" 
                             Padding=" 0 0 8 0" >
 
-                                    <TextBlock Text="{Binding BeginTime, Converter={StaticResource TimeSpanConverter}}"
+                                            <TextBlock Text="{Binding BeginTime, Converter={StaticResource TimeSpanConverter}}"
                                            Style="{StaticResource AppTextBlockDateTime}"
                                            Margin="0 0 35 0"/>
 
-                                    <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateTimeOffsetConverter}}"
+                                            <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateTimeOffsetConverter}}"
                                            Style="{StaticResource AppTextBlockDateTime}" />
-                                </StackPanel>
+                                        </StackPanel>
 
-                                <TextBlock Text="Einde" 
+                                        <TextBlock Text="Einde" 
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
-                                <StackPanel Orientation="Horizontal" 
+                                        <StackPanel Orientation="Horizontal" 
                             Padding="0 0 8 0" >
 
-                                    <TextBlock Text="{Binding EndTime, Converter={StaticResource TimeSpanConverter}}"
+                                            <TextBlock Text="{Binding EndTime, Converter={StaticResource TimeSpanConverter}}"
                                            Style="{StaticResource AppTextBlockDateTime}"
                                            Margin="0 0 35 0"    />
 
-                                    <TextBlock Text="{Binding EndDate, Converter={StaticResource DateTimeOffsetConverter}}"
+                                            <TextBlock Text="{Binding EndDate, Converter={StaticResource DateTimeOffsetConverter}}"
                                            Style="{StaticResource AppTextBlockDateTime}" />
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Vertical" Padding=" 120 0 0 0">
+                                        <TextBlock Text="Location" 
+                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+                                    <TextBlock Text="{Binding Location}" 
+                               Style="{ThemeResource CaptionTextBlockStyle}" />
+                                    </StackPanel>
+
+                                   
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
