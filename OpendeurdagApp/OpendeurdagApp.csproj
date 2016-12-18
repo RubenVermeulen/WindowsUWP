@@ -132,9 +132,6 @@
     <Compile Include="ViewModels\NewsItem\NewsItemPageViewModel.cs" />
     <Compile Include="ViewModels\Statictic\StatisticsPageViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusTourViewModel.cs" />
-    <Compile Include="ViewModels\NewsItemCreatePageViewModel.cs" />
-    <Compile Include="ViewModels\NewsItemPageViewModel.cs" />
-    <Compile Include="ViewModels\StatisticsPageViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusViewModel.cs" />
     <Compile Include="ViewModels\Degree\DegreeDetailViewModel.cs" />
     <Compile Include="ViewModels\Degree\DegreeEditViewModel.cs" />
