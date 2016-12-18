@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using OpendeurdagApp.Models;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -35,6 +36,18 @@ namespace OpendeurdagApp.Views
                     Frame.GetNavigationService().Navigate(typeof(MainPage));
                 }
             };
+        }
+
+        private void GvCampuses_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedCampuses = new List<Campus>();
+
+            foreach (Campus c in GvCampuses.SelectedItems)
+            {
+                selectedCampuses.Add(c);
+            }
+
+            ViewModel.SelectedCampuses = selectedCampuses;
         }
     }
 }

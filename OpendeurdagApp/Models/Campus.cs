@@ -20,6 +20,10 @@ namespace OpendeurdagApp.Models
 
         public virtual ICollection<NewsItem> NewsItems { get; set; }
 
+        public virtual ICollection<Activity> Activities { get; set; }
+
+        public virtual ICollection<Degree> Degrees { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")

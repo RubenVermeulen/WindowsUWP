@@ -16,24 +16,33 @@ namespace OpendeurdagService.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActivitiesController()
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+        }
+
         // GET: api/Activities
         public IQueryable<Activity> GetActivities()
         {
-            return db.Activities.OrderBy(a => a.BeginDate);
+            return db.Activities.Include(a => a.Campuses)
+                .OrderBy(a => a.BeginDate);
         }
 
         // GET: api/NextActivities
         [Route("api/nextactivities")]
         public IQueryable<Activity> GetNextActivities()
         {
-            return db.Activities.OrderBy(a => a.BeginDate).Take(2);
+            return db.Activities.Include(a => a.Campuses)
+                .OrderBy(a => a.BeginDate).Take(2);
         }
 
         // GET: api/Activities/5
         [ResponseType(typeof(Activity))]
         public IHttpActionResult GetActivity(int id)
         {
-            Activity activity = db.Activities.Find(id);
+            Activity activity = db.Activities.Include(a => a.Campuses)
+                .First(a => a.ActivityId.Equals(id));
+
             if (activity == null)
             {
                 return NotFound();
@@ -86,6 +95,16 @@ namespace OpendeurdagService.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            // Has campuses
+            if (activity.Campuses.Count != 0)
+            {
+                // For some reason Where clause can't use the Campuses property of student
+                var campusIds = activity.Campuses.Select(a => a.CampusId).ToList();
+
+                var campuses = db.Campus.Where(a => campusIds.Any(b => b == a.CampusId));
+                activity.Campuses = campuses.ToList();
             }
 
             db.Activities.Add(activity);

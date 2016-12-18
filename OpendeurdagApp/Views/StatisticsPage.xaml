@@ -68,6 +68,55 @@
                             Style="{StaticResource HeaderTextBlockStyle}"
                    Padding="12" />
 
+                <TextBlock Text="Studenten"
+                       Style="{StaticResource SubheaderTextBlockStyle}"
+                       Padding="12" />
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" 
+                                Orientation="Vertical">
+                        <TextBlock Text="Laatste 24 uur"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding StudentsDay.Count}"
+                                       Style="{StaticResource SubheaderTextBlockStyle}"
+                                       HorizontalAlignment="Center" />
+                        <TextBlock Text="studenten geregistreerd"
+                                   TextWrapping="Wrap"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" 
+                                Orientation="Vertical">
+                        <TextBlock Text="Laatste week"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding StudentsWeek.Count}"
+                                   Style="{StaticResource SubheaderTextBlockStyle}"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock Text="studenten geregistreerd"
+                                   TextWrapping="Wrap"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" 
+                                Orientation="Vertical">
+                        <TextBlock Text="Totaal"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Students.Count}"
+                                   Style="{StaticResource SubheaderTextBlockStyle}"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock Text="studenten geregistreerd"
+                                   TextWrapping="Wrap"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Grid>
+
                 <TextBlock Text="Campussen"
                        Style="{StaticResource SubheaderTextBlockStyle}"
                        Padding="12" />
@@ -92,7 +141,8 @@
                                        Style="{StaticResource SubheaderTextBlockStyle}"
                                        HorizontalAlignment="Center" />
                                     <TextBlock Text="studenten hebben interesse"
-                                       HorizontalAlignment="Center" />
+                                               TextWrapping="Wrap"
+                                               HorizontalAlignment="Center" />
                                 </StackPanel>
                             </DataTemplate>
                         </GridView.ItemTemplate>
@@ -124,7 +174,8 @@
                                        Style="{StaticResource SubheaderTextBlockStyle}"
                                        HorizontalAlignment="Center" />
                                     <TextBlock Text="studenten hebben interesse"
-                                       HorizontalAlignment="Center" />
+                                               TextWrapping="Wrap"
+                                               HorizontalAlignment="Center" />
                                 </StackPanel>
                             </DataTemplate>
                         </GridView.ItemTemplate>

@@ -6,13 +6,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:OpendeurdagApp.ViewModels"
     xmlns:controls="using:Template10.Controls"
+    xmlns:conv="using:OpendeurdagApp.Helper"
     mc:Ignorable="d"
+    xmlns:conver="using:OpendeurdagApp.Helper"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
     <Page.DataContext>
         <viewModels:ActivityPageViewModel x:Name="ViewModel"/>
     </Page.DataContext>
+
+    <Page.Resources>
+        <conver:DateTimeOffsetConverter x:Name="DateTimeOffsetConverter" />
+        <conv:TimeSpanConverter x:Name="TimeSpanConverter" />
+    </Page.Resources>
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -80,40 +87,57 @@
                         <StackPanel Orientation="Vertical" Margin="0 12 0 0">
 
                             <TextBlock Text="{Binding Name}" 
-                                       Style="{ThemeResource SubheaderTextBlockStyle}" />
+                           Style="{ThemeResource SubheaderTextBlockStyle}" />
 
-                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
-                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
-                                <TextBlock Text="{Binding Location}" 
-                                       Style="{ThemeResource CaptionTextBlockStyle}" />
-                            </StackPanel>
+                            <StackPanel Orientation="Vertical" 
+                            Padding=" 0 0 0 8">
 
-                           
-                            
-                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
-                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
+                                <TextBlock Text="Description" 
+                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+
                                 <TextBlock Text="{Binding Description}" 
-                                       Style="{ThemeResource CaptionTextBlockStyle}" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
-                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
-                                <TextBlock Text="{Binding BeginDate}" 
-                                       Style="{ThemeResource CaptionTextBlockStyle}" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
-                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
-                                <TextBlock Text="{Binding BeginTime}" 
-                                       Style="{ThemeResource CaptionTextBlockStyle}" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
-                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
-                                <TextBlock Text="{Binding EndDate}" 
-                                       Style="{ThemeResource CaptionTextBlockStyle}" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Padding=" 0 8 0 8">
-                                <TextBlock Text="&#xE81D;" FontFamily="Segoe MDL2 Assets" Padding="0 0 8 0" />
-                                <TextBlock Text="{Binding EndTime}" 
-                                       Style="{ThemeResource CaptionTextBlockStyle}" />
+                               Style="{ThemeResource CaptionTextBlockStyle}" />
+
+                                <StackPanel Orientation="Horizontal">
+
+                                    <StackPanel Orientation="Vertical" >
+                                        <TextBlock Text="Begin" 
+                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+                                        <StackPanel Orientation="Horizontal" 
+                            Padding=" 0 0 8 0" >
+
+                                            <TextBlock Text="{Binding BeginTime, Converter={StaticResource TimeSpanConverter}}"
+                                           Style="{StaticResource AppTextBlockDateTime}"
+                                           Margin="0 0 35 0"/>
+
+                                            <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateTimeOffsetConverter}}"
+                                           Style="{StaticResource AppTextBlockDateTime}" />
+                                        </StackPanel>
+
+                                        <TextBlock Text="Einde" 
+                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+                                        <StackPanel Orientation="Horizontal" 
+                            Padding="0 0 8 0" >
+
+                                            <TextBlock Text="{Binding EndTime, Converter={StaticResource TimeSpanConverter}}"
+                                           Style="{StaticResource AppTextBlockDateTime}"
+                                           Margin="0 0 35 0"    />
+
+                                            <TextBlock Text="{Binding EndDate, Converter={StaticResource DateTimeOffsetConverter}}"
+                                           Style="{StaticResource AppTextBlockDateTime}" />
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Vertical" Padding=" 120 0 0 0">
+                                        <TextBlock Text="Location" 
+                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+                                    <TextBlock Text="{Binding Location}" 
+                               Style="{ThemeResource CaptionTextBlockStyle}" />
+                                    </StackPanel>
+
+                                   
+                                </StackPanel>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

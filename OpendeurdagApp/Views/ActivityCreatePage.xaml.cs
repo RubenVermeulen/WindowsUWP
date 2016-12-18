@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using OpendeurdagApp.Helper;
+using OpendeurdagApp.Models;
 using Template10.Utils;
 
 
@@ -36,6 +37,18 @@ namespace OpendeurdagApp.Views
                     Frame.GetNavigationService().Navigate(typeof(ActivityView));
                 }
             };
+        }
+
+        private void GvCampuses_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedCampuses = new List<Campus>();
+
+            foreach (Campus c in GvCampuses.SelectedItems)
+            {
+                selectedCampuses.Add(c);
+            }
+
+            ViewModel.SelectedCampuses = selectedCampuses;
         }
     }
 }

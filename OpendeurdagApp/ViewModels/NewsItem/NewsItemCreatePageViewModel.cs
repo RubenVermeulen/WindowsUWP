@@ -10,6 +10,8 @@ using Windows.UI.Popups;
 using Newtonsoft.Json;
 using OpendeurdagApp.Helper;
 using OpendeurdagApp.Models;
+using OpendeurdagApp.Views;
+using Template10.Services.NavigationService;
 
 namespace OpendeurdagApp.ViewModels
 {
@@ -36,7 +38,7 @@ namespace OpendeurdagApp.ViewModels
             SelectedCampuses = new List<Campus>();
             SelectedDegrees = new List<Degree>();
             PublishedAtDate =  DateTimeOffset.Now;
-            PublishedAtTime = TimeSpan.Zero;
+            PublishedAtTime = DateTime.Now.TimeOfDay;
 
             PopulateCampuses();
             PopulateDegrees();
@@ -70,12 +72,7 @@ namespace OpendeurdagApp.ViewModels
             var result = await Client.PostAsync(new Uri(Config.Config.BaseUrlApi + "newsitems"), httpContent);
             var status = result.StatusCode;
 
-            if (status != HttpStatusCode.Created) return;
-
-            // Remove values from all fields
-            Title = Content = string.Empty;
-            SelectedCampuses = new List<Campus>();
-            SelectedDegrees = new List<Degree>();
+            if (status != HttpStatusCode.Created) return;            
 
             // Create the message dialog and set its content and title
             var mdSuccess = new MessageDialog("Het nieuwsitem is succesvol aangemaakt.", "Nieuwsitem aangemaakt");
@@ -89,6 +86,7 @@ namespace OpendeurdagApp.ViewModels
             // Show the message dialog and get the event that was invoked via the async operator
             await mdSuccess.ShowAsync();
 
+            NavigationService.Navigate(typeof(NewsItemPage));
         }
 
         private async void PopulateCampuses()

@@ -12,8 +12,14 @@
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       mc:Ignorable="d">
 
+    <!-- 
+    AccentColor overwrites HamburgerBackground in default style.
+    So to change the hamburger menu background, you have to change
+    the AccentColor.
+    -->
     <Controls:HamburgerMenu x:Name="MyHamburgerMenu"
-                             HamburgerBackground="#0081C9">
+                            HamburgerBackground="#0081C9"
+                            AccentColor="#0081C5">
 
         <Controls:HamburgerMenu.PrimaryButtons>
             <!--  mainpage button  -->

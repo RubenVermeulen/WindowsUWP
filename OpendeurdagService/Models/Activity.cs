@@ -33,5 +33,7 @@ namespace OpendeurdagService.Models
         public TimeSpan BeginTime { get; set; }
 
         public TimeSpan EndTime { get; set; }
+
+        public virtual ICollection<Campus> Campuses { get; set; }
     }
 }
