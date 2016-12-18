@@ -101,6 +101,11 @@
     </Compile>
     <Compile Include="Config\Config.cs" />
     <Compile Include="Helper\AuthService.cs" />
+    <Compile Include="Helper\Carousel\CarouselView.cs" />
+    <Compile Include="Helper\Carousel\CarouselViewItem.cs" />
+    <Compile Include="Helper\Carousel\CarouselViewItemClickEventArgs.cs" />
+    <Compile Include="Helper\Carousel\DependencyObjectExtend.cs" />
+    <Compile Include="Helper\Carousel\ICarouselViewItemSource.cs" />
     <Compile Include="Helper\DateTimeOffsetConverter.cs" />
     <Compile Include="Helper\DateToDayConverter.cs" />
     <Compile Include="Helper\DateToMonthConverter.cs" />
@@ -108,6 +113,7 @@
     <Compile Include="Helper\TimeSpanConverter.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Campus.cs" />
+    <Compile Include="Models\CarouselItemSource.cs" />
     <Compile Include="Models\Degree.cs" />
     <Compile Include="Models\NewsItem.cs" />
     <Compile Include="Models\Student.cs" />
@@ -121,6 +127,7 @@
     <Compile Include="ViewModels\ActivityPageViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusDetailViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusEditPageViewModel.cs" />
+    <Compile Include="ViewModels\Campus\CampusTourViewModel.cs" />
     <Compile Include="ViewModels\NewsItemCreatePageViewModel.cs" />
     <Compile Include="ViewModels\NewsItemPageViewModel.cs" />
     <Compile Include="ViewModels\StatisticsPageViewModel.cs" />
@@ -157,6 +164,9 @@
     </Compile>
     <Compile Include="Views\CampusEditPage.xaml.cs">
       <DependentUpon>CampusEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CampusTourPage.xaml.cs">
+      <DependentUpon>CampusTourPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DegreeCreatePage.xaml.cs">
       <DependentUpon>DegreeCreatePage.xaml</DependentUpon>
@@ -221,6 +231,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Helper\Carousel\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\Custom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -255,6 +269,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CampusEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CampusTourPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

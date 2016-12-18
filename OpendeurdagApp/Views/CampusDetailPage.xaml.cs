@@ -84,5 +84,12 @@ namespace OpendeurdagApp.Views
         {
             ViewModel.DeleteCampus();
         }
+
+        private void StartTour(object sender, RoutedEventArgs e)
+        {
+            var json = SerializationService.Json.Serialize(c);
+
+            Frame.Navigate(typeof(CampusTourPage), json);
+        }
     }
 }
