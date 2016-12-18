@@ -6,7 +6,6 @@ Open Package Manager Console (Tools -> NuGet Package Manager -> Package Manager 
 Execute following commands:
 
 ```
-Enable-Migrations
 Update-Database
 ```
 
