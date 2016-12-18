@@ -7,12 +7,18 @@
     xmlns:viewModels="using:OpendeurdagApp.ViewModels"
     xmlns:controls="using:Template10.Controls"
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:conv="using:OpendeurdagApp.Helper"
     mc:Ignorable="d">
 
     <Page.DataContext>
         <viewModels:CampusDetailViewModel x:Name="ViewModel" />
     </Page.DataContext>
 
+    <Page.Resources>
+        <conv:DateToMonthConverter x:Name="DateToMonthFormatConverter"/>
+        <conv:DateToDayConverter x:Name="DateToDayFormatConverter"/>
+    </Page.Resources>
+    
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <VisualStateManager.VisualStateGroups>
@@ -117,7 +123,10 @@
                                Visibility="{Binding NewsIsEmpty}"
                                Style="{StaticResource AppTextBlock}" />
                     
-                    <ListView ItemsSource="{Binding Campus.NewsItems}">
+                    <ListView x:Name="Lv_NewsItems" 
+                              ItemsSource="{Binding Campus.NewsItems}"
+                              SelectionChanged="Lv_NewsItems_OnSelectionChanged"
+                              Style="{StaticResource AppListView}">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="Padding" Value="0 6"></Setter>
@@ -145,14 +154,65 @@
                                Visibility="{Binding ActivitiesIsEmpty}"
                                Style="{StaticResource AppTextBlock}" />
 
+                    <ListView x:Name="Lv_Activities" 
+                              ItemsSource="{Binding Campus.Activities}"
+                              SelectionChanged="Lv_Activities_OnSelectionChanged"
+                              Style="{StaticResource AppListView}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Padding" Value="0 6"></Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="0 8 0 8" VerticalAlignment="Center">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateToDayFormatConverter}}"  
+                                                Style="{ThemeResource TitleTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateToMonthFormatConverter}}"  
+                                                Style="{ThemeResource CaptionTextBlockStyle}"
+                                                Margin="0 -5 0 0"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="15 0 0 0">
+                                        <TextBlock Text="{Binding Name}"  
+                                                    Style="{ThemeResource TitleTextBlockStyle}"
+                                                   Margin="0 -3 0 0"/>
+                                        <TextBlock Text="{Binding Description}"  
+                                                    Style="{ThemeResource CaptionTextBlockStyle}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
                     <!-- Opleidingen -->
                     <TextBlock Text="Opleidingen" 
                                Style="{ThemeResource SubheaderTextBlockStyle}" />
 
                     <TextBlock Text="Er zijn geen opleidingen voor deze campus." 
-                               Visibility="{Binding ActivitiesIsEmpty}"
+                               Visibility="{Binding DegreesIsEmpty}"
                                Style="{StaticResource AppTextBlock}" />
 
+                    <ListView x:Name="Lv_Degrees" 
+                              ItemsSource="{Binding Campus.Degrees}"
+                              SelectionChanged="Lv_Degrees_OnSelectionChanged"
+                              Style="{StaticResource AppListView}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Padding" Value="0 6"></Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Name}" 
+                                               TextWrapping="Wrap"
+                                               Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
                     <!-- Map -->
                     <TextBlock Text="Routebeschrijving"
                                Style="{StaticResource SubheaderTextBlockStyle}" />

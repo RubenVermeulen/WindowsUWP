@@ -107,6 +107,7 @@ namespace OpendeurdagApp.Views
             var startLocation = await GetCurrentLocation();
             var endLocation = await GetDestination();
 
+            if (startLocation == null) return;
 
             // Get the route between the points.
             var routeResult =
@@ -144,6 +145,30 @@ namespace OpendeurdagApp.Views
         private void DeleteCampus(object sender, RoutedEventArgs e)
         {
             ViewModel.DeleteCampus();
+        }
+
+        private void Lv_Activities_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var a = (Activity)Lv_Activities.SelectedItem;
+            var json = SerializationService.Json.Serialize(a);
+
+            Frame.Navigate(typeof(ActivityDetailPage), json);
+        }
+
+        private void Lv_Degrees_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var c = (Degree)Lv_Degrees.SelectedItem;
+            var json = SerializationService.Json.Serialize(c);
+
+            Frame.Navigate(typeof(DegreeDetailPage), json);
+        }
+
+        private void Lv_NewsItems_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var n = (NewsItem)Lv_NewsItems.SelectedItem;
+            var json = SerializationService.Json.Serialize(n);
+
+            Frame.Navigate(typeof(NewsItemDetailPage), json);
         }
     }
 }
