@@ -79,7 +79,7 @@ namespace OpendeurdagApp.ViewModels
                 await messageDialog.ShowAsync();
 
                 // Redirect
-                NavigationService.Navigate(typeof(CampusView));
+                NavigationService.Navigate(typeof(MainPage));
             }
             else
             {
