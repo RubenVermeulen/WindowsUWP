@@ -101,11 +101,6 @@
     </Compile>
     <Compile Include="Config\Config.cs" />
     <Compile Include="Helper\AuthService.cs" />
-    <Compile Include="Helper\Carousel\CarouselView.cs" />
-    <Compile Include="Helper\Carousel\CarouselViewItem.cs" />
-    <Compile Include="Helper\Carousel\CarouselViewItemClickEventArgs.cs" />
-    <Compile Include="Helper\Carousel\DependencyObjectExtend.cs" />
-    <Compile Include="Helper\Carousel\ICarouselViewItemSource.cs" />
     <Compile Include="Helper\DateTimeOffsetConverter.cs" />
     <Compile Include="Helper\DateToDayConverter.cs" />
     <Compile Include="Helper\DateToMonthConverter.cs" />
@@ -113,8 +108,8 @@
     <Compile Include="Helper\TimeSpanConverter.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Campus.cs" />
-    <Compile Include="Models\CarouselItemSource.cs" />
     <Compile Include="Models\Degree.cs" />
+    <Compile Include="Models\FlipViewItem.cs" />
     <Compile Include="Models\NewsItem.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\User.cs" />
@@ -234,7 +229,6 @@
     <Content Include="Assets\Tour\IMG_16.jpg" />
     <Content Include="Assets\Tour\IMG_17.jpg" />
     <Content Include="Assets\Tour\IMG_18.jpg" />
-    <Content Include="Assets\Tour\IMG_19.gif" />
     <Content Include="Properties\Default.rd.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -253,10 +247,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Helper\Carousel\Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\Custom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
