@@ -20,8 +20,26 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Carousel test" HorizontalAlignment="Center" Margin="0,20"/>
-        <carousel:CarouselView x:Name="carousel" ItemWidth="500"  Grid.Row="1" MaxHeight="300" VerticalAlignment="Center">
-        </carousel:CarouselView>
+        <!--<FlipView MaxWidth="400" Height="180" BorderBrush="Black" BorderThickness="1"
+                          ItemsSource="{x:Bind Groups, Mode=OneWay}">
+            <FlipView.ItemTemplate>
+                <DataTemplate x:DataType="data:ControlInfoDataGroup">
+                    <Grid>
+                        <Image Height="120" Source="{x:Bind ImagePath}" Stretch="Uniform" VerticalAlignment="Top"/>
+                        <Border Background="#A5FFFFFF" Height="60" VerticalAlignment="Bottom">
+                            <TextBlock x:Name="Control2Text" Text="{x:Bind Title}"  Foreground="#CCFFFFFF" Padding="12,12" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </FlipView.ItemTemplate>
+        </FlipView>-->
+        <FlipView x:Name="flipView1">
+            <Image Source="Assets/HoGentSplash.png" />
+            <Image Source="http://deredactie.be/polopoly_fs/1.2837535!image/1153327225.jpg_gen/derivatives/landscape670/1153327225.jpg" />
+            <Image Source="http://blogs-images.forbes.com/robertwood/files/2016/02/Trump1.jpg?width=960" />
+        </FlipView>
+        <!--<carousel:CarouselView x:Name="carousel" ItemWidth="500"  Grid.Row="1" MaxHeight="300" VerticalAlignment="Center">
+        </carousel:CarouselView>-->
         <TextBlock Text="Nice chinese guys" HorizontalAlignment="Center" Margin="0,20" Grid.Row="2"/>
     </Grid>
 </Page>

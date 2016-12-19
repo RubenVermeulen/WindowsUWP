@@ -215,6 +215,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\HoGentSplash.png" />
+    <Content Include="Assets\Tour\IMG_01.jpg" />
+    <Content Include="Assets\Tour\IMG_02.jpg" />
+    <Content Include="Assets\Tour\IMG_03.jpg" />
+    <Content Include="Assets\Tour\IMG_05.jpg" />
+    <Content Include="Assets\Tour\IMG_04.jpg" />
+    <Content Include="Assets\Tour\IMG_06-1.jpg" />
+    <Content Include="Assets\Tour\IMG_07.jpg" />
+    <Content Include="Assets\Tour\IMG_08.jpg" />
+    <Content Include="Assets\Tour\IMG_09.jpg" />
+    <Content Include="Assets\Tour\IMG_10.jpg" />
+    <Content Include="Assets\Tour\IMG_11.jpg" />
+    <Content Include="Assets\Tour\IMG_12.jpg" />
+    <Content Include="Assets\Tour\IMG_13.jpg" />
+    <Content Include="Assets\Tour\IMG_06-2.jpg" />
+    <Content Include="Assets\Tour\IMG_14.jpg" />
+    <Content Include="Assets\Tour\IMG_15.jpg" />
+    <Content Include="Assets\Tour\IMG_16.jpg" />
+    <Content Include="Assets\Tour\IMG_17.jpg" />
+    <Content Include="Assets\Tour\IMG_18.jpg" />
+    <Content Include="Assets\Tour\IMG_19.gif" />
     <Content Include="Properties\Default.rd.xml">
       <SubType>Designer</SubType>
     </Content>
