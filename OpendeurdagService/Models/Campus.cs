@@ -20,5 +20,7 @@ namespace OpendeurdagService.Models
         public virtual ICollection<NewsItem> NewsItems { get; set; }
 
         public virtual ICollection<Activity> Activities { get; set; }
+
+        public virtual ICollection<Degree> Degrees { get; set; }
     }
 }

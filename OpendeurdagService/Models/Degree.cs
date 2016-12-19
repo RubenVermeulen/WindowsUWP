@@ -22,5 +22,7 @@ namespace OpendeurdagService.Models
         public string ImageUrl { get; set; }
 
         public virtual ICollection<NewsItem> NewsItems { get; set; }
+
+        public virtual ICollection<Campus> Campuses { get; set; }
     }
 }

@@ -93,6 +93,19 @@
                 <TextBox Text="{Binding Path=FacebookUrl, Mode=TwoWay}"
                          Style="{StaticResource AppTextBox}" />
 
+                <TextBlock Text="Aan welke campussen wordt de opleiding gegeven?" />
+                <GridView x:Name="GvCampuses" ItemsSource="{Binding Campuses}"
+                              SelectionMode="Multiple" 
+                              SelectionChanged="GvCampuses_OnSelectionChanged"
+                              Margin="0 12 0 6">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"
+                                       Padding="16 20" />
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+                
                 <Button Content="Opleiding toevoegen" 
                         Command="{Binding SaveDegreeCommand}" />
 

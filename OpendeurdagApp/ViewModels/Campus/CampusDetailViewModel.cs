@@ -16,8 +16,12 @@ namespace OpendeurdagApp.ViewModels
     public class CampusDetailViewModel: ViewModelBase
     {
         private HttpClient Client;
- 
+
         public Campus Campus { get; set; }
+
+        public string ActivitiesIsEmpty { get; set; }
+        public string NewsIsEmpty { get; set; }
+        public string DegreesIsEmpty { get; set; }
 
         public CampusDetailViewModel()
         {

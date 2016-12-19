@@ -47,6 +47,13 @@ namespace OpendeurdagApp.Views
             ViewModel.Activity = a;
         }
 
+      
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+        }
+
         private void EditActivity(object sender, RoutedEventArgs e)
         {
             var json = SerializationService.Json.Serialize(a);
@@ -58,6 +65,16 @@ namespace OpendeurdagApp.Views
         {
             ViewModel.DeleteActivity();
         }
+
+        /*
+        private void lv_CampusSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var c = (Campus)Lv_Campuses.SelectedItem;
+            var json = SerializationService.Json.Serialize(c);
+
+            Frame.Navigate(typeof(CampusDetailPage), json);
+        }
+        */
 
     }
 }

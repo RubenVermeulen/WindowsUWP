@@ -109,35 +109,35 @@
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Campus.cs" />
     <Compile Include="Models\Degree.cs" />
+    <Compile Include="Models\FlipViewItem.cs" />
     <Compile Include="Models\NewsItem.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
-    <Compile Include="ViewModels\ActivityCreateViewModel.cs" />
-    <Compile Include="ViewModels\ActivityDetailViewModel.cs" />
-    <Compile Include="ViewModels\ActivityEditPageViewModel.cs" />
+    <Compile Include="ViewModels\Activity\ActivityCreateViewModel.cs" />
+    <Compile Include="ViewModels\Activity\ActivityDetailViewModel.cs" />
+    <Compile Include="ViewModels\Activity\ActivityEditPageViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusCreateViewModel.cs" />
-    <Compile Include="ViewModels\ActivityPageViewModel.cs" />
+    <Compile Include="ViewModels\Activity\ActivityPageViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusDetailViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusEditPageViewModel.cs" />
-    <Compile Include="ViewModels\NewsItemCreatePageViewModel.cs" />
-    <Compile Include="ViewModels\NewsItemDetailPageViewModel.cs" />
-    <Compile Include="ViewModels\NewsItemPageViewModel.cs" />
-    <Compile Include="ViewModels\StatisticsPageViewModel.cs" />
+    <Compile Include="ViewModels\NewsItem\NewsItemCreatePageViewModel.cs" />
+    <Compile Include="ViewModels\NewsItem\NewsItemDetailPageViewModel.cs" />
+    <Compile Include="ViewModels\NewsItem\NewsItemPageViewModel.cs" />
+    <Compile Include="ViewModels\Statictic\StatisticsPageViewModel.cs" />
+    <Compile Include="ViewModels\Campus\CampusTourViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusViewModel.cs" />
-    <Compile Include="ViewModels\DegreeDetailViewModel.cs" />
-    <Compile Include="ViewModels\DegreeEditViewModel.cs" />
-    <Compile Include="ViewModels\LoginPageViewModel.cs" />
+    <Compile Include="ViewModels\Degree\DegreeDetailViewModel.cs" />
+    <Compile Include="ViewModels\Degree\DegreeEditViewModel.cs" />
+    <Compile Include="ViewModels\Auth\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\DetailPageViewModel.cs" />
-    <Compile Include="ViewModels\StudentCreatePageViewModel.cs" />
-    <Compile Include="ViewModels\StudentOverviewPageViewModel.cs" />
+    <Compile Include="ViewModels\Student\StudentCreatePageViewModel.cs" />
+    <Compile Include="ViewModels\Student\StudentOverviewPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\ActivityCreatePage.xaml.cs" />
-    <Compile Include="ViewModels\DegreeCreateViewModel.cs">
-      <DependentUpon>ActivityCreatePage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModels\Degree\DegreeCreateViewModel.cs" />
     <Compile Include="Views\ActivityDetailPage.xaml.cs">
       <DependentUpon>ActivityDetailPage.xaml</DependentUpon>
     </Compile>
@@ -156,7 +156,12 @@
     <Compile Include="Views\CampusDetailPage.xaml.cs">
       <DependentUpon>CampusDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CampusEditPage.xaml.cs" />
+    <Compile Include="Views\CampusEditPage.xaml.cs">
+      <DependentUpon>CampusEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CampusTourPage.xaml.cs">
+      <DependentUpon>CampusTourPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DegreeCreatePage.xaml.cs">
       <DependentUpon>DegreeCreatePage.xaml</DependentUpon>
     </Compile>
@@ -205,6 +210,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\HoGentSplash.png" />
+    <Content Include="Assets\LogoHG.png" />
+    <Content Include="Assets\LogoHGKlein.png" />
+    <Content Include="Assets\Tour\IMG_01.jpg" />
+    <Content Include="Assets\Tour\IMG_02.jpg" />
+    <Content Include="Assets\Tour\IMG_03.jpg" />
+    <Content Include="Assets\Tour\IMG_05.jpg" />
+    <Content Include="Assets\Tour\IMG_04.jpg" />
+    <Content Include="Assets\Tour\IMG_06-1.jpg" />
+    <Content Include="Assets\Tour\IMG_07.jpg" />
+    <Content Include="Assets\Tour\IMG_08.jpg" />
+    <Content Include="Assets\Tour\IMG_09.jpg" />
+    <Content Include="Assets\Tour\IMG_10.jpg" />
+    <Content Include="Assets\Tour\IMG_11.jpg" />
+    <Content Include="Assets\Tour\IMG_12.jpg" />
+    <Content Include="Assets\Tour\IMG_13.jpg" />
+    <Content Include="Assets\Tour\IMG_06-2.jpg" />
+    <Content Include="Assets\Tour\IMG_14.jpg" />
+    <Content Include="Assets\Tour\IMG_15.jpg" />
+    <Content Include="Assets\Tour\IMG_16.jpg" />
+    <Content Include="Assets\Tour\IMG_17.jpg" />
+    <Content Include="Assets\Tour\IMG_18.jpg" />
     <Content Include="Properties\Default.rd.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -259,6 +285,10 @@
     <Page Include="Views\CampusEditPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CampusTourPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewsItemCreatePage.xaml">
       <SubType>Designer</SubType>
