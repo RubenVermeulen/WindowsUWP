@@ -144,7 +144,7 @@
                                                     Style="{ThemeResource TitleTextBlockStyle}"
                                                    Margin="0 -3 0 0"/>
                                         <TextBlock Text="{Binding Description}"  
-                                                    Style="{ThemeResource CaptionTextBlockStyle}" />
+                                                    Style="{ThemeResource CaptionTextBlockStyle}"  MaxWidth="1234" HorizontalAlignment="Left"/>
                                     </StackPanel>
 
                             </StackPanel>

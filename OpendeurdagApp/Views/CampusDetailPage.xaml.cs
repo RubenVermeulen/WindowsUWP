@@ -50,8 +50,8 @@ namespace OpendeurdagApp.Views
 
             ViewModel.Campus = c;
             ViewModel.ActivitiesIsEmpty = c.Activities.Count != 0 ? "Collapsed" : "Visible";
-            ViewModel.NewsIsEmpty = c.NewsItems.Count != 0 ? "Collapsed" : "Visible";
-            ViewModel.DegreesIsEmpty = c.Degrees.Count != 0 ? "Collapsed" : "Visible";
+           ViewModel.NewsIsEmpty = c.NewsItems.Count != 0 ? "Collapsed" : "Visible";
+           ViewModel.DegreesIsEmpty = c.Degrees.Count != 0 ? "Collapsed" : "Visible";
         }
 
         private async Task<Geopoint> GetDestination()
@@ -147,6 +147,7 @@ namespace OpendeurdagApp.Views
             ViewModel.DeleteCampus();
         }
 
+        
         private void Lv_Activities_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var a = (Activity)Lv_Activities.SelectedItem;
