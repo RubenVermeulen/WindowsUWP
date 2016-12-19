@@ -171,5 +171,12 @@ namespace OpendeurdagApp.Views
 
             Frame.Navigate(typeof(NewsItemDetailPage), json);
         }
+
+        private void StartTour(object sender, RoutedEventArgs e)
+        {
+            var json = SerializationService.Json.Serialize(c);
+
+            Frame.Navigate(typeof(CampusTourPage), json);
+        }
     }
 }

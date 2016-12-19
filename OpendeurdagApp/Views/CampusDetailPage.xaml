@@ -60,6 +60,11 @@
                              Text="{Binding Campus.Name}">
 
             <!--  primary commands  -->
+            <AppBarButton Click="StartTour" 
+                          Icon="57620"
+                          Label="Volg rondleiding" 
+                          Foreground="White" />
+            <!--Visibility="{Binding AuthVisibility}" />-->
             <AppBarButton Click="EditCampus" 
                           Icon="57604"
                           Label="Wijzigen" 

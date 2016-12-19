@@ -101,6 +101,11 @@
     </Compile>
     <Compile Include="Config\Config.cs" />
     <Compile Include="Helper\AuthService.cs" />
+    <Compile Include="Helper\Carousel\CarouselView.cs" />
+    <Compile Include="Helper\Carousel\CarouselViewItem.cs" />
+    <Compile Include="Helper\Carousel\CarouselViewItemClickEventArgs.cs" />
+    <Compile Include="Helper\Carousel\DependencyObjectExtend.cs" />
+    <Compile Include="Helper\Carousel\ICarouselViewItemSource.cs" />
     <Compile Include="Helper\DateTimeOffsetConverter.cs" />
     <Compile Include="Helper\DateToDayConverter.cs" />
     <Compile Include="Helper\DateToMonthConverter.cs" />
@@ -108,6 +113,7 @@
     <Compile Include="Helper\TimeSpanConverter.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Campus.cs" />
+    <Compile Include="Models\CarouselItemSource.cs" />
     <Compile Include="Models\Degree.cs" />
     <Compile Include="Models\NewsItem.cs" />
     <Compile Include="Models\Student.cs" />
@@ -125,6 +131,7 @@
     <Compile Include="ViewModels\NewsItem\NewsItemDetailPageViewModel.cs" />
     <Compile Include="ViewModels\NewsItem\NewsItemPageViewModel.cs" />
     <Compile Include="ViewModels\Statictic\StatisticsPageViewModel.cs" />
+    <Compile Include="ViewModels\Campus\CampusTourViewModel.cs" />
     <Compile Include="ViewModels\Campus\CampusViewModel.cs" />
     <Compile Include="ViewModels\Degree\DegreeDetailViewModel.cs" />
     <Compile Include="ViewModels\Degree\DegreeEditViewModel.cs" />
@@ -154,7 +161,12 @@
     <Compile Include="Views\CampusDetailPage.xaml.cs">
       <DependentUpon>CampusDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CampusEditPage.xaml.cs" />
+    <Compile Include="Views\CampusEditPage.xaml.cs">
+      <DependentUpon>CampusEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CampusTourPage.xaml.cs">
+      <DependentUpon>CampusTourPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DegreeCreatePage.xaml.cs">
       <DependentUpon>DegreeCreatePage.xaml</DependentUpon>
     </Compile>
@@ -203,6 +215,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\HoGentSplash.png" />
+    <Content Include="Assets\Tour\IMG_01.jpg" />
+    <Content Include="Assets\Tour\IMG_02.jpg" />
+    <Content Include="Assets\Tour\IMG_03.jpg" />
+    <Content Include="Assets\Tour\IMG_05.jpg" />
+    <Content Include="Assets\Tour\IMG_04.jpg" />
+    <Content Include="Assets\Tour\IMG_06-1.jpg" />
+    <Content Include="Assets\Tour\IMG_07.jpg" />
+    <Content Include="Assets\Tour\IMG_08.jpg" />
+    <Content Include="Assets\Tour\IMG_09.jpg" />
+    <Content Include="Assets\Tour\IMG_10.jpg" />
+    <Content Include="Assets\Tour\IMG_11.jpg" />
+    <Content Include="Assets\Tour\IMG_12.jpg" />
+    <Content Include="Assets\Tour\IMG_13.jpg" />
+    <Content Include="Assets\Tour\IMG_06-2.jpg" />
+    <Content Include="Assets\Tour\IMG_14.jpg" />
+    <Content Include="Assets\Tour\IMG_15.jpg" />
+    <Content Include="Assets\Tour\IMG_16.jpg" />
+    <Content Include="Assets\Tour\IMG_17.jpg" />
+    <Content Include="Assets\Tour\IMG_18.jpg" />
+    <Content Include="Assets\Tour\IMG_19.gif" />
     <Content Include="Properties\Default.rd.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -221,6 +253,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Helper\Carousel\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\Custom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -257,6 +293,10 @@
     <Page Include="Views\CampusEditPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CampusTourPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewsItemCreatePage.xaml">
       <SubType>Designer</SubType>
