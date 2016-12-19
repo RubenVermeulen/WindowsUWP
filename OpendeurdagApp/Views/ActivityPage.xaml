@@ -96,47 +96,73 @@
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                                 <TextBlock Text="{Binding Description}" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
+                               Style="{ThemeResource CaptionTextBlockStyle}" MaxWidth="1234" HorizontalAlignment="Left"/>
 
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" Padding ="0 15 0 0">
 
                                     <StackPanel Orientation="Vertical" >
+
+                                        <TextBlock Text="Campuses" 
+                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+
+                                        <ListView x:Name="Lv_Campuses" 
+                              ItemsSource="{Binding Campuses}"
+                              
+                              Style="{StaticResource AppListView}">
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="ListViewItem">
+                                                    <Setter Property="Padding" Value="0 1"></Setter>
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Name}" 
+                                                    Style="{ThemeResource CaptionTextBlockStyle}" />
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+
+                                        <TextBlock Text="Location" 
+                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+
+                                        <TextBlock Text="{Binding Location}" 
+                               Style="{ThemeResource CaptionTextBlockStyle}" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Vertical" Padding=" 270 0 0 0">
                                         <TextBlock Text="Begin" 
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
                                         <StackPanel Orientation="Horizontal" 
                             Padding=" 0 0 8 0" >
 
+                                            <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateTimeOffsetConverter}}"
+                                           Style="{StaticResource AppTextBlockDateTime}" Margin="0 0 12 0" />
+                                        
+                                            
                                             <TextBlock Text="{Binding BeginTime, Converter={StaticResource TimeSpanConverter}}"
                                            Style="{StaticResource AppTextBlockDateTime}"
-                                           Margin="0 0 35 0"/>
-
-                                            <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateTimeOffsetConverter}}"
-                                           Style="{StaticResource AppTextBlockDateTime}" />
+                                           />
                                         </StackPanel>
 
+
+
                                         <TextBlock Text="Einde" 
-                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+                                Style="{ThemeResource SubtitleTextBlockStyle}" Padding="0 40 0 0" />
                                         <StackPanel Orientation="Horizontal" 
                             Padding="0 0 8 0" >
+                                            <TextBlock Text="{Binding EndDate, Converter={StaticResource DateTimeOffsetConverter}}"
+                                           Style="{StaticResource AppTextBlockDateTime}" Margin="0 0 12 0" />
 
                                             <TextBlock Text="{Binding EndTime, Converter={StaticResource TimeSpanConverter}}"
                                            Style="{StaticResource AppTextBlockDateTime}"
-                                           Margin="0 0 35 0"    />
-
-                                            <TextBlock Text="{Binding EndDate, Converter={StaticResource DateTimeOffsetConverter}}"
-                                           Style="{StaticResource AppTextBlockDateTime}" />
+                                               />
                                         </StackPanel>
                                     </StackPanel>
 
-                                    <StackPanel Orientation="Vertical" Padding=" 120 0 0 0">
-                                        <TextBlock Text="Location" 
-                                Style="{ThemeResource SubtitleTextBlockStyle}" />
 
-                                    <TextBlock Text="{Binding Location}" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                                    </StackPanel>
 
-                                   
+
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
