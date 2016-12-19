@@ -92,7 +92,7 @@
                             <StackPanel Orientation="Vertical" 
                             Padding=" 0 0 0 8">
 
-                                <TextBlock Text="Description" 
+                                <TextBlock Text="Beschrijving" 
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                                 <TextBlock Text="{Binding Description}" 
@@ -102,28 +102,7 @@
 
                                     <StackPanel Orientation="Vertical" >
 
-                                        <TextBlock Text="Campuses" 
-                                Style="{ThemeResource SubtitleTextBlockStyle}" />
-
-
-                                        <ListView x:Name="Lv_Campuses" 
-                              ItemsSource="{Binding Campuses}"
-                              
-                              Style="{StaticResource AppListView}">
-                                            <ListView.ItemContainerStyle>
-                                                <Style TargetType="ListViewItem">
-                                                    <Setter Property="Padding" Value="0 1"></Setter>
-                                                </Style>
-                                            </ListView.ItemContainerStyle>
-                                            <ListView.ItemTemplate>
-                                                <DataTemplate>
-                                                    <TextBlock Text="{Binding Name}" 
-                                                    Style="{ThemeResource CaptionTextBlockStyle}" />
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
-                                        </ListView>
-
-                                        <TextBlock Text="Location" 
+                                        <TextBlock Text="Locatie" 
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                                         <TextBlock Text="{Binding Location}" 

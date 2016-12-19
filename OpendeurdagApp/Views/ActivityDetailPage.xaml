@@ -105,7 +105,7 @@
 
 
 
-                    <TextBlock Text="Description" 
+                    <TextBlock Text="Beschrijving" 
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                     <TextBlock Text="{Binding Activity.Description}" 
@@ -138,7 +138,7 @@
                             </ListView>
 
 
-                            <TextBlock Text="Location" 
+                            <TextBlock Text="Locatie" 
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                             <TextBlock Text="{Binding Activity.Location}" 
