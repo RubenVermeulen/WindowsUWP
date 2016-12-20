@@ -10,7 +10,10 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:OpendeurdagApp.ViewModels"
       xmlns:conv="using:OpendeurdagApp.Helper" 
-      mc:Ignorable="d">
+      mc:Ignorable="d"
+      d:DesignHeight="300"
+    d:DesignWidth="400"
+      >
 
     <Page.DataContext>
         <vm:MainPageViewModel x:Name="ViewModel" />
@@ -83,8 +86,7 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -99,8 +101,17 @@
                         <TextBlock Text="Opkomende evenementen"
                                    Style="{ThemeResource TitleTextBlockStyle}"/>
                         
-                        <ListView x:Name="activityListView" ItemsSource="{Binding Activities}" SelectionChanged="lv_ActivitySelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                            HorizontalContentAlignment="Stretch"  >
+                        <ListView x:Name="activityListView"
+                                  ItemsSource="{Binding Activities}" 
+                                  SelectionChanged="lv_ActivitySelectionChanged"
+                                  Grid.Row="1" >
+
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" Margin="0 8 0 8" VerticalAlignment="Center">
@@ -111,13 +122,24 @@
                                                        Style="{ThemeResource CaptionTextBlockStyle}"
                                                        Margin="0 -5 0 0"/>
                                         </StackPanel>
-                                        <StackPanel Margin="15 0 0 0">
+                                        <StackPanel Orientation="Vertical" Margin="15 0 0 0">
                                             <TextBlock Text="{Binding Name}"  
                                                        Style="{ThemeResource TitleTextBlockStyle}"
                                                        Margin="0 -3 0 0"/>
-                                            <TextBlock Text="{Binding Description}"  
-                                                       Style="{ThemeResource CaptionTextBlockStyle}" TextWrapping="Wrap"  MaxWidth="1260" Padding="0 0 25 0" HorizontalAlignment="Left"/>
-                                        </StackPanel>
+                                            
+                                                <TextBlock Text="{Binding Description}"  
+                                                       Style="{ThemeResource CaptionTextBlockStyle}"
+                                                           
+                                                           Padding="0 0 20 0" HorizontalAlignment="Left"
+                                                           TextTrimming="WordEllipsis" 
+                                                           MaxWidth="1250"
+                                                           FontSize="12" 
+                                                            LineStackingStrategy="BlockLineHeight"
+                                                            LineHeight="14"
+                                                            MaxHeight="42"
+                                                            />
+                                            
+                                            </StackPanel>
 
                                     </StackPanel>
                                 </DataTemplate>

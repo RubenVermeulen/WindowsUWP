@@ -85,7 +85,15 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <StackPanel>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <ScrollViewer>
+                    <StackPanel Margin="16,16,0,0" Grid.Row="1" 
+                        Grid.Column="0" 
+                        Orientation="Vertical" >
                     
                 <TextBlock Grid.Row="0" 
                            Text="Activiteiten"
@@ -115,7 +123,7 @@
                                     Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                                 <TextBlock Text="{Binding Description}" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" Padding="0 0 15 0" HorizontalAlignment="Left"/>
+                               Style="{ThemeResource CaptionTextBlockStyle}" Padding="0 0 20 0" HorizontalAlignment="Left"/>
 
                                     <StackPanel Orientation="Horizontal" Padding ="0 15 0 0">
 
@@ -168,6 +176,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
                     </StackPanel>
+                </ScrollViewer>
             </Grid>
         </ScrollViewer>
 
