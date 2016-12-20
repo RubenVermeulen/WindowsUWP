@@ -67,12 +67,12 @@
         </controls:PageHeader>
 
 
-
-        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True" 
+        <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True" 
               RelativePanel.AlignBottomWithPanel="True"
               RelativePanel.AlignLeftWithPanel="True"
               RelativePanel.AlignRightWithPanel="True"
               RelativePanel.Below="pageHeader">
+        <Grid>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="200" />
@@ -160,6 +160,7 @@
                 </ListView>
             </StackPanel>
         </Grid>
+        </ScrollViewer>
 
     </RelativePanel>
 
