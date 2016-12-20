@@ -92,13 +92,6 @@
                 </Border.Background>
             </Border>
 
-            <!--<Image Source="{Binding Degree.ImageUrl}" Stretch="UniformToFill" Height="180">
-                <Image.Clip>
-                    <RectangleGeometry Rect="200 200 200 100"/>
-                </Image.Clip>
-            </Image>-->
-
-
             <StackPanel Grid.Row="1" 
                         Grid.Column="0" 
                         Orientation="Vertical" 
@@ -133,6 +126,38 @@
                         Volg ons op Facebook!
                     </Hyperlink>
                 </TextBlock>
+
+                <!-- Opleidingen -->
+                <TextBlock Text="Nieuws" 
+                           Style="{ThemeResource SubtitleTextBlockStyle}"
+                           Padding="0 12 0 0"/>
+
+                <TextBlock Text="Er zijn geen opleidingen voor deze campus." 
+                           Visibility="{Binding NewsIsEmpty}"
+                           Style="{StaticResource AppTextBlock}" />
+
+                <ListView x:Name="Lv_NewsItems" 
+                          ItemsSource="{Binding Degree.NewsItems}"
+                          SelectionChanged="Lv_NewsItems_OnSelectionChanged"
+                          Style="{StaticResource AppListView}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Padding" Value="0 6"></Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Title}" 
+                                           TextWrapping="Wrap"
+                                           Style="{StaticResource SubtitleTextBlockStyle}"/>
+
+                                <TextBlock Text="{Binding Content}" 
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackPanel>
         </Grid>
 

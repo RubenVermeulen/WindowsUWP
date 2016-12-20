@@ -28,6 +28,7 @@ namespace OpendeurdagService.Controllers
                 .Include(c => c.NewsItems)
                 .Include(c => c.Activities)
                 .Include(c => c.Degrees)
+                .Include("Degrees.NewsItems")
                 .OrderBy(c => c.Name);
         }
 

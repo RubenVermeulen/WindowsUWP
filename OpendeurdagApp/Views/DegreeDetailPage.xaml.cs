@@ -43,6 +43,7 @@ namespace OpendeurdagApp.Views
             degree = SerializationService.Json.Deserialize(e.Parameter as string) as Degree;
 
             ViewModel.Degree = degree;
+            ViewModel.NewsIsEmpty = degree.NewsItems.Count != 0 ? "Collapsed" : "Visible";
         }
 
         private void EditDegree(object sender, RoutedEventArgs e)
@@ -55,6 +56,14 @@ namespace OpendeurdagApp.Views
         private void DeleteDegree(object sender, RoutedEventArgs e)
         {
             ViewModel.DeleteDegree();
+        }
+
+        private void Lv_NewsItems_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var n = (NewsItem)Lv_NewsItems.SelectedItem;
+            var json = SerializationService.Json.Serialize(n);
+
+            Frame.Navigate(typeof(NewsItemDetailPage), json);
         }
     }
 }
