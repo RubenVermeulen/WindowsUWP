@@ -109,7 +109,7 @@
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                                 <TextBlock Text="{Binding Description}" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" MaxWidth="1234" HorizontalAlignment="Left"/>
+                               Style="{ThemeResource CaptionTextBlockStyle}" Padding="0 0 15 0" HorizontalAlignment="Left"/>
 
                                 <StackPanel Orientation="Horizontal" Padding ="0 15 0 0">
 

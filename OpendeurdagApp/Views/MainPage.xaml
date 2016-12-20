@@ -75,16 +75,32 @@
                       RelativePanel.AlignLeftWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.Below="pageHeader">
-            <Grid>
+            <Grid EntranceNavigationTransitionInfo.IsTargetElement="True" 
+              RelativePanel.AlignBottomWithPanel="True"
+              RelativePanel.AlignLeftWithPanel="True"
+              RelativePanel.AlignRightWithPanel="True"
+              RelativePanel.Below="pageHeader">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
 
                 <ScrollViewer>
-                    <StackPanel Margin="16,16,0,0">
+                    <StackPanel Margin="16,16,0,0" Grid.Row="1" 
+                        Grid.Column="0" 
+                        Orientation="Vertical" 
+                        >
                         <TextBlock Text="Opkomende evenementen"
                                    Style="{ThemeResource TitleTextBlockStyle}"/>
-                        <!--<TextBlock Text="Just a test"  
-                            Style="{ThemeResource CaptionTextBlockStyle}"
-                            Margin="0 -5 0 0"/>-->
-                        <ListView x:Name="activityListView" ItemsSource="{Binding Activities}" SelectionChanged="lv_ActivitySelectionChanged" >
+                        
+                        <ListView x:Name="activityListView" ItemsSource="{Binding Activities}" SelectionChanged="lv_ActivitySelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            HorizontalContentAlignment="Stretch"  >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" Margin="0 8 0 8" VerticalAlignment="Center">
@@ -100,7 +116,7 @@
                                                        Style="{ThemeResource TitleTextBlockStyle}"
                                                        Margin="0 -3 0 0"/>
                                             <TextBlock Text="{Binding Description}"  
-                                                       Style="{ThemeResource CaptionTextBlockStyle}"  MaxWidth="1234" HorizontalAlignment="Left"/>
+                                                       Style="{ThemeResource CaptionTextBlockStyle}" TextWrapping="Wrap"  MaxWidth="1260" Padding="0 0 25 0" HorizontalAlignment="Left"/>
                                         </StackPanel>
 
                                     </StackPanel>
