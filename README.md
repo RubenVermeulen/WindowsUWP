@@ -12,7 +12,7 @@ Xander Berkein, Alexander Van Damme and Ruben Vermeulen
 5. Select Properties
 6. In Common Properties > Startup Project: Select **Multiple startup projects**
 7. Select **Start** for *OpendeurdagApp* and *OpendeurdagService*
-8. Close Properties
+8. Click OK and close properties
 9. Run Project (by clicking **Start**)
 
 ## Login
