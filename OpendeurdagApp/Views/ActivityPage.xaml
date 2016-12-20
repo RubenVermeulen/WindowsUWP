@@ -70,99 +70,105 @@
                           Visibility="{Binding AuthVisibility}" />
         </controls:PageHeader>
 
-        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
+        <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True"
+                           RelativePanel.AlignBottomWithPanel="True"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.AlignRightWithPanel="True"
+                           RelativePanel.Below="pageHeader">
+            <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
                        RelativePanel.AlignBottomWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
-                       RelativePanel.Below="pageHeader">
+                       RelativePanel.Below="pageHeader">>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" 
-                       Text="Activiteiten"
-                       Style="{StaticResource HeaderTextBlockStyle}"
-                       Padding="12 0"/>
+                <TextBlock Grid.Row="0" 
+                           Text="Activiteiten"
+                           Style="{StaticResource HeaderTextBlockStyle}"
+                           Padding="12 0"/>
 
-            <ListView x:Name="lv" 
-                      ItemsSource="{Binding Activities}" 
-                      SelectionChanged="lv_SelectionChanged"
-                      Grid.Row="1">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical" Margin="0 12 0 0">
+                <ListView x:Name="lv" 
+                          ItemsSource="{Binding Activities}" 
+                          SelectionChanged="lv_SelectionChanged"
+                          Grid.Row="1">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="0 12 0 0">
 
-                            <TextBlock Text="{Binding Name}" 
-                           Style="{ThemeResource SubheaderTextBlockStyle}" />
+                                <TextBlock Text="{Binding Name}" 
+                               Style="{ThemeResource SubheaderTextBlockStyle}" />
 
-                            <StackPanel Orientation="Vertical" 
-                            Padding=" 0 0 0 8">
+                                <StackPanel Orientation="Vertical" 
+                                Padding=" 0 0 0 8">
 
-                                <TextBlock Text="Beschrijving" 
-                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+                                    <TextBlock Text="Beschrijving" 
+                                    Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                                 <TextBlock Text="{Binding Description}" 
                                Style="{ThemeResource CaptionTextBlockStyle}" Padding="0 0 15 0" HorizontalAlignment="Left"/>
 
-                                <StackPanel Orientation="Horizontal" Padding ="0 15 0 0">
+                                    <StackPanel Orientation="Horizontal" Padding ="0 15 0 0">
 
-                                    <StackPanel Orientation="Vertical" >
+                                        <StackPanel Orientation="Vertical" >
 
-                                        <TextBlock Text="Locatie" 
-                                Style="{ThemeResource SubtitleTextBlockStyle}" />
+                                            <TextBlock Text="Locatie" 
+                                    Style="{ThemeResource SubtitleTextBlockStyle}" />
 
-                                        <TextBlock Text="{Binding Location}" 
-                               Style="{ThemeResource CaptionTextBlockStyle}" />
-                                    </StackPanel>
+                                            <TextBlock Text="{Binding Location}" 
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                                        </StackPanel>
 
-                                    <StackPanel Orientation="Vertical" Padding=" 270 0 0 0">
-                                        <TextBlock Text="Begin" 
-                                Style="{ThemeResource SubtitleTextBlockStyle}" />
-                                        <StackPanel Orientation="Horizontal" 
-                            Padding=" 0 0 8 0" >
+                                        <StackPanel Orientation="Vertical" Padding=" 270 0 0 0">
+                                            <TextBlock Text="Begin" 
+                                    Style="{ThemeResource SubtitleTextBlockStyle}" />
+                                            <StackPanel Orientation="Horizontal" 
+                                Padding=" 0 0 8 0" >
 
-                                            <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateTimeOffsetConverter}}"
-                                           Style="{StaticResource AppTextBlockDateTime}" Margin="0 0 12 0" />
+                                                <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateTimeOffsetConverter}}"
+                                               Style="{StaticResource AppTextBlockDateTime}" Margin="0 0 12 0" />
                                         
                                             
-                                            <TextBlock Text="{Binding BeginTime, Converter={StaticResource TimeSpanConverter}}"
-                                           Style="{StaticResource AppTextBlockDateTime}"
-                                           />
-                                        </StackPanel>
-
-
-
-                                        <TextBlock Text="Einde" 
-                                Style="{ThemeResource SubtitleTextBlockStyle}" Padding="0 40 0 0" />
-                                        <StackPanel Orientation="Horizontal" 
-                            Padding="0 0 8 0" >
-                                            <TextBlock Text="{Binding EndDate, Converter={StaticResource DateTimeOffsetConverter}}"
-                                           Style="{StaticResource AppTextBlockDateTime}" Margin="0 0 12 0" />
-
-                                            <TextBlock Text="{Binding EndTime, Converter={StaticResource TimeSpanConverter}}"
-                                           Style="{StaticResource AppTextBlockDateTime}"
+                                                <TextBlock Text="{Binding BeginTime, Converter={StaticResource TimeSpanConverter}}"
+                                               Style="{StaticResource AppTextBlockDateTime}"
                                                />
+                                            </StackPanel>
+
+
+
+                                            <TextBlock Text="Einde" 
+                                    Style="{ThemeResource SubtitleTextBlockStyle}" Padding="0 40 0 0" />
+                                            <StackPanel Orientation="Horizontal" 
+                                Padding="0 0 8 0" >
+                                                <TextBlock Text="{Binding EndDate, Converter={StaticResource DateTimeOffsetConverter}}"
+                                               Style="{StaticResource AppTextBlockDateTime}" Margin="0 0 12 0" />
+
+                                                <TextBlock Text="{Binding EndTime, Converter={StaticResource TimeSpanConverter}}"
+                                               Style="{StaticResource AppTextBlockDateTime}"
+                                                   />
+                                            </StackPanel>
                                         </StackPanel>
+
+
+
+
                                     </StackPanel>
-
-
-
-
                                 </StackPanel>
                             </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-        </Grid>
+            </Grid>
+        </ScrollViewer>
 
     </RelativePanel>
 
