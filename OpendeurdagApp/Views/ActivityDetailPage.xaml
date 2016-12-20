@@ -93,9 +93,7 @@
             <StackPanel Grid.Row="1" 
                         Grid.Column="0" 
                         Orientation="Vertical" 
-                        Margin="16"
-                        >
-
+                        Margin="16">
 
                 <TextBlock Text="{Binding Activity.Name}" 
                            Style="{ThemeResource SubheaderTextBlockStyle}" />
@@ -103,18 +101,15 @@
                 <StackPanel Orientation="Vertical" 
                             Padding=" 0 0 0 8">
 
-
-
                     <TextBlock Text="Beschrijving" 
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                     <TextBlock Text="{Binding Activity.Description}" 
                                Style="{ThemeResource CaptionTextBlockStyle}"  MaxWidth="1234" HorizontalAlignment="Left"/>
 
-                  
                     <StackPanel Orientation="Horizontal" Padding="0 15 0 0">
                         <StackPanel Orientation="Vertical" >
-                            <TextBlock Text="Campuses" 
+                            <TextBlock Text="Campussen" 
                                 Style="{ThemeResource SubtitleTextBlockStyle}" />
 
 

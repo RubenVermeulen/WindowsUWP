@@ -76,7 +76,20 @@
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.Below="pageHeader">
 
-            <ListView x:Name="lv" ItemsSource="{Binding Activities}" SelectionChanged="lv_SelectionChanged">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" 
+                       Text="Activiteiten"
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       Padding="12 0"/>
+
+            <ListView x:Name="lv" 
+                      ItemsSource="{Binding Activities}" 
+                      SelectionChanged="lv_SelectionChanged"
+                      Grid.Row="1">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

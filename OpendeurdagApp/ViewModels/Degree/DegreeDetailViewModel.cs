@@ -18,6 +18,7 @@ namespace OpendeurdagApp.ViewModels
         private HttpClient Client;
 
         public Degree Degree { get; set; }
+        public string NewsIsEmpty { get; set; }
 
         public DegreeDetailViewModel()
         {

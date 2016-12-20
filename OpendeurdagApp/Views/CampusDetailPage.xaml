@@ -139,13 +139,21 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding Title}" 
-                                               TextWrapping="Wrap"
-                                               Style="{StaticResource SubtitleTextBlockStyle}"/>
-
-                                    <TextBlock Text="{Binding Content}" 
-                                               TextWrapping="Wrap" />
+                                <StackPanel Orientation="Horizontal" Margin="0 8 0 8" VerticalAlignment="Center">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding PublishedAtDate, Converter={StaticResource DateToDayFormatConverter}}"  
+                                                Style="{ThemeResource TitleTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding PublishedAtDate, Converter={StaticResource DateToMonthFormatConverter}}"  
+                                                Style="{ThemeResource CaptionTextBlockStyle}"
+                                                Margin="0 -5 0 0"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="15 0 0 0">
+                                        <TextBlock Text="{Binding Title}"  
+                                                    Style="{ThemeResource TitleTextBlockStyle}"
+                                                   Margin="0 -3 0 0"/>
+                                        <TextBlock Text="{Binding Content}"  
+                                                    Style="{ThemeResource CaptionTextBlockStyle}"   MaxWidth="1234" HorizontalAlignment="Left" />
+                                    </StackPanel>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

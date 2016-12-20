@@ -70,72 +70,67 @@
 
         </controls:PageHeader>
 
-        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
-                       RelativePanel.AlignBottomWithPanel="True"
-                       RelativePanel.AlignLeftWithPanel="True"
-                       RelativePanel.AlignRightWithPanel="True"
-                       RelativePanel.Below="pageHeader">
+        <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True"
+                      RelativePanel.AlignBottomWithPanel="True"
+                      RelativePanel.AlignLeftWithPanel="True"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.Below="pageHeader">
+            <Grid>
 
-            <ScrollViewer>
-            <StackPanel Margin="16,16,0,0">
-                <TextBlock Text="Opkomende evenementen"
-                           Style="{ThemeResource TitleTextBlockStyle}"/>
-                <!--<TextBlock Text="Just a test"  
+                <ScrollViewer>
+                    <StackPanel Margin="16,16,0,0">
+                        <TextBlock Text="Opkomende evenementen"
+                                   Style="{ThemeResource TitleTextBlockStyle}"/>
+                        <!--<TextBlock Text="Just a test"  
                             Style="{ThemeResource CaptionTextBlockStyle}"
                             Margin="0 -5 0 0"/>-->
-                <ListView x:Name="activityListView" ItemsSource="{Binding Activities}" SelectionChanged="lv_ActivitySelectionChanged" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Margin="0 8 0 8" VerticalAlignment="Center">
-                                    <StackPanel HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateToDayFormatConverter}}"  
-                                                Style="{ThemeResource TitleTextBlockStyle}"/>
-                                        <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateToMonthFormatConverter}}"  
-                                                Style="{ThemeResource CaptionTextBlockStyle}"
-                                                Margin="0 -5 0 0"/>
-                                    </StackPanel>
-                                    <StackPanel Margin="15 0 0 0">
-                                        <TextBlock Text="{Binding Name}"  
-                                                    Style="{ThemeResource TitleTextBlockStyle}"
-                                                   Margin="0 -3 0 0"/>
-                                        <TextBlock Text="{Binding Description}"  
-                                                    Style="{ThemeResource CaptionTextBlockStyle}"  MaxWidth="1234" HorizontalAlignment="Left"/>
-                                    </StackPanel>
+                        <ListView x:Name="activityListView" ItemsSource="{Binding Activities}" SelectionChanged="lv_ActivitySelectionChanged" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="0 8 0 8" VerticalAlignment="Center">
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateToDayFormatConverter}}"  
+                                                       Style="{ThemeResource TitleTextBlockStyle}"/>
+                                            <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateToMonthFormatConverter}}"  
+                                                       Style="{ThemeResource CaptionTextBlockStyle}"
+                                                       Margin="0 -5 0 0"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="15 0 0 0">
+                                            <TextBlock Text="{Binding Name}"  
+                                                       Style="{ThemeResource TitleTextBlockStyle}"
+                                                       Margin="0 -3 0 0"/>
+                                            <TextBlock Text="{Binding Description}"  
+                                                       Style="{ThemeResource CaptionTextBlockStyle}"  MaxWidth="1234" HorizontalAlignment="Left"/>
+                                        </StackPanel>
 
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                    <!--<ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="Padding" Value="0"/>
-                            <Setter Property="Margin" Value="0"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>-->
-                    </ListView>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
 
-                    <TextBlock Text="Opleidingen" 
+                        <TextBlock Text="Opleidingen" 
                            Style="{ThemeResource HeaderTextBlockStyle}" Margin="0 8 0 8"/>
-                    <ListView x:Name="degreesListView" ItemsSource="{Binding Degrees}" SelectionChanged="lv_SelectionChanged" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
-                                <Image Width="180" Source="{Binding ImageUrl}"
-                                                Stretch="UniformToFill"/>
-                                <StackPanel Margin="15 0 0 0">
-                                    <TextBlock Text="{Binding Name}" 
-                                           Style="{ThemeResource SubheaderTextBlockStyle}" />
-                                    <TextBlock Text="{Binding SmallDescription}" 
-                                           Style="{ThemeResource CaptionTextBlockStyle}" />
-                                </StackPanel>
-                          
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                        <ListView x:Name="degreesListView" ItemsSource="{Binding Degrees}" SelectionChanged="lv_SelectionChanged" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
+                                        <Image Width="180" Source="{Binding ImageUrl}"
+                                               Stretch="UniformToFill"/>
+                                        <StackPanel Margin="15 0 0 0">
+                                            <TextBlock Text="{Binding Name}" 
+                                                       Style="{ThemeResource SubheaderTextBlockStyle}" />
+                                            <TextBlock Text="{Binding SmallDescription}" 
+                                                       Style="{ThemeResource CaptionTextBlockStyle}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
 
-            </StackPanel>
-            </ScrollViewer>
-        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </ScrollViewer>
 
     </RelativePanel>
 </Page>
