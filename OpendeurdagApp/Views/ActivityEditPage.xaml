@@ -53,59 +53,60 @@
                              RelativePanel.AlignTopWithPanel="True"
                              Text="Activity wijzigen">
         </controls:PageHeader>
+        <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True"
+                           RelativePanel.AlignBottomWithPanel="True"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.AlignRightWithPanel="True"
+                           RelativePanel.Below="pageHeader">
+            <Grid >
 
-        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
-                       RelativePanel.AlignBottomWithPanel="True"
-                       RelativePanel.AlignLeftWithPanel="True"
-                       RelativePanel.AlignRightWithPanel="True"
-                       RelativePanel.Below="pageHeader">
+                <StackPanel Orientation="Vertical" 
+                            HorizontalAlignment="Stretch" 
+                            Style="{StaticResource AppStackPanelMargin}">
+                    <TextBlock Text="Activity wijzigen"
+                               Style="{StaticResource SubheaderTextBlockStyle}" />
 
-            <StackPanel Orientation="Vertical" 
-                        HorizontalAlignment="Stretch" 
-                        Style="{StaticResource AppStackPanelMargin}">
-                <TextBlock Text="Activity wijzigen"
-                           Style="{StaticResource SubheaderTextBlockStyle}" />
+                    <TextBox Text="{Binding Path=ActivityId, Mode=TwoWay}" 
+                             Visibility="Collapsed" />
 
-                <TextBox Text="{Binding Path=ActivityId, Mode=TwoWay}" 
-                         Visibility="Collapsed" />
+                    <TextBlock Text="Naam"
+                               Style="{StaticResource AppTextBlockMarinTop}"/>
+                    <TextBox Text="{Binding Path=Name, Mode=TwoWay}"
+                             Style="{StaticResource AppTextBox}" />
 
-                <TextBlock Text="Naam"
-                           Style="{StaticResource AppTextBlockMarinTop}"/>
-                <TextBox Text="{Binding Path=Name, Mode=TwoWay}"
-                         Style="{StaticResource AppTextBox}" />
+                    <TextBlock Text="Locatie" />
+                    <TextBox Text="{Binding Path=Location, Mode=TwoWay}"
+                             Style="{StaticResource AppTextBox}" />
 
-                <TextBlock Text="Locatie" />
-                <TextBox Text="{Binding Path=Location, Mode=TwoWay}"
-                         Style="{StaticResource AppTextBox}" />
+                    <TextBlock Text="Beschrijving" />
+                    <TextBox Text="{Binding Path=Description, Mode=TwoWay}"
+                             Style="{StaticResource AppTextBox}"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             Height="150"
+                             ScrollViewer.VerticalScrollBarVisibility="Visible" />
 
-                <TextBlock Text="Beschrijving" />
-                <TextBox Text="{Binding Path=Description, Mode=TwoWay}"
-                         Style="{StaticResource AppTextBox}"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         Height="150"
-                         ScrollViewer.VerticalScrollBarVisibility="Visible" />
+                    <TextBlock Text="Startdatum" />
+                    <DatePicker  Date="{Binding Path= BeginDate, Mode=TwoWay}"
+                                 Style="{StaticResource AppDatePicker}" />
 
-                <TextBlock Text="Startdatum" />
-                <DatePicker  Date="{Binding Path= BeginDate, Mode=TwoWay}"
-                             Style="{StaticResource AppDatePicker}" />
+                    <TextBlock Text="Starttijd" />
+                    <TimePicker Time="{Binding Path= BeginTime, Mode=TwoWay}"
+                                Style="{StaticResource AppTimePicker}"  />
 
-                <TextBlock Text="Starttijd" />
-                <TimePicker Time="{Binding Path= BeginTime, Mode=TwoWay}"
-                            Style="{StaticResource AppTimePicker}"  />
+                    <TextBlock Text="Einddatum" />
+                    <DatePicker Date="{Binding Path= EndDate, Mode=TwoWay}"
+                                Style="{StaticResource AppDatePicker}" />
 
-                <TextBlock Text="Einddatum" />
-                <DatePicker Date="{Binding Path= EndDate, Mode=TwoWay}"
-                            Style="{StaticResource AppDatePicker}" />
+                    <TextBlock Text="Eindtijd" />
+                    <TimePicker Time="{Binding Path= EndTime, Mode=TwoWay}"
+                                Style="{StaticResource AppTimePicker}" />
 
-                <TextBlock Text="Eindtijd" />
-                <TimePicker Time="{Binding Path= EndTime, Mode=TwoWay}"
-                            Style="{StaticResource AppTimePicker}" />
+                    <Button Content="Activity wijzigen" Click="SaveActivity" />
+                </StackPanel>
 
-                <Button Content="Activity wijzigen" Click="SaveActivity" />
-            </StackPanel>
-
-        </Grid>
+            </Grid>
+        </ScrollViewer>
 
     </RelativePanel>
 
