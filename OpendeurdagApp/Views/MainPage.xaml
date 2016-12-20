@@ -131,7 +131,8 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" Margin="0 8 0 8">
                                         <Image Width="180" Source="{Binding ImageUrl}"
-                                               Stretch="UniformToFill" MaxHeight="75"/>
+                                               Stretch="UniformToFill"
+                                               MaxHeight="75"/>
                                         <StackPanel Margin="15 0 0 0">
                                             <TextBlock Text="{Binding Name}" 
                                                        Style="{ThemeResource SubheaderTextBlockStyle}" />

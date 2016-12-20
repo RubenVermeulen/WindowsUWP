@@ -79,13 +79,14 @@
                        RelativePanel.AlignBottomWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
-                       RelativePanel.Below="pageHeader">>
+                       RelativePanel.Below="pageHeader">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-
+                <StackPanel>
+                    
                 <TextBlock Grid.Row="0" 
                            Text="Activiteiten"
                            Style="{StaticResource HeaderTextBlockStyle}"
@@ -166,7 +167,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
+                    </StackPanel>
             </Grid>
         </ScrollViewer>
 
