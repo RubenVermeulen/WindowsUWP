@@ -75,13 +75,26 @@
                            RelativePanel.AlignLeftWithPanel="True"
                            RelativePanel.AlignRightWithPanel="True"
                            RelativePanel.Below="pageHeader">
-            <Grid>
+            <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.Below="pageHeader">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <ScrollViewer>
+                    <StackPanel Margin="16,16,0,0" Grid.Row="1" 
+                        Grid.Column="0" 
+                        Orientation="Vertical" >
+                    
                 <TextBlock Grid.Row="0" 
                            Text="Activiteiten"
                            Style="{StaticResource HeaderTextBlockStyle}"
@@ -109,8 +122,8 @@
                                     <TextBlock Text="Beschrijving" 
                                     Style="{ThemeResource SubtitleTextBlockStyle}" />
 
-                                    <TextBlock Text="{Binding Description}" 
-                                   Style="{ThemeResource CaptionTextBlockStyle}" MaxWidth="1234" HorizontalAlignment="Left"/>
+                                <TextBlock Text="{Binding Description}" 
+                               Style="{ThemeResource CaptionTextBlockStyle}" Padding="0 0 20 0" HorizontalAlignment="Left"/>
 
                                     <StackPanel Orientation="Horizontal" Padding ="0 15 0 0">
 
@@ -162,7 +175,8 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
+                    </StackPanel>
+                </ScrollViewer>
             </Grid>
         </ScrollViewer>
 
