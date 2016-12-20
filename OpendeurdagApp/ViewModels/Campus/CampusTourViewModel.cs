@@ -57,7 +57,7 @@ namespace OpendeurdagApp.ViewModels
                 ImageSource = "/Assets/Tour/IMG_05.jpg",
                 Title = "Ingang gebouw C",
                 Description = "Gebouw C is toegankelijk via een iconische draaideur. Je bent geen student op de Campus Schoonmeersen als je niet al eens vast " 
-                    + "hebt gezeten in de draaideur omdat iemand hem per ongeluk tegenhield."
+                    + "hebt gezeten in de draaideur omdat iemand hem \"per ongeluk\" tegenhield."
             });
 
             FlipViewItems.Add(new FlipViewItem()
@@ -172,7 +172,7 @@ namespace OpendeurdagApp.ViewModels
                 ImageSource = "http://www.rubenvermeulen.be/files/hogent/hogent-schoonmeersen.jpg",
                 Title = "Campus Schoonmeersen - studeren met plezier!",
                 Description = "Dit was een kleine rondleiding doorheen campus Schoonmeersen. De campus staat elke weekdag voor je open, dus aarzel zeker niet om eens " 
-                    + "langs te komen als met je eigen ogen eens te komen bekijken."
+                    + "langs te komen om alles met je eigen ogen eens te komen bekijken."
             });
 
         }

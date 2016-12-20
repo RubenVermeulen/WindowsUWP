@@ -54,7 +54,7 @@
                              Text="Opleiding toevoegen">
         </controls:PageHeader>
 
-        <Grid EntranceNavigationTransitionInfo.IsTargetElement="True"
+        <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True"
                        RelativePanel.AlignBottomWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
@@ -113,7 +113,7 @@
             
             
             
-        </Grid>
+        </ScrollViewer>
 
     </RelativePanel>
 </Page>
