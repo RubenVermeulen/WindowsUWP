@@ -139,22 +139,26 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Margin="0 8 0 8" VerticalAlignment="Center">
-                                    <StackPanel HorizontalAlignment="Center">
+                                <Grid Margin="0 8 0 8" VerticalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel HorizontalAlignment="Center" Grid.Column="0">
                                         <TextBlock Text="{Binding PublishedAtDate, Converter={StaticResource DateToDayFormatConverter}}"  
                                                 Style="{ThemeResource TitleTextBlockStyle}"/>
                                         <TextBlock Text="{Binding PublishedAtDate, Converter={StaticResource DateToMonthFormatConverter}}"  
                                                 Style="{ThemeResource CaptionTextBlockStyle}"
                                                 Margin="0 -5 0 0"/>
                                     </StackPanel>
-                                    <StackPanel Margin="15 0 0 0">
+                                    <StackPanel Margin="15 0 0 0" Grid.Column="1">
                                         <TextBlock Text="{Binding Title}"  
                                                     Style="{ThemeResource TitleTextBlockStyle}"
                                                    Margin="0 -3 0 0"/>
                                         <TextBlock Text="{Binding Content}"  
-                                                    Style="{ThemeResource CaptionTextBlockStyle}"   MaxWidth="1234" HorizontalAlignment="Left" />
+                                                    Style="{ThemeResource CaptionTextBlockStyle}"  HorizontalAlignment="Left" Padding="0 0 20 0" />
                                     </StackPanel>
-                                </StackPanel>
+                                </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -178,22 +182,26 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Margin="0 8 0 8" VerticalAlignment="Center">
-                                    <StackPanel HorizontalAlignment="Center">
+                                <Grid Margin="0 8 0 8" VerticalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel HorizontalAlignment="Center" Grid.Column="0">
                                         <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateToDayFormatConverter}}"  
                                                 Style="{ThemeResource TitleTextBlockStyle}"/>
                                         <TextBlock Text="{Binding BeginDate, Converter={StaticResource DateToMonthFormatConverter}}"  
                                                 Style="{ThemeResource CaptionTextBlockStyle}"
                                                 Margin="0 -5 0 0"/>
                                     </StackPanel>
-                                    <StackPanel Margin="15 0 0 0">
+                                    <StackPanel Margin="15 0 0 0" Grid.Column="1">
                                         <TextBlock Text="{Binding Name}"  
                                                     Style="{ThemeResource TitleTextBlockStyle}"
                                                    Margin="0 -3 0 0"/>
                                         <TextBlock Text="{Binding Description}"  
-                                                    Style="{ThemeResource CaptionTextBlockStyle}"   MaxWidth="1234" HorizontalAlignment="Left" />
+                                                    Style="{ThemeResource CaptionTextBlockStyle}"  Padding="0 0 20 0" HorizontalAlignment="Left" />
                                     </StackPanel>
-                                </StackPanel>
+                                </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
