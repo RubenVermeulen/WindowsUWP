@@ -1,7 +1,9 @@
 # WindowsUWP
 ## Team members
 
-Xander Berkein, Alexander Van Damme and Ruben Vermeulen
+- Xander Berkein (http://xanderberkein.be/)
+- Alexander Van Damme
+- Ruben Vermeulen (http://www.rubenvermeulen.be/)
 
 ## Setup for first use
 
