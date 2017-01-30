@@ -1,4 +1,18 @@
 # WindowsUWP
+## Summary
+
+This repo contains our Windows UWP app which was an assignment for our Windows course at HoGent. 
+
+The application contains:
+
+- List of campuses
+- List of degrees
+- Activites for each campus and/or degree
+- News for each campus and/or degree
+- Everything is managed in a control panel
+- An API makes the data accessible and editable
+- ...
+
 ## Team members
 
 - Xander Berkein (http://xanderberkein.be/)
