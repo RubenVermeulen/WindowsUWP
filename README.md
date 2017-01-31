@@ -7,7 +7,7 @@ The application contains:
 
 - List of campuses
 - List of degrees
-- Activites for each campus and/or degree
+- Activities for each campus and/or degree
 - News for each campus and/or degree
 - Everything is managed in a control panel
 - An API makes the data accessible and editable
